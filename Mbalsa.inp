@@ -1,0 +1,13 @@
+** file: Mbalsa.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-10-27T18:15:16+0100
+** Last modified: 2019-10-27T18:15:53+0100
+
+*MATERIAL, NAME=Mbalsa
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+2.097e+08,2.097e+08,2.097e+09,0.5,0.3,0.3,5.3e7,1.06e8
+1.06e8,293
+*DENSITY
+94

@@ -1,0 +1,12 @@
+** file: MairexT10.100.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-10-27T18:17:47+0100
+** Last modified: 2019-10-27T18:18:20+0100
+
+*MATERIAL, NAME=MairexT10.100
+*ELASTIC, TYPE=ISO
+82.5e6,0.499,293
+*DENSITY
+100

@@ -1,0 +1,13 @@
+** file: M±45.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-10-27T18:10:31+0100
+** Last modified: 2019-10-27T18:11:17+0100
+
+*MATERIAL, NAME=M±45
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+1.0724e+10,1.0724e+10,5.8e+09,0.849,0.300,0.300,3.3765e+10,2.9e+09
+2.9e+09,293
+*DENSITY
+1490

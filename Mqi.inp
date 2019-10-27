@@ -1,0 +1,13 @@
+** file: Mqi.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-10-27T18:14:04+0100
+** Last modified: 2019-10-27T18:14:37+0100
+
+*MATERIAL, NAME=Mqi
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+4.0392e+10,4.0392e+10,5.8e+09,0.321,0.300,0.300,1.7935e+10,2.9e+09
+2.9e+09,293
+*DENSITY
+1490
