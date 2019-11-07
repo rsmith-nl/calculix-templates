@@ -1,0 +1,18 @@
+** file: gravity.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-11-07T22:40:05+0100
+** Last modified: 2019-11-07T22:42:56+0100
+
+** Berekening; SI eenheden.
+*STEP
+*STATIC
+*DLOAD
+Eall,GRAV,9.81,0.,0.,-1.
+*NODE FILE
+U,RF
+*EL FILE
+S,ME
+*END STEP
+

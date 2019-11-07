@@ -1,0 +1,14 @@
+** file: Muhm0-90.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-11-07T22:40:05+0100
+** Last modified: 2019-11-07T22:47:55+0100
+
+** UHM koolstof met epoxy [0/90]s, vf = 55%.
+*MATERIAL, NAME=CS450-0-90
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+1.79801e+11,1.79801e+11,5.8e+09,0.010,0.300,0.300,2.9e+09,2.9e+09
+2.9e+09,293
+*DENSITY
+1680
