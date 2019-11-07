@@ -3,8 +3,9 @@
 **
 ** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:10:31+0100
-** Last modified: 2019-10-27T18:11:17+0100
+** Last modified: 2019-11-07T22:38:04+0100
 
+** HS carbon fiber + epoxy [45/-45]s, vf 55%
 *MATERIAL, NAME=M±45
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 1.0724e+10,1.0724e+10,5.8e+09,0.849,0.300,0.300,3.3765e+10,2.9e+09
