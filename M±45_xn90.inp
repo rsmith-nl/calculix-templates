@@ -1,0 +1,14 @@
+** file: M±45_xn90.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-11-27T16:23:33+0100
+** Last modified: 2019-11-27T16:37:24+0100
+
+** Data in SI units!
+*MATERIAL, NAME=M±45_xn90
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+1.1329e+10,1.1329e+10,5.8e+09,0.953,0.953,0.300,1.19288e+11,2.9e+09
+2.9e+09,293
+*DENSITY
+1720
