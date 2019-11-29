@@ -3,8 +3,12 @@
 **
 ** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-11-27T16:23:33+0100
-** Last modified: 2019-11-27T16:24:58+0100
+** Last modified: 2019-11-29T01:29:51+0100
 
+** E1 = 474.31 GPa, E2 = 5.80 GPa, E3 = 5.80 GPa
+** ν12 = 0.30, ν13 = 0.30, ν23 = 0.30
+** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=Mud_xn90
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 4.74305e+11,5.8e+09,5.8e+09,0.300,0.300,0.300,2.9e+09,2.9e+09

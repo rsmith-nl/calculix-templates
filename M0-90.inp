@@ -3,9 +3,12 @@
 **
 ** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:11:37+0100
-** Last modified: 2019-11-07T22:37:21+0100
+** Last modified: 2019-11-29T01:32:34+0100
 
-** HS carbon fiber + epoxy [0/90]s, vf 55%
+** E1 = 69.23 GPa, E2 = 69.23 GPa, E3 = 5.80 GPa
+** ν12 = 0.03, ν13 = 0.30, ν23 = 0.30
+** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=M0-90
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 6.9232e+10,6.9232e+10,5.8e+09,0.025,0.300,0.300,2.9e+09,2.9e+09

@@ -3,13 +3,15 @@
 **
 ** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-11-27T16:23:33+0100
-** Last modified: 2019-11-27T16:39:58+0100
+** Last modified: 2019-11-29T01:27:00+0100
 
-** Data in SI units!
+** E1 = 162.40 GPa, E2 = 162.40 GPa, E3 = 5.80 GPa
+** ν12 = 0.33, ν13 = 0.30, ν23 = 0.30
+** G12 = 61.09 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=Mqi_xn90
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
-1.62399e+11,1.62399e+11,5.8e+09,0.329,0.329,0.300,6.1094e+10,2.9e+09
+1.62399e+11,1.62399e+11,5.8e+09,0.329,0.300,0.300,6.1094e+10,2.9e+09
 2.9e+09,293
 *DENSITY
 1720
-

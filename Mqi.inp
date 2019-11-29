@@ -3,9 +3,12 @@
 **
 ** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:14:04+0100
-** Last modified: 2019-11-07T22:39:00+0100
+** Last modified: 2019-11-29T01:27:44+0100
 
-** HS carbon fiber + epoxy [0/45/-45/90]×2, vf 55%
+** E1 = 40.39 GPa, E2 = 40.39 GPa, E3 = 5.80 GPa
+** ν12 = 0.32, ν13 = 0.30, ν23 = 0.30
+** G12 = 17.93 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=Mqi
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 4.0392e+10,4.0392e+10,5.8e+09,0.321,0.300,0.300,1.7935e+10,2.9e+09
