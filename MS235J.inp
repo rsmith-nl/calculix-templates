@@ -1,0 +1,11 @@
+** file: MS235J.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2019-12-11T20:01:10+0100
+** Last modified: 2019-12-11T20:07:43+0100
+*MATERIAL, NAME=MS235J
+*ELASTIC, TYPE=ISO
+210e9,0.30,293
+*DENSITY
+7850
