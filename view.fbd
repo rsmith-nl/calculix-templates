@@ -1,0 +1,23 @@
+# file: view.fbd
+# vim:fileencoding=utf-8:fdm=marker:ft=conf
+#
+# Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+# Created: 2019-12-11T22:01:24+0100
+# Last modified: 2019-12-11T22:05:28+0100
+
+read .frd
+
+rot y
+rot u 15
+rot l 30
+view elem
+view disp
+frame
+zoom 0.9
+
+ds 1 e 4
+ulin Title
+# scal d 1000
+# hcpy png
+#
+# quit
