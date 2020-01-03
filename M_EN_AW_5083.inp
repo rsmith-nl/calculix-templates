@@ -1,7 +1,7 @@
 ** file: M_EN_AW_5083.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
 **
-** Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-12-11T19:58:04+0100
 ** Last modified: 2019-12-11T20:04:08+0100
 *MATERIAL, NAME=M_EN_AW_5083
