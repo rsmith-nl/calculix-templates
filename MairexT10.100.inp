@@ -3,10 +3,16 @@
 **
 ** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:17:47+0100
-** Last modified: 2019-10-27T18:18:20+0100
+** Last modified: 2020-05-14T09:53:05+0200
 
 *MATERIAL, NAME=MairexT10.100
 *ELASTIC, TYPE=ISO
-82.5e6,0.499,293
+** Net als bij Rohacell is de E gereduceerd om met een ν van 0,499 de juiste
+** glijdingsmodulus te geven.
+** Volgens de data-sheet: E = 150, G = 34 “lengthwise”, G = 21 “crosswise”.
+** “lengthwise”: E = 34*(2*(1+0.499)) ≈ 102 MPa
+** “crosswise”: E = 21*(2*(1+0.499)) ≈ 63 MPa
+**102e6,0.499,293
+63e6,0.499,293
 *DENSITY
 100
