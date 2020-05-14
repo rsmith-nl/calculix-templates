@@ -1,0 +1,18 @@
+** file: Mpur80.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2020-05-14T09:57:15+0200
+** Last modified: 2020-05-14T11:43:53+0200
+
+*MATERIAL, NAME=Mpur80
+*ELASTIC, TYPE=ISO
+** We gebuiken een isotroop materiaalmodel, wat voor een schuim niet helemaal
+** correct is. De ν is ingesteld op 0,3 volgens wat ik in de literatuur kan
+** vinden.
+** Volgens beschikbare gegeven; E = 16 MPa,  G altijd geschat op 8 MPa.
+** Berekend: G = 16/(2*(1+0.3)) = 6.15. Dit is lager dan oorspronkelijk geschat.
+** We houden de gevonden waarde ν = 0.3 aan.
+16e6,0.3,293
+*DENSITY
+80
