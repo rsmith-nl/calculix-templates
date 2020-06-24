@@ -1,9 +1,4 @@
-** file: template.inp
-** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
-** Created: 2019-11-29T11:35:52+0100
-** Last modified: 2020-01-29T16:43:37+0100
+
 *HEADING
 Omschrijving
 ** Importeer geometrie
