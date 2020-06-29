@@ -1,0 +1,16 @@
+** file: MairexT92.80.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2020-06-30T00:35:49+0200
+** Last modified: 2020-06-30T00:38:12+0200
+
+*MATERIAL, NAME=MairexT92.80
+*ELASTIC, TYPE=ISO
+** Net als bij Rohacell is de E gereduceerd om met een ν van 0,499 de juiste
+** glijdingsmodulus te geven.
+** Volgens de data-sheet: E = 90, G = 14
+** : E = 14*(2*(1+0.499)) ≈ 41.97 MPa
+41.97e6,0.499,293
+*DENSITY
+80
