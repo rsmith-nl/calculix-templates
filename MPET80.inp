@@ -1,0 +1,13 @@
+** file: MPET80.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2020-06-30T19:22:40+0200
+** Last modified: 2020-06-30T19:23:14+0200
+
+** Generiek PET schuim, 80 kg/m3
+*MATERIAL, NAME=MPET80
+*ELASTIC, TYPE=ISO
+56e6,0.499,293
+*DENSITY
+80

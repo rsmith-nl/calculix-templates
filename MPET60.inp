@@ -1,0 +1,13 @@
+** file: MPET60.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2020-06-30T19:11:42+0200
+** Last modified: 2020-06-30T19:13:29+0200
+
+** Generiek PET schuim, 65 kg/m3
+*MATERIAL, NAME=MPET60
+*ELASTIC, TYPE=ISO
+35e6,0.499,293
+*DENSITY
+65
