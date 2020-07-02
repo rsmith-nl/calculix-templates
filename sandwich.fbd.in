@@ -9,10 +9,10 @@
 
 # Divisions that determine element count.
 # Note that for second order elements, two divisions is one elemen!
-# <ldiv = 80> divisions in length.
-# <bdiv = 24> devisions in width.
-# <tbdiv = 8> divisions in laminate height.
-# <tkdiv = 24> divisions in core height
+# <ldiv = 40> divisions in length.
+# <bdiv = 10> devisions in width.
+# <tbdiv = 2> divisions in laminate thickness.
+# <tkdiv = 6> divisions in core height
 
 # Bottom laminate
 seto lam2
