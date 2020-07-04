@@ -1,4 +1,7 @@
 
+# All values in SI units: m,s,kg,N,Pa,J
+# (length,time,mass,force,stress,energy).
+
 # Dimensions:
 # <L=0.56/2> length in m
 # <B=0.1> width in m
@@ -64,5 +67,3 @@ zoom 0.8
 view elem
 plus n fix r 8
 plus n disp b 8
-
-#quit
