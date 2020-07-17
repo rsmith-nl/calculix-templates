@@ -3,7 +3,10 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2020-07-17T12:14:29+0200
-** Last modified: 2020-07-17T12:15:12+0200
+** Last modified: 2020-07-17T13:23:14+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
 *MATERIAL, NAME=M1.4301
 *ELASTIC, TYPE=ISO
 200e9,0.30,293

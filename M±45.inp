@@ -3,12 +3,13 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:10:31+0100
-** Last modified: 2019-11-29T01:26:00+0100
+** Last modified: 2020-07-17T13:28:27+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 ** E1 = 10.72 GPa, E2 = 10.72 GPa, E3 = 5.80 GPa
 ** ν12 = 0.50, ν13 = 0.30, ν23 = 0.30
 ** G12 = 33.77 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
-** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=M±45
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 1.0724e+10,1.0724e+10,5.8e+09,0.500,0.300,0.300,3.3765e+10,2.9e+09

@@ -1,4 +1,7 @@
 ** vim:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
 *HEADING
 Omschrijving
 ** Importeer geometrie

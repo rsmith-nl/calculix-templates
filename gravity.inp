@@ -3,9 +3,10 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-11-07T22:40:05+0100
-** Last modified: 2019-11-07T22:42:56+0100
+** Last modified: 2020-07-17T13:29:24+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
-** Berekening; SI eenheden.
 *STEP
 *STATIC
 *DLOAD

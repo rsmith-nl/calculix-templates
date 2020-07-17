@@ -3,12 +3,13 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:16:13+0100
-** Last modified: 2019-11-29T01:30:30+0100
+** Last modified: 2020-07-17T13:27:28+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 ** E1 = 132.21 GPa, E2 = 5.80 GPa, E3 = 5.80 GPa
 ** ν12 = 0.30, ν13 = 0.30, ν23 = 0.30
 ** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
-** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=Mud
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 1.32205e+11,5.8e+09,5.8e+09,0.300,0.300,0.300,2.9e+09,2.9e+09

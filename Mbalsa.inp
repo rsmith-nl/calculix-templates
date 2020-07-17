@@ -3,7 +3,9 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:15:16+0100
-** Last modified: 2019-10-27T18:15:53+0100
+** Last modified: 2020-07-17T13:25:25+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=Mbalsa
 *ELASTIC, TYPE=ENGINEERING CONSTANTS

@@ -3,12 +3,13 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-11-07T22:40:05+0100
-** Last modified: 2019-11-29T01:31:18+0100
+** Last modified: 2020-07-17T13:27:53+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 ** E1 = 179.64 GPa, E2 = 179.52 GPa, E3 = 5.80 GPa
 ** ν12 = 0.01, ν13 = 0.30, ν23 = 0.30
 ** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
-** Data hieronder is in SI eenheden!
 *MATERIAL, NAME=CS450-0-90
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 1.79643e+11,1.79521e+11,5.8e+09,0.010,0.300,0.300,2.9e+09,2.9e+09
