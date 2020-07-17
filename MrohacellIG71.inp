@@ -3,7 +3,7 @@
 **
 ** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:12:38+0100
-** Last modified: 2020-07-17T12:09:11+0200
+** Last modified: 2020-07-17T12:31:20+0200
 
 *MATERIAL, NAME=MrohacellIG71
 *ELASTIC, TYPE=ISO
@@ -11,9 +11,9 @@
 ** correct is. De ν is ingesteld op 0,499 om de verhouding tussen E en G zo
 ** juist mogelijk te krijgen volgens G = E/(2*(1+ν)).
 ** Volgens datasheet; E = 92 MPa, G = 29 MPa.
-** Berekend: G = 92/(2*(1+0.499)) = 30.68. Dit is te hoog.
+** Berekend: G = 92/(2*(1+0,499)) = 30,68. Dit is te hoog.
 ** Daarom reduceren we de E zodat de G klopt.
-** E = 29*(2*(1+0.499)) = 86.942, afgerond op 87 MPa.
+** E = 29*(2*(1+0,499)) = 86,942, afgerond op 87 MPa.
 87e6,0.499,293
 *DENSITY
 75
