@@ -3,10 +3,11 @@
 **
 ** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-12-11T19:58:04+0100
-** Last modified: 2020-07-04T13:05:06+0200
+** Last modified: 2020-07-17T12:10:52+0200
 *MATERIAL, NAME=M_EN_AW_5083
 ** For temper H111: proportional limit: 115e6 Pa
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
 *DENSITY
 2660
+** σ̅ = 210 MPa
