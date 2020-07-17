@@ -1,0 +1,20 @@
+** file: MrohacellIG51.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
+** Created: 2020-07-17T12:16:22+0200
+** Last modified: 2020-07-17T12:20:19+0200
+
+*MATERIAL, NAME=MrohacellIG51
+*ELASTIC, TYPE=ISO
+** We gebuiken een isotroop materiaalmodel, wat voor een schuim niet helemaal
+** correct is. De ν is ingesteld op 0,499 om de verhouding tussen E en G zo
+** juist mogelijk te krijgen volgens G = E/(2*(1+ν)).
+** Volgens datasheet; E = 70 MPa, G = 19 MPa.
+** Berekend: G = 70/(2*(1+0,499)) = 23,35. Dit is te hoog.
+** Daarom reduceren we de E zodat de G klopt.
+** E = 19*(2*(1+0,499)) = 56,962, afgerond op 57 MPa.
+57e6,0.499,293
+*DENSITY
+52
+** τ̅ = 0,8 MPa
