@@ -3,7 +3,7 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2020-07-17T12:14:29+0200
-** Last modified: 2020-07-20T22:11:16+0200
+** Last modified: 2020-07-22T21:58:17+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
@@ -11,11 +11,11 @@
 *ELASTIC, TYPE=ISO
 200e9,0.30,293
 *PLASTIC, HARDENING=COMBINED
-205e6,0.003025,293
-300e6,0.019373,293
-400e6,0.095501,293
-475e6,0.253618,293
-515e6,0.402575,293
+205e6,0.002,293
+300e6,0.01787,293
+400e6,0.0935,293
+475e6,0.25124,293
+515e6,0.40,293
 *DENSITY
 7900
-** σ̅ = 210 MPa
+** σ̅ = 205 MPa

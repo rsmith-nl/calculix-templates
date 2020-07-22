@@ -3,7 +3,7 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-12-11T19:58:04+0100
-** Last modified: 2020-07-20T23:05:40+0200
+** Last modified: 2020-07-22T22:20:56+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
@@ -11,11 +11,10 @@
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
 *PLASTIC, HARDENING=COMBINED
-215,0.005028,293
-240,0.010227,293
-260,0.020427,293
-290,0.060966,293
-305,0.104296,293
+150e6,0.002,293
+175e6,0.00485,293
+200e6,0.01046,293
+250e6,0.03773,293
+280e6,0.0724,293
 *DENSITY
 2660
-** temper H111: σ̅ = 115e6 Pa
