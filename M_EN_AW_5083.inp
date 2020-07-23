@@ -3,18 +3,56 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-12-11T19:58:04+0100
-** Last modified: 2020-07-22T22:20:56+0200
+** Last modified: 2020-07-23T23:42:34+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
+
+**In [1]: import math
+**
+**In [2]: Rm = 310
+**Out[2]: 310
+**
+**In [3]: Rp = 150
+**Out[3]: 150
+**
+**In [4]: em = 0.13
+**Out[4]: 0.13
+**
+**In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
+**Out[5]: 0.1739026488074465
+**
+**In [6]: H = Rp/(0.002**n)
+**Out[6]: 442.02750281802435
+**
+**In [7]: def plastic_strain(s):
+**   ...:     return round((s/H)**(1/n), 5)
+**   ...:
+**
+**In [8]: plastic_strain(150)
+**Out[8]: 0.002
+**
+**In [9]: plastic_strain(175)
+**Out[9]: 0.00485
+**
+**In [10]: plastic_strain(200)
+**Out[10]: 0.01046
+**
+**In [11]: plastic_strain(250)
+**Out[11]: 0.03773
+**
+**In [12]: plastic_strain(280)
+**Out[12]: 0.0724
+
 
 *MATERIAL, NAME=M_EN_AW_5083
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
-*PLASTIC, HARDENING=COMBINED
-150e6,0.002,293
-175e6,0.00485,293
-200e6,0.01046,293
-250e6,0.03773,293
-280e6,0.0724,293
+** Temper H111: Rp = 150, Rm = 310, em = 0.13
+** *PLASTIC
+** 150e6,0.002,293
+** 175e6,0.00485,293
+** 200e6,0.01046,293
+** 250e6,0.03773,293
+** 280e6,0.0724,293
 *DENSITY
 2660
