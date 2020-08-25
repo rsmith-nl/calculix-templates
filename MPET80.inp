@@ -3,13 +3,24 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2020-06-30T19:22:40+0200
-** Last modified: 2020-07-17T13:24:06+0200
+** Last modified: 2020-08-25T22:32:38+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
+
+** We gebuiken een isotroop materiaalmodel, wat voor een schuim niet helemaal
+** correct is. De ν is ingesteld op 0,499 om de verhouding tussen E en G zo
+** juist mogelijk te krijgen volgens G = E/(2*(1+ν)).
+
+**                  E       G       E'      ν (aanname)
+** ArmaFORM         75e6    20e6    60e6    0.499
+** CoreLite         77e6    20e6    60e6    0.499
+** Divinycell PN    80e6    20e6    60e6    0.499
+** Airex T92.80     90e6    19.5e6  58.5e6  0.499
+
 
 ** Generiek PET schuim, 80 kg/m3
 *MATERIAL, NAME=MPET80
 *ELASTIC, TYPE=ISO
-56e6,0.499,293
+60e6,0.499,293
 *DENSITY
 80
