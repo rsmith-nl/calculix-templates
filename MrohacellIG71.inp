@@ -3,19 +3,19 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:12:38+0100
-** Last modified: 2020-07-17T13:26:41+0200
+** Last modified: 2020-09-13T14:32:04+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=MrohacellIG71
 *ELASTIC, TYPE=ISO
-** We gebuiken een isotroop materiaalmodel, wat voor een schuim niet helemaal
-** correct is. De ν is ingesteld op 0,499 om de verhouding tussen E en G zo
-** juist mogelijk te krijgen volgens G = E/(2*(1+ν)).
-** Volgens datasheet; E = 92 MPa, G = 29 MPa.
-** Berekend: G = 92/(2*(1+0,499)) = 30,68. Dit is te hoog.
-** Daarom reduceren we de E zodat de G klopt.
-** E = 29*(2*(1+0,499)) = 86,942, afgerond op 87 MPa.
+** We use an isotropic material model, which for foams isn't completely
+** correct. The value for ν is set to 0.499 as to get the ratio between E and
+** G as close to reality as possible according to G = E/(2*(1+ν)).
+** According to the datasheet; E = 92 MPa, G = 29 MPa.
+** Calculated: G = 92/(2*(1+0,499)) = 30,68. This is too high.
+** Therefore we reduce E to make G fit with the datasheet.
+** E = 29*(2*(1+0,499)) = 86,942, rounded to 87 MPa.
 87e6,0.499,293
 *DENSITY
 75

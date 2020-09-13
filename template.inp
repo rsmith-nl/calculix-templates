@@ -3,44 +3,44 @@
 ** (length,time,mass,force,stress,energy).
 
 *HEADING
-Omschrijving
-** Importeer geometrie
+Problem description
+** Import geometry
 ** tcsh:
 ** foreach f (`ls *.msh *.equ *.nam *.sur|sort`)
 **   echo '*INCLUDE, INPUT='${f}
 ** end
 *INCLUDE, INPUT=all.msh
 *INCLUDE, INPUT=fix.nam
-** Rigid body moet voor definitie van een stap.
+** Rigid body goes before step!
 *RIGID BODY NSET=Nload, REF NODE=1
-** Fixering
+** Fixation
 *BOUNDARY
 Nfix,1,3
-** Materiaal eigenschappen
+** Material properties
 *MATERIAL, NAME=Mqi
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 4.0392e+10,4.0392e+10,5.8e+09,0.321,0.300,0.300,1.7935e+10,2.9e+09
 2.9e+09,293
 *DENSITY
 1490
-** Ken materiaal eigenschappen toe aan lichamen
+** Apply material properties to element sets.
 *SOLID SECTION, ELSET=Eall, MATERIAL=M±45_xn90
-***** Statische berekening met verdeelde belasting *****
+***** Static calculation distributed load *****
 *STEP
 *STATIC
 *DLOAD
-** Druk verschil: 0,8×10⁵ Pa
-** Kijk in top.sur welk facet gebruikt wordt.
+** Pressuse difference: 0,8×10⁵ Pa
+** Look at top.sur which facet is used.
 Stop,P1,0.8e5
 *NODE FILE
 U,RF
 *EL FILE
 S,ME
-** Reactie kracht in ophanging
+** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix
 RF
 *END STEP
-***** Statische berekening met geconcentreerde belasting op rigid body.
+***** Static calculation with concentrated load on rigid body. *****
 *STEP
 *STATIC
 *CLOAD
@@ -49,11 +49,11 @@ RF
 U,RF
 *EL FILE
 S,ME
-** Reactie kracht in ophanging
+** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix
 RF
 *END STEP
-***** Statische berekening met opgedrongen verplaatsing *****
+***** Static calculation with prescribed displacement. *****
 *STEP
 *STATIC
 *BOUNDARY
@@ -63,21 +63,21 @@ Ndisp,3,3,5e-6
 U
 *EL FILE
 S,ME
-** Kracht in opgedrongen verplaatsing
+** Force in displaced nodes.
 *NODE PRINT,NSET=Ndisp
 RF
 *END STEP
-***** Buckling berekening *****
+***** Buckling *****
 *STEP
 *BUCKLE
 2
 *DLOAD
-** 1 MPa verdeelde belasting, zodat buckling factor = belasting.
+** 1 MPa distributed load, so that the buckling factor equals the load.
 Ssf,P6,1e4
 *EL PRINT,FREQUENCY=0
 *NODE PRINT, FREQUENCY=0
 *END STEP
-***** Vervorming onder invloed van zwaartekracht *****
+***** Static calculation of deflection under gravity. *****
 *STEP
 *STATIC
 *DLOAD
@@ -86,7 +86,7 @@ Eall,GRAV,9.81,0.,0.,-1.
 *NODE FILE
 U
 *END STEP
-***** Eigenfrequentie *****
+***** Eigenfrequency calculation *****
 *STEP
 *FREQUENCY
 4

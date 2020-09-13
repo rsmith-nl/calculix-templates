@@ -3,15 +3,15 @@
 **
 ** Author: R.F. Smith <rsmith@xs4all.nl>
 ** Created: 2019-10-27T18:17:47+0100
-** Last modified: 2020-07-17T14:27:05+0200
+** Last modified: 2020-09-13T14:54:24+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=MairexT10.100
 *ELASTIC, TYPE=ISO
-** Net als bij Rohacell is de E gereduceerd om met een ν van 0,499 de juiste
-** glijdingsmodulus te geven.
-** Volgens de data-sheet: E = 150, G = 34 “lengthwise”, G = 21 “crosswise”.
+** Just like for Rohacell the E value is reduced to give a correct shear
+** modules with a ν van 0.499.
+** According to the datasheet: E = 150, G = 34 “lengthwise”, G = 21 “crosswise”.
 ** “lengthwise”: E = 34*(2*(1+0.499)) ≈ 102 MPa
 ** “crosswise”: E = 21*(2*(1+0.499)) ≈ 63 MPa
 **102e6,0.499,293
