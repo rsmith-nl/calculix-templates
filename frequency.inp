@@ -1,9 +1,6 @@
-** file: frequency.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2019-11-07T22:40:05+0100
-** Last modified: 2020-09-13T14:56:51+0200
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 ** Calculation.
 *STEP

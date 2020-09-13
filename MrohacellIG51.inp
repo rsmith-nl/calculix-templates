@@ -1,9 +1,4 @@
-** file: MrohacellIG51.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2020-07-17T12:16:22+0200
-** Last modified: 2020-09-13T14:34:02+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 

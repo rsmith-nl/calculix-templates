@@ -1,9 +1,4 @@
-** file: M0-90_xn90.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2019-11-27T16:23:33+0100
-** Last modified: 2020-07-17T13:22:39+0200
 
 ** E1 = 240.30 GPa, E2 = 240.30 GPa, E3 = 5.80 GPa
 ** ν12 = 0.01, ν13 = 0.30, ν23 = 0.30

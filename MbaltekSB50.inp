@@ -1,9 +1,4 @@
-** file: MbaltekSB50.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2019-10-27T18:15:16+0100
-** Last modified: 2020-07-17T14:29:57+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 

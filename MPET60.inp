@@ -1,9 +1,4 @@
-** file: MPET60.inp
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2020-06-30T19:11:42+0200
-** Last modified: 2020-09-13T14:41:37+0200
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
