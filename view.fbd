@@ -1,18 +1,36 @@
 # vim:fileencoding=utf-8:fdm=marker:ft=conf
 
-read .frd
+read foo.frd
+read foo.inp
 
-rot y
-rot u 15
-rot l 30
+capt Title
+ulin subtitle
+
+# Mirror in x-axis
+#seta base all
+#copy base new mir x
+#comp new do
+
+# Display total displacement
+ds 1 e 4
+# Display von Mises stress
+# ds 2 e 7
+
+# Tune the display
+cmap turbo
 view elem
 view disp
-frame
-zoom 0.9
+scal d 10
 
-ds 1 e 4
-ulin Title
-# scal d 1000
-# hcpy png
-#
-# quit
+# Orient the display
+rot y
+rot u 30
+rot r 15
+frame
+zoom 0.8
+
+#rot x
+#rot c -10
+#rot u 30
+#rot r 30
+#frame
