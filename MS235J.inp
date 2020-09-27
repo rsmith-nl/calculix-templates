@@ -2,9 +2,55 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+** In [1]: import math
+**
+** In [2]: Rm = (360+510)/2
+** Out[2]: 435.0
+**
+** In [3]: Rp = 235
+** Out[3]: 235
+**
+** In [4]: em = 0.26
+** Out[4]: 0.26
+**
+** In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
+** Out[5]: 0.12650357654621064
+**
+** In [6]: H = Rp/(0.002**n)
+** Out[6]: 515.8188641724212
+**
+** In [7]: def plastic_strain(s):
+**    ...:     return round((s/H)**(1/n), 5)
+**    ...:
+**
+** In [8]: plastic_strain(235)
+** Out[8]: 0.002
+**
+** In [9]: plastic_strain(250)
+** Out[9]: 0.00326
+**
+** In [10]: plastic_strain(300)
+** Out[10]: 0.01378
+**
+** In [11]: plastic_strain(350)
+** Out[11]: 0.04662
+**
+** In [12]: plastic_strain(400)
+** Out[12]: 0.13397
+**
+** In [13]: plastic_strain(435)
+** Out[13]: 0.26
+
 *MATERIAL, NAME=MS235J
 *ELASTIC, TYPE=ISO
 210e9,0.30,293
+** *PLASTIC
+** 235e6,0.00200,293
+** 250e6,0.00326,293
+** 300e6,0.01378,293
+** 350e6,0.04662,293
+** 400e6,0.13397,293
+** 435e6,0.26000,293
 *DENSITY
 7850
 *EXPANSION, TYPE=ISO
