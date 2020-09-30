@@ -13,5 +13,10 @@
 63e6,0.499,293
 *DENSITY
 100
+*EXPANSION, TYPE=ISO
+** Kan geen data vinden voor dit schuim...
+** Info MC technics: 0,065 mm/mK
+65e-6,293
+
 ** lengthwise τ̅ = 1.0 MPa
 ** crosswise τ̅ = 0.8 MPa
