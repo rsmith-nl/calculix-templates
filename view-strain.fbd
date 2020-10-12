@@ -1,0 +1,24 @@
+
+# Read data
+read .frd
+read .inp
+
+# mirror
+#seta base all
+#copy base new mir y
+#comp new do
+
+capt Caption
+ulin Second line
+rot y
+rot r 30
+rot u 15
+frame
+zoom 0.8
+
+# worst principal strain
+cmap turbo
+ds 3 e 23
+view disp
+view elem
+scal d 10
