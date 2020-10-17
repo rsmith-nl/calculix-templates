@@ -3,15 +3,9 @@
 ** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=MrohacellIG51
-*ELASTIC, TYPE=ISO
-** We use an isotropic material model, which for foams isn't completely
-** correct. The value for ν is set to 0.499 as to get the ratio between E and
-** G as close to reality as possible according to G = E/(2*(1+ν)).
-** According to the datasheet; E = 70 MPa, G = 19 MPa.
-** Calculated: G = 70/(2*(1+0,499)) = 23,35. This is too high.
-** Therefore we reduce E to make G fit with the datasheet.
-** E = 19*(2*(1+0,499)) = 56,962, rounded to 57 MPa.
-57e6,0.499,293
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+70e6,70e6,70e6,0.01,0.01,0.01,19e6,19e6
+19e6,393
 *DENSITY
 52
 ** τ̅ = 0,8 MPa
