@@ -9,7 +9,7 @@ read .inp
 #comp new do
 
 capt Caption
-ulin Second line
+ulin Worst principal stress
 rot y
 rot r 30
 rot u 15
@@ -18,7 +18,7 @@ zoom 0.8
 
 # Stress
 cmap turbo
-ds 2 e 7
+ds 4 e 23
 view disp
 view elem
 scal d 10

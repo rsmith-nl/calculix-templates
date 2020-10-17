@@ -35,7 +35,7 @@ Stop,P1,0.8e5
 *NODE FILE
 U,RF
 *EL FILE
-S,ME
+ZZS,ME
 ** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix
 RF
@@ -48,7 +48,7 @@ RF
 *NODE FILE
 U,RF
 *EL FILE
-S,ME
+ZZS,ME
 ** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix
 RF
@@ -62,7 +62,7 @@ Ndisp,3,3,5e-6
 *NODE FILE
 U
 *EL FILE
-S,ME
+ZZS,ME
 ** Force in displaced nodes.
 *NODE PRINT,NSET=Ndisp
 RF
