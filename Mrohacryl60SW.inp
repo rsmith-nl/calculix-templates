@@ -1,0 +1,10 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=Mrohacryl60SW
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+75e6,75e6,75e6,0.01,0.01,0.01,30e6,30e6
+30e6,393
+*DENSITY
+60
