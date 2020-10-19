@@ -2,7 +2,7 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-*MATERIAL, NAME=Mrohacryl60SW
+*MATERIAL, NAME=Mrohacryl80SW
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 100e6,100e6,100e6,0.01,0.01,0.01,40e6,40e6
 40e6,393
