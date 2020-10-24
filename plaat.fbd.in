@@ -3,7 +3,7 @@
 #
 # Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
 # Created: 2020-10-08T09:40:28+0200
-# Last modified: 2020-10-08T15:35:24+0200
+# Last modified: 2020-10-24T18:24:43+0200
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
 
@@ -34,8 +34,8 @@ seta lam
 setc
 
 ## Create the meshes.
-# he20 = C3D20
-elty all he20
+# he20r = C3D20r
+elty all he20r
 mesh all
 
 seta bnodes n bot

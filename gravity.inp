@@ -9,6 +9,5 @@ Eall,GRAV,9.81,0.,0.,-1.
 *NODE FILE
 U,RF
 *EL FILE
-S,ME
+ZZS,ME
 *END STEP
-

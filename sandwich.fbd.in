@@ -37,8 +37,8 @@ seto lam1
 setc
 
 ## Create the meshes.
-# he20 = C3D20
-elty all he20
+# he20r = C3D20r
+elty all he20r
 mesh all
 
 # Constraints
