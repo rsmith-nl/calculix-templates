@@ -2,6 +2,7 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+** {{{ 1
 ** In [1]: import math
 **
 ** In [2]: Rm = (360+510)/2
@@ -40,10 +41,12 @@
 **
 ** In [13]: plastic_strain(435)
 ** Out[13]: 0.26
+** }}}
 
 *MATERIAL, NAME=MS235J
 *ELASTIC, TYPE=ISO
 210e9,0.30,293
+** {{{ 1
 ** *PLASTIC
 ** 235e6,0.00200,293
 ** 250e6,0.00326,293
@@ -51,8 +54,67 @@
 ** 350e6,0.04662,293
 ** 400e6,0.13397,293
 ** 435e6,0.26000,293
+** }}}
 *DENSITY
 7850
 *EXPANSION, TYPE=ISO
 12e-6,293
-** σ̅ = 235 MPa
+
+
+** {{{ 1
+**In [1]: import math
+**
+**In [2]: Rm = 960
+**Out[2]: 960
+**
+**In [3]: Rp = 850
+**Out[3]: 850
+**
+**In [4]: em = 0.10
+**Out[4]: 0.1
+**
+**In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
+**Out[5]: 0.031108440520073274
+**
+**In [6]: H = Rp/(0.002**n)
+**Out[6]: 1031.287309465095
+**
+**In [7]: def plastic_strain(s):
+**   ...:     return round((s/H)**(1/n), 5)
+**   ...:
+**
+**In [8]: plastic_strain(850)
+**Out[8]: 0.002
+**
+**In [9]: plastic_strain(875)
+**Out[9]: 0.00508
+**
+**In [10]: plastic_strain(900)
+**Out[10]: 0.01256
+**
+**In [11]: plastic_strain(925)
+**Out[11]: 0.0303
+**
+**In [12]: plastic_strain(960)
+**Out[12]: 0.1
+** }}}
+
+*MATERIAL, NAME=M1.2312
+*ELASTIC, TYPE=ISO
+205e9,0.30,293
+** {{{ 1
+** Quenched and double tempered to 280 - 325 HB (29 - 34 HRC).
+** *PLASTIC
+** 850e6,0.00200,293
+** 875e6,0.00508,293
+** 900e6,0.01256,293
+** 925e6,0.03030,293
+** 960e6,0.10000,293
+** }}}
+*DENSITY
+7840
+*EXPANSION, TYPE=ISO
+11.5e-6,293
+11.6e-6,393
+12.5e-6,493
+12.8e-6,693
