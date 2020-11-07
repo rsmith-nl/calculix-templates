@@ -1,0 +1,43 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=MairexT10.100
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+** According to the datasheet: E = 150, G = 34 “lengthwise”, G = 21 “crosswise”.
+150e6,150e6,150e6,0.01,0.01,0.01,34e6,21e6
+21e6,293
+*DENSITY
+100
+*EXPANSION, TYPE=ISO
+** Kan geen data vinden voor dit schuim...
+** Info MC technics: 0,065 mm/mK
+65e-6,293
+
+*MATERIAL, NAME=MairexT92.80
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+** According to the datasheet: E = 90, G = 14
+90e6,90e6,90e6,0.01,0.01,0.01,14e6,14e6
+14e6,293
+*DENSITY
+80
+
+**                  E       G
+** ArmaFORM         75e6    20e6
+** CoreLite         77e6    20e6
+** Divinycell PN    80e6    20e6
+** Airex T92.80     90e6    19.5e6
+
+*MATERIAL, NAME=MPET80
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+77e6,77e6,77e6,0.01,0.01,0.01,20e6,20e6
+20e6,293
+*DENSITY
+80
+
+*MATERIAL, NAME=MPET65
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+65e6,65e6,65e6,0.01,0.01,0.01,13e6,13e6
+13e6,283
+*DENSITY
+65
