@@ -1,13 +1,33 @@
 ** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
 ** E1 = 69.23 GPa, E2 = 69.23 GPa, E3 = 5.80 GPa
 ** ν12 = 0.03, ν13 = 0.30, ν23 = 0.30
 ** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
-** All values in SI units: m,s,kg,N,Pa,J
-** (length,time,mass,force,stress,energy).
 *MATERIAL, NAME=M0-90
 *ELASTIC,TYPE=ENGINEERING CONSTANTS
 6.9232e+10,6.9232e+10,5.8e+09,0.025,0.300,0.300,2.9e+09,2.9e+09
 2.9e+09,293
 *DENSITY
 1490
+
+** E1 = 179.80 GPa, E2 = 179.80 GPa, E3 = 5.80 GPa
+** ν12 = 0.01, ν13 = 0.30, ν23 = 0.30
+** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+*MATERIAL, NAME=M0-90_uhm
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+1.79801e+11,1.79801e+11,5.8e+09,0.010,0.300,0.300,2.9e+09,2.9e+09
+2.9e+09,293
+*DENSITY
+1680
+
+** E1 = 240.30 GPa, E2 = 240.30 GPa, E3 = 5.80 GPa
+** ν12 = 0.01, ν13 = 0.30, ν23 = 0.30
+** G12 = 2.90 GPa, G13 = 2.90 GPa, G23 = 2.90 GPa
+*MATERIAL, NAME=M0-90_xn90
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+2.40304e+11,2.40304e+11,5.8e+09,0.007,0.300,0.300,2.9e+09,2.9e+09
+2.9e+09,293
+*DENSITY
+1720
