@@ -1,9 +1,5 @@
-# file: view-mesh.fbd
-# vim:fileencoding=utf-8:fdm=marker:ft=cgx
-#
-# Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
-# Created: 2020-11-05T12:55:47+0100
-# Last modified: 2020-11-08T23:27:56+0100
+
+# vim:fileencoding=utf-8:ft=cgx
 
 read all.msh inp
 

@@ -1,12 +1,13 @@
 
+# vim:fileencoding=utf-8:ft=cgx
+
 # Read data
 read .frd
 read .inp
 
 # mirror
-#seta base all
-#copy base new mir y
-#comp new do
+#copy all new mir y
+#comp all do
 
 capt Caption
 ulin Displacement
