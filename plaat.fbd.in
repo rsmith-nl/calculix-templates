@@ -1,9 +1,4 @@
-# file: plaat.fbd.in
-# vim:fileencoding=utf-8:fdm=marker:ft=cgx
-#
-# Copyright © 2020 R.F. Smith <rsmith@xs4all.nl>
-# Created: 2020-10-08T09:40:28+0200
-# Last modified: 2020-10-24T18:24:43+0200
+
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
 
