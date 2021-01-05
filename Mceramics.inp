@@ -1,0 +1,39 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** Alumina 92%
+*MATERIAL, NAME=Mkyocera-A473
+*ELASTIC,TYPE=ISO
+280e9,0.23,293
+*DENSITY
+3600
+*EXPANSION, TYPE=ISO
+7.2e-6,293
+
+** Alumina 99.5%
+*MATERIAL, NAME=Mkyocera-A479M/G
+*ELASTIC,TYPE=ISO
+370e9,0.23,293
+*DENSITY
+3900
+*EXPANSION, TYPE=ISO
+7.2e-6,293
+
+** Kyocera SiC
+*MATERIAL, NAME=MSC211
+*ELASTIC,TYPE=ISO
+430e9,0.16,293
+*DENSITY
+3200
+*EXPANSION, TYPE=ISO
+3.7e-6,293
+
+** Kyocera SiC
+*MATERIAL, NAME=MSC1000
+*ELASTIC,TYPE=ISO
+440e9,0.17,293
+*DENSITY
+3160
+*EXPANSION, TYPE=ISO
+3.7e-6,293
