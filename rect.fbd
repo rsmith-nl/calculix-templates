@@ -1,0 +1,43 @@
+
+# vim:fileencoding=utf-8:fdm=marker:ft=cgx
+# All values in SI units: m,s,kg,N,Pa,J
+# (length,time,mass,force,stress,energy).
+
+# Rectangle parameters, width, height, wall thickness
+valu W 0.050
+valu H 0.050
+valu t 0.002
+# Divisions
+valu divW 20
+valu divH 20
+valu divt 4
+# Derived values
+valu W2 / W 2
+valu H2 / H 2
+valu WI - W t
+# First corner line
+seto l1
+    pnt p1 0 W 0
+    pnt p2 0 WI t
+    line ! p1 p2 divt
+setc
+# Center point
+pnt pm 0 W2 H2
+# Rectangle surface
+seto rect
+    swep l1 l2 mir pm y divW
+    swep l2 l3 mir pm z divH
+    swep l3 l4 mir pm y divW
+    swep l4 new mir pm z divH
+setc
+comp rect do
+merg p rect
+merg l rect
+
+# Display surface
+rot y
+rot l 30
+rot u 15
+plot pa all
+plus la all
+plus sa all
