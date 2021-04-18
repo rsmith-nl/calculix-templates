@@ -1,0 +1,10 @@
+# vim:fileencoding=utf-8:fdm=marker:ft=cgx
+# All values in SI units: m,s,kg,N,Pa,J
+# (length,time,mass,force,stress,energy).
+
+rot y
+rot u 30
+rot r 20
+zoom 0.8
+
+
