@@ -37,18 +37,35 @@
 0.738e6,0.184e6,0.8446e-07
 
 ** The problem is that Mooney-Rivlin results in nonlinear behavior.
-** The following linear approximation is used for E:
-** E = math.exp(ShoreA*0.0235 - 0.6403) [MPa]
-** E = math.exp((ShoreD+50)*0.0235 - 0.6403) [MPa]
-** Source: https://sciencing.com/convert-durometer-youngs-modulus-7941189.html
+
+** The following linear approximation can be used for E in MPa:
+**In [8]: def QiJoyceBoiceA(s):
+**   ...:     return round(10**(s*0.0235 - 0.6403))
+**   ...:     
+**
+**In [9]: def QiJoyceBoiceD(s):
+**   ...:     return round(10**((s+50)*0.0235 - 0.6403))
+**   ...:     
+**
+**In [10]: [(s, QiJoyceBoiceA(s)) for s in range(20,81,10)]
+**Out[10]: [(20, 1), (30, 1), (40, 2), (50, 3), (60, 6), (70, 10), (80, 17)]
+**
+**In [11]: [(s, QiJoyceBoiceD(s)) for s in range(20,81,10)]
+**Out[11]: [(20, 10), (30, 17), (40, 30), (50, 51), (60, 88), (70, 151), (80, 260)]
+**
+**https://en.wikipedia.org/wiki/Shore_durometer#ASTM_D2240_hardness_and_elastic_modulus
+** and “11-3716-01-durometer-hardness-for-silicones.pdf”
+**
+** Another model is from A. N. Gent (1956). In Python format:
+**In [6]: def gent(shoreA):
+**   ...:     return round((0.0981*(56+7.62336*shoreA))/(0.137505*(254-2.54*shoreA)))
+**   ...:
+**
+**In [7]: [(s, gent(s)) for s in range(20,81,10)]
+**Out[7]: [(20, 1), (30, 1), (40, 2), (50, 2), (60, 4), (70, 6), (80, 9)]**
 ** Poisson constant = 0.499
 
-*MATERIAL, NAME=Mrubber_60ShoreD
+*MATERIAL, NAME=Mrubber_60ShoreA
 ** linear approximation
-**In [10]: round(math.exp((60+50)*0.0235 - 0.6403))
-**Out[10]: 7
 *ELASTIC, TYPE=ISO
-7e6,0.499,293
-
-
-
+6e6,0.499,293
