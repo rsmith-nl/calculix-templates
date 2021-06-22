@@ -35,3 +35,20 @@
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.738e6,0.184e6,0.8446e-07
+
+** The problem is that Mooney-Rivlin results in nonlinear behavior.
+** The following linear approximation is used for E:
+** E = math.exp(ShoreA*0.0235 - 0.6403) [MPa]
+** E = math.exp((ShoreD+50)*0.0235 - 0.6403) [MPa]
+** Source: https://sciencing.com/convert-durometer-youngs-modulus-7941189.html
+** Poisson constant = 0.499
+
+*MATERIAL, NAME=Mrubber_60ShoreD
+** linear approximation
+**In [10]: round(math.exp((60+50)*0.0235 - 0.6403))
+**Out[10]: 7
+*ELASTIC, TYPE=ISO
+7e6,0.499,293
+
+
+
