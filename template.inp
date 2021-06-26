@@ -12,7 +12,7 @@ Problem description
 *INCLUDE, INPUT=all.msh
 *INCLUDE, INPUT=fix.nam
 ** Rigid body goes before step!
-*RIGID BODY NSET=Nload, REF NODE=1
+*RIGID BODY, NSET=Nload, REF NODE=1
 ** Fixation
 *BOUNDARY
 Nfix,1,3
