@@ -12,10 +12,9 @@ read .inp
 capt Caption
 ulin Displacement
 rot y
-rot r 30
-rot u 15
+rot r 135
+rot u 30
 frame
-zoom 0.8
 
 # Displacements
 cmap turbo
