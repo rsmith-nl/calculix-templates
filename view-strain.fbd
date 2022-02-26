@@ -13,7 +13,7 @@ read .inp
 # First line of text below the window.
 capt Caption
 # Second line of text.
-ulin Displacement
+ulin Worst principal strain
 
 # Define the view.
 rot y
@@ -21,11 +21,11 @@ rot r 135
 rot u 30
 frame
 
-# Displacements
+# Stress
 # Use the “turbo” colormap.
 cmap turbo
-# ds 1 is displacement. e 3 is z-displacement, e 4 is x+y+z.
-ds 1 e 4
+# ds 2 is mechanical strain. e23 is worstPE
+ds 2 e 23
 # View the deformed state.
 view disp
 # Show the element borders

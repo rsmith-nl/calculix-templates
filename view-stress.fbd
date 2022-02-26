@@ -1,24 +1,34 @@
 
 # vim:fileencoding=utf-8:ft=cgx
 
-# Read data
+# Read result data
 read .frd
+# Read input data (sets)
 read .inp
 
 # mirror
 #copy all new mir y
 #comp all do
 
+# First line of text below the window.
 capt Caption
+# Second line of text.
 ulin Worst principal stress
+
+# Define the view.
 rot y
 rot r 135
 rot u 30
 frame
 
 # Stress
+# Use the “turbo” colormap.
 cmap turbo
+# ds 4 is zzstr. e23 is worstPS
 ds 4 e 23
+# View the deformed state.
 view disp
+# Show the element borders
 view elem
+# Scale the deformation by a factor 10.
 scal d 10
