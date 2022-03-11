@@ -28,6 +28,8 @@ cmap turbo
 ds 1 e 4
 # View the deformed state.
 view disp
+# Don't use shading.
+view sh off
 # Show the element borders
 view elem
 # Scale the deformation by a factor 10.
