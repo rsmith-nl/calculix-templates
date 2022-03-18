@@ -2,9 +2,9 @@
 # vim:fileencoding=utf-8:ft=cgx
 
 # Read result data
-read .frd
+read job.frd
 # Read input data (sets)
-read .inp
+read job.inp
 
 # mirror
 #copy all new mir y
