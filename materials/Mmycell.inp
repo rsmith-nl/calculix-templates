@@ -1,0 +1,21 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=Mmycell48
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+** According to the datasheet: E = 87 MPa, G = 16 MPa
+87e6,87e6,87e6,0.01,0.01,0.01,16e6,16e6
+16e6,293
+*DENSITY
+48
+
+*MATERIAL, NAME=Mmycell60
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+** According to the datasheet: E = 106 MPa, G = 21 MPa
+106e6,106e6,106e6,0.01,0.01,0.01,21e6,21e6
+21e6,293
+*DENSITY
+60
+
+
