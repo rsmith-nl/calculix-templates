@@ -11,8 +11,10 @@ all.msh: pre.fbd
 	rm -f ICF* DCF*
 
 # Run the solver
+# Note: to take advantage of multiple cores,
+# OMP_NUM_THREADS should be set in the environment.
 job.frd: job.inp all.msh
-	env OMP_NUM_THREADS=4 ccx -i job
+	ccx -i job
 	rm -f job.log spooles.out *.12d *.cvg *.sta
 	rm -f *Miss*.nam
 
