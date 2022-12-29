@@ -1,0 +1,18 @@
+** vim:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*STEP
+*STATIC
+*BOUNDARY
+** Prescribed displacement
+Ndisp,1,2,0
+Ndisp,3,3,5e-6
+*NODE FILE
+U
+*EL FILE
+ZZS,ME
+** Force in displaced nodes.
+*NODE PRINT,NSET=Ndisp
+RF
+*END STEP

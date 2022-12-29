@@ -1,0 +1,19 @@
+** vim:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*STEP
+*STATIC
+*DLOAD
+** Pressuse difference: 0,8×10⁵ Pa
+** Look at top.sur which facet is used.
+Stop,P1,0.8e5
+*NODE FILE
+U,RF
+*EL FILE
+ZZS,ME
+** Reaction force on fixation nodes.
+*NODE PRINT, NSET=Nfix
+RF
+*END STEP
+

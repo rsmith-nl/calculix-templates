@@ -38,7 +38,8 @@ stress: job.frd view-stress.fbd
 
 # Helpers
 clean::
-	rm -f *.equ *.sur *.nam *.msh *.log spooles.out *.12d *.cvg *.sta *.con
+	rm -f *.equ *.sur *.nam *.msh *.log *.12d *.cvg *.sta *.con
+	rm -f spooles.out
 
 include::
 	@ls *.msh *.nam *.sur *.equ *.con|sed -e 's/^/\*INCLUDE, INPUT=/'
