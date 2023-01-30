@@ -18,3 +18,55 @@
 8130
 *EXPANSION, TYPE=ISO
 1.2e-6,293
+
+**In [1]: import math
+**
+**In [2]: Rm = 260
+**Out[2]: 260
+**
+**In [3]: Rp = 200
+**Out[3]: 200
+**
+**In [4]: E = 44800
+**Out[4]: 44800
+**
+**In [5]: em = round(Rm/E*100,3)
+**Out[5]: 0.58
+**
+**In [6]: n = math.log(Rm/Rp)/math.log(em/0.002)
+**Out[6]: 0.04627332884613254
+**
+**In [7]: H = Rp/(0.002**n)
+**Out[7]: 266.6369434529877
+**
+**In [8]: def plastic_strain(s):
+**   ...:     return f"**{s},{round((s/H)**(1/n), 5)},293"
+**   ...:
+**
+**In [9]: plastic_strain(200)
+**Out[9]: '**200,0.002,293'
+**
+**In [10]: plastic_strain(225)
+**Out[10]: '**225,0.0255,293'
+**
+**In [11]: plastic_strain(250)
+**Out[11]: '**250,0.2485,293'
+**
+**In [12]: plastic_strain(260)
+**Out[12]: '**260,0.58,293'
+
+
+** https://www.azom.com/article.aspx?ArticleID=6707
+*MATERIAL, NAME=MAZ31B
+** magnesium alloy
+*ELASTIC, TYPE=ISO
+44.8e9,0.35,293
+**PLASTIC
+**200,0.002,293
+**225,0.0255,293
+**250,0.2485,293
+**260,0.58,293
+*DENSITY
+1770
+*EXPANSION, TYPE=ISO
+26e-6,293
