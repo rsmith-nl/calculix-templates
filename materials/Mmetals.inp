@@ -1,0 +1,20 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** http://www.metalcor.de/en/datenblatt/79/
+*MATERIAL, NAME=Minvar36
+** Invar 36 (FeNi36) / 1.3912
+*ELASTIC, TYPE=ISO
+135e9,0.29,293
+** Eigenschappen in zachte toestand.
+**PLASTIC
+**310,0.00200,293
+**350,0.00755,293
+**400,0.03255,293
+**450,0.11813,293
+**490,0.30000,293
+*DENSITY
+8130
+*EXPANSION, TYPE=ISO
+1.2e-6,293
