@@ -89,9 +89,9 @@ U
 ***** Eigenfrequency calculation *****
 *STEP
 *FREQUENCY
-4
+1
 *NODE FILE
 U
-*EL FILE
-ZZS
+*EL PRINT, ELSET=Eall, TOTALS=only
+EMAS
 *END STEP
