@@ -1,6 +1,6 @@
 
 # vim:fileencoding=utf-8:fdm=marker:ft=make
-.PHONY: mesh disp stress core clean include
+.PHONY: mesh disp stress core clean include help
 
 all: all.msh job.frd
 
@@ -20,26 +20,26 @@ job.frd: job.inp all.msh
 
 # Different post-processor commands
 
-# view the mesh
-mesh: all.msh
+mesh: all.msh ## view the mesh
 	cgx -b view-mesh.fbd
 
-# view displacements
-disp: job.frd view-disp.fbd
+disp: job.frd view-disp.fbd ## view displacements
 	cgx -b view-disp.fbd
 
-# view strain
-strain: job.frd view-strain.fbd
+strain: job.frd view-strain.fbd ## view strain
 	cgx -b view-strain.fbd
 
-# view stress
-stress: job.frd view-stress.fbd
+stress: job.frd view-stress.fbd ## view stress
 	cgx -b view-stress.fbd
 
-# Helpers
-clean::
+clean: ## clean up the working directory
 	rm -f *.equ *.sur *.nam *.msh *.log *.12d *.cvg *.sta *.con
 	rm -f spooles.out
 
-include::
+include: ## generate include statements for solver input file
 	@ls *.msh *.nam *.sur *.equ *.con|sed -e 's/^/\*INCLUDE, INPUT=/'
+
+help:
+	@echo "Command  Meaning"
+	@echo "-------  -------"
+	@sed -n -e '/##/s/:.*\#\#/\t/p' -e '/@sed/d' Makefile
