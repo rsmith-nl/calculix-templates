@@ -1,4 +1,3 @@
-
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
@@ -18,58 +17,43 @@ valu t2 / 1.5 1000
 valu tmp + t1 t2
 valu tk - T tmp
 
-# Divisions that determine element count.
-# Note that for second order elements, two divisions is one elemen!
-# Divisions in length.
-valu ldiv 40
-# Devisions in width.
-valu bdiv 10
-# Divisions in laminate thickness.
-valu tbdiv 2
-# Divisions in core height
-valu tkdiv 6
-
 # Bottom laminate
 seto lam2
     pnt ! 0 0 0
-    swep lam2 new tra L 0 0 ldiv
-    swep lam2 new tra 0 B 0 bdiv
-    swep lam2 if1 tra 0 0 t2 tbdiv
+    swep lam2 new tra L 0 0
+    swep lam2 new tra 0 B 0
+    swep lam2 if1 tra 0 0 t2
 setc
+
 # Core
 seto core
     copy if1 if2 tra 0 0 0
-    swep if2 if3 tra 0 0 tk tkdiv
+#    swep if2 if3 tra 0 0 tk tkdiv
+    swep if2 if3 tra 0 0 tk
 setc
+
 # Top laminate
 seto lam1
     copy if3 if4 tra 0 0 0
-    swep if4 top tra 0 0 t1 tbdiv
+#    swep if4 top tra 0 0 t1 tbdiv
+    swep if4 top tra 0 0 t1
 setc
+
+# Set element size automatically.
+div all auto 0.01
 
 ## Create the meshes.
 # he20 = C3D20
 elty all he20
-mesh all
+mesh lam2
+mesh core
+mesh lam1
 
 # Constraints
 seta nodes n all
-enq nodes fix rec 0 _ _ 0.001 a
+enq nodes fix rec 0 _ _ 1e-4
 # Remove nodes on dependant contact surfaces from constraints
-setr fix n if1 if3
-enq nodes disp rec L _ 0 0.001 a
-
-
-# Write data
-send all abq
-send lam2 abq nam
-send core abq nam
-send lam1 abq nam
-send fix abq nam
-send disp abq nam
-# Write contact equations
-send if1 if2 abq areampc 123
-send if3 if4 abq areampc 123
+enq nodes disp rec L _ _ 1e-4
 
 # Show the mesh and selected nodes.
 rot -z
@@ -80,3 +64,16 @@ zoom 0.8
 view elem
 plus n fix r 8
 plus n disp b 8
+
+valu output no
+
+# Write data
+if output eq yes
+neigh all 1e-5 tie
+send all abq
+send lam2 abq nam
+send core abq nam
+send lam1 abq nam
+send fix abq nam
+send disp abq nam
+endif
