@@ -7,13 +7,13 @@ rot u 30
 rot r 20
 zoom 0.8
 
-# Set automatic divisions (after creating geometry!)
+# Set automatic divisions.
+# This goed between creating geometry and mesh!
 div all auto 0.01
 
 # Reserve nodes 1−4 for e.q. reference nodes for rigid bodies.
 asgn n 5
 # node 1 X Y Z
-
 elty all he20r
 mesh all
 
