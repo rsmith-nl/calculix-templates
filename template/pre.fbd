@@ -7,4 +7,27 @@ rot u 30
 rot r 20
 zoom 0.8
 
+# Set automatic divisions
+div all auto 0.01
 
+# Reserve nodes 1−4 for e.q. reference nodes for rigid bodies.
+asgn n 5
+# node 1 X Y Z
+
+elty all he20r
+mesh all
+
+# Node sets for fixation and rigid body load.
+seta nodes n all
+enq nodes fix rec 0 _ _ 1e-6
+enq nodes load rec 1 _ _ 1e-6
+
+# Tie together different meshes, when not using “mesh all”.
+neigh all 1e-5 tie
+# This creates DCF* and ICF* files. Combine them with:
+# cat DCF* ICF* > ties.sur
+# rm -f ICF* DCF*
+
+send all abq
+send fix abq nam
+send load abq nam
