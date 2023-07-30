@@ -2,12 +2,12 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+***** Static calculation of deflection under gravity. *****
 *STEP
 *STATIC
 *DLOAD
+** 1 G = 9,81 m/s²
 Eall,GRAV,9.81,0.,0.,-1.
 *NODE FILE
-U,RF
-*EL FILE
-ZZS,ME
+U
 *END STEP

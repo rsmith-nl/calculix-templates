@@ -2,12 +2,12 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-** Calculation.
+***** Eigenfrequency calculation *****
 *STEP
 *FREQUENCY
-4
+1
 *NODE FILE
 U
-*EL FILE
-S
+*EL PRINT, ELSET=Eall, TOTALS=only
+EMAS
 *END STEP

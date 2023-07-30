@@ -2,6 +2,7 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+***** Static calculation distributed load *****
 *STEP
 *STATIC
 *DLOAD

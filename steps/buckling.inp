@@ -1,0 +1,14 @@
+** vim:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+***** Buckling *****
+*STEP
+*BUCKLE
+2
+*DLOAD
+** 1 MPa distributed load, so that the buckling factor equals the load.
+Ssf,P6,1e4
+*EL PRINT,FREQUENCY=0
+*NODE PRINT, FREQUENCY=0
+*END STEP
