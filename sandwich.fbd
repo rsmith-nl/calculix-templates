@@ -40,7 +40,8 @@ seto lam1
 setc
 
 # Set element size automatically.
-div all auto 0.01
+# This goes between geometry creation and meshing.
+div all auto 0.005
 
 ## Create the meshes.
 # he20 = C3D20
@@ -66,7 +67,6 @@ plus n fix r 8
 plus n disp b 8
 
 valu output no
-
 # Write data
 if output eq yes
 neigh all 1e-5 tie
