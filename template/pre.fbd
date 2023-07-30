@@ -7,7 +7,7 @@ rot u 30
 rot r 20
 zoom 0.8
 
-# Set automatic divisions
+# Set automatic divisions (after creating geometry!)
 div all auto 0.01
 
 # Reserve nodes 1−4 for e.q. reference nodes for rigid bodies.
@@ -22,12 +22,25 @@ seta nodes n all
 enq nodes fix rec 0 _ _ 1e-6
 enq nodes load rec 1 _ _ 1e-6
 
+# Show the mesh and selected nodes.
+rot -z
+rot d 30
+rot r 30
+frame
+zoom 0.8
+view elem
+plus n fix r 8
+plus n load b 8
+
+valu output no
+# Write data
+if output eq yes
 # Tie together different meshes, when not using “mesh all”.
 neigh all 1e-5 tie
 # This creates DCF* and ICF* files. Combine them with:
 # cat DCF* ICF* > ties.sur
 # rm -f ICF* DCF*
-
 send all abq
 send fix abq nam
 send load abq nam
+endif
