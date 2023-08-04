@@ -1,0 +1,78 @@
+# file: round-tube.fbd
+# vim:fileencoding=utf-8:fdm=marker:ft=cgx
+#
+# Author: R.F. Smith <rsmith@xs4all.nl>
+# Created: 2023-01-14T19:04:12+0100
+# Last modified: 2023-08-04T13:53:48+0200
+
+
+valu Do 0.1937
+valu t 0.006
+valu L 1.0
+valu divr 16
+valu divt 4
+valu divl 80
+
+rot -x
+rot l 30
+rot u 15
+
+valu tt * t 2
+valu Di - Do tt
+valu Ri / Di 2
+valu Ro / Do 2
+valu nRi * Ri -1
+valu nRo * Ro -1
+
+pnt C 0 0 0
+pnt P1 0 Ri 0
+pnt P2 0 0 Ri
+pnt P3 0 nRi 0
+pnt P4 0 0 nRi
+
+pnt P5 0 Ro 0
+pnt P6 0 0 Ro
+pnt P7 0 nRo 0
+pnt P8 0 0 nRo
+
+line L1 P1 P5 divt
+line L2 P2 P6 divt
+line L3 P3 P7 divt
+line L4 P4 P8 divt
+
+line L5 P1 P2 C divr
+line L6 P2 P3 C divr
+line L7 P3 P4 C divr
+line L8 P4 P1 C divr
+
+line L9 P5 P6 C divr
+line L10 P6 P7 C divr
+line L11 P7 P8 C divr
+line L12 P8 P5 C divr
+
+surf S1 L1 L5 L2 L9
+surf S2 L2 L6 L3 L10
+surf S3 L3 L7 L4 L11
+surf S4 L4 L8 L1 L12
+
+#plot pa all
+#plus la all
+#plus sa all
+#stop
+
+swep all new tra L 0 0 divl
+
+asgn n 2
+elty all he20r
+mesh all
+
+view elem
+
+seta nodes n all
+enq nodes fix rec 0 _ _ 0.0001
+enq nodes load rec L _ _ 0.0001
+node 1 L 0 0
+
+send all abq
+send fix abq nam
+send load abq nam
