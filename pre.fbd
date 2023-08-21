@@ -36,7 +36,7 @@ valu output no
 # Write data
 if output eq yes
 # Tie together different meshes, when not using “mesh all”.
-neigh all 1e-5 tie
+neigh all 1e-5 abq tie
 # This creates DCF* and ICF* files. Combine them with:
 # cat DCF* ICF* > ties.sur
 # rm -f ICF* DCF*
