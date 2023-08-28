@@ -1,0 +1,47 @@
+# file: post.fbd
+# vim:fileencoding=utf-8:fdm=marker:ft=conf
+#
+# Copyright © 2019 R.F. Smith <rsmith@xs4all.nl>
+# Created: 2019-11-10T12:21:30+0100
+# Last modified: 2019-12-14T15:43:49+0100
+
+# Read data
+read sandwich-box.frd
+read core.nam inp
+read side.nam inp
+read top.nam inp
+read bot.nam inp
+
+rot y
+rot r 30
+rot u 15
+frame
+zoom 0.8
+
+# Displacements (Z-direction)
+ulin Z-displacement of sandwich box panel
+ds 1 e 3
+view disp
+view elem
+scal d 10
+hcpy png
+
+# Stress
+ulin Worst principal stress in sandwich box panel laminates
+rot y
+rot r 150
+rot u 15
+plot ev Ebot
+plus ev Eside
+plus ev Etop
+ds 2 e 23
+hcpy png
+
+# Strain
+ulin Shear stress s13 in sandwich box panel core and side
+plot ev Ecore
+plus ev Eside
+ds 2 e 6
+hcpy png
+
+quit

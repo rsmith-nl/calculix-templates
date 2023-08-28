@@ -1,0 +1,16 @@
+# vim:fileencoding=utf-8:ft=cgx
+# Read result data
+read job.frd
+
+ds 1 e 3
+enq all maxdisp rec _ _ _ 1e-6 l
+sys awk '{printf "deflection = %.0f mm\n", $4*1000}' enq_lc1_e3_1.out >>foo.txt
+sys rm enq_lc1_e3_1.out
+
+ds 4 e 23
+enq all maxcomp rec _ _ _ 1e-6 l
+sys awk '{printf "compression stress = %.0f MPa\n", $4/1e6}' enq_lc4_e23_2.out >>foo.txt
+sys rm enq_lc4_e23_2.out
+enq all maxcomp rec _ _ _ 1e-6 h
+sys awk '{printf "tensile stress = %.0f MPa\n", $4/1e6}' enq_lc4_e23_3.out >>foo.txt
+sys rm enq_lc4_e23_3.out
