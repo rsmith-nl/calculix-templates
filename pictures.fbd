@@ -1,0 +1,27 @@
+# Change file name to the job name you used.
+read result.frd
+
+# Data set number depends on how may things you saved!
+ds 4 e 7
+
+rot y
+frame
+hardcopy png right
+rot r 90
+frame
+hardcopy png front
+rot r 90
+frame
+hardcopy png left
+rot r 90
+frame
+hardcopy png back
+rot y
+rot u 90
+frame
+hardcopy png top
+rot d 180
+frame
+hardcopy png bottom
+
+quit
