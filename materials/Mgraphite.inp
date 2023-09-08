@@ -1,0 +1,15 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** Source: MBI graphite
+
+*MATERIAL, NAME=M_graphite_MBJ
+*ELASTIC, TYPE=ISO
+** Poisson constant estimated.
+11e9,0.33,293
+*DENSITY
+** Apparent density. Real density 2200 kg/m3
+1720
+*EXPANSION, TYPE=ISO
+2.25e-6,293
