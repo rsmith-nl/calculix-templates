@@ -1,0 +1,39 @@
+# file: circle-quadrant.fbd
+# vim:fileencoding=utf-8:fdm=marker:ft=cgx
+#
+# Author: R.F. Smith <rsmith@xs4all.nl>
+# Created: 2023-09-08T16:34:19+0200
+# Last modified: 2023-09-08T16:41:36+0200
+
+rot y
+rot r 135
+rot u 30
+
+# Radius
+valu R / 50 1000
+# Starting height
+valu zs / 0 1000
+# Thickness
+valu t / 6 1000
+# divisions
+valu dl 24
+
+pnt p1 0 0 zs
+pnt p2 R 0 zs
+pnt p3 0 R zs
+line l1 p1 p2 dl
+line l2 p1 p3 dl
+line l3 p2 p3 p1 dl
+surf s1 blend l1 l2 l3
+
+seta T1 s s1
+comp T1 do
+swep T1 T2 tra 0 0 t
+
+elty all he20r
+mesh all
+
+view elem
+plus ld all
+frame
+zoom 0.5
