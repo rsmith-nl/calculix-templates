@@ -1,0 +1,63 @@
+# file: rectangular-tube.fbd
+# vim:fileencoding=utf-8:ft=cgx
+#
+# Author: R.F. Smith <rsmith@xs4all.nl>
+# Created: 2023-09-17T23:29:58+0200
+# Last modified: 2023-09-18T00:00:26+0200
+
+# Tube scetch in YZ plane, extruded in X direction.
+
+rot y
+rot r 135
+rot u 25
+
+# Width, height and length in [m]
+valu B 0.10
+valu H 0.15
+valu L 0.25
+# Wall thickness [m]
+valu t 0.004
+
+# Number of elements in Y
+valu dy2 6
+# Number of elements in Z
+valu dz2 8
+# Twice the number of elements in the radius
+valu dr 8
+# Twice the number of elements in X
+valu dl 24
+
+# Calculated values
+valu B2 / B 2
+valu H2 / H 2
+valu B2i - B2 t
+valu H2i - H2 t
+valu Ri t
+valu cpy - B2i Ri
+valu cpz H2i
+valu ncpy - 0 cpy
+
+seto tube-section
+pnt tp1 0 B2i 0
+swep tube-section new tra 0 t 0 4
+swep tube-section ln2 tra 0 0 cpz dz2
+pnt cpt 0 cpy cpz
+swep ln2 ln3 rot cpt x 90 dr
+swep ln3 new tra 0 ncpy 0 dy2
+copy tube-section new mir z
+copy tube-section new mir y
+setc
+merg p tube-section
+merg l tube-section
+
+#plot pa all
+#plus la all
+
+seto tube
+swep tube-section new tra L 0 0 dl
+setc
+
+elty all he20r
+mesh all
+
+view elem
