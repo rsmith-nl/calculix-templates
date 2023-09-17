@@ -3,7 +3,7 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-01-14T19:04:12+0100
-# Last modified: 2023-08-04T13:53:48+0200
+# Last modified: 2023-09-17T23:26:13+0200
 
 
 valu Do 0.1937
@@ -50,10 +50,10 @@ line L10 P6 P7 C divr
 line L11 P7 P8 C divr
 line L12 P8 P5 C divr
 
-surf S1 L1 L5 L2 L9
-surf S2 L2 L6 L3 L10
-surf S3 L3 L7 L4 L11
-surf S4 L4 L8 L1 L12
+surf S1 blend L1 L5 L2 L9
+surf S2 blend L2 L6 L3 L10
+surf S3 blend L3 L7 L4 L11
+surf S4 blend L4 L8 L1 L12
 
 #plot pa all
 #plus la all
