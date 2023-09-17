@@ -4,7 +4,7 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-09-17T10:59:33+0200
+# Last modified: 2023-09-17T23:22:37+0200
 
 # When using this code, replace “sfx” with a unique suffix.
 
@@ -17,19 +17,18 @@ valu zs-sfx / 0 1000
 valu t-sfx / 6 1000
 # divisions
 valu dl-sfx 24
-valu dr-sfx 24
 
 pnt p-sfx-1 0 0 zs-sfx
 pnt p-sfx-2 R-sfx 0 zs-sfx
 pnt p-sfx-3 0 R-sfx zs-sfx
 pnt p-sfx-4 nR-sfx 0 zs-sfx
 pnt p-sfx-5 0 nR-sfx zs-sfx
-line l-sfx-1 p-sfx-1 p-sfx-2 dr-sfx
-line l-sfx-2 p-sfx-1 p-sfx-3 dr-sfx
+line l-sfx-1 p-sfx-1 p-sfx-2 dl-sfx
+line l-sfx-2 p-sfx-1 p-sfx-3 dl-sfx
 line l-sfx-3 p-sfx-2 p-sfx-3 p-sfx-1 dl-sfx
-line l-sfx-4 p-sfx-1 p-sfx-4 dr-sfx
+line l-sfx-4 p-sfx-1 p-sfx-4 dl-sfx
 line l-sfx-5 p-sfx-3 p-sfx-4 p-sfx-1 dl-sfx
-line l-sfx-6 p-sfx-1 p-sfx-5 dr-sfx
+line l-sfx-6 p-sfx-1 p-sfx-5 dl-sfx
 line l-sfx-7 p-sfx-4 p-sfx-5 p-sfx-1 dl-sfx
 line l-sfx-8 p-sfx-5 p-sfx-2 p-sfx-1 dl-sfx
 surf s-sfx-1 blend l-sfx-1 l-sfx-2 l-sfx-3
