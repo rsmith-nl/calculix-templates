@@ -1,57 +1,72 @@
 # file: circle.fbd
+# Circle in the XY-plane, extruded in Z.
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-09-08T16:58:46+0200
+# Last modified: 2023-09-17T10:59:33+0200
 
+# When using this code, replace “sfx” with a unique suffix.
+
+# Radius
+valu R-sfx / 50 1000
+valu nR-sfx - 0 R-sfx
+# Starting height
+valu zs-sfx / 0 1000
+# Thickness
+valu t-sfx / 6 1000
+# divisions
+valu dl-sfx 24
+valu dr-sfx 24
+
+pnt p-sfx-1 0 0 zs-sfx
+pnt p-sfx-2 R-sfx 0 zs-sfx
+pnt p-sfx-3 0 R-sfx zs-sfx
+pnt p-sfx-4 nR-sfx 0 zs-sfx
+pnt p-sfx-5 0 nR-sfx zs-sfx
+line l-sfx-1 p-sfx-1 p-sfx-2 dr-sfx
+line l-sfx-2 p-sfx-1 p-sfx-3 dr-sfx
+line l-sfx-3 p-sfx-2 p-sfx-3 p-sfx-1 dl-sfx
+line l-sfx-4 p-sfx-1 p-sfx-4 dr-sfx
+line l-sfx-5 p-sfx-3 p-sfx-4 p-sfx-1 dl-sfx
+line l-sfx-6 p-sfx-1 p-sfx-5 dr-sfx
+line l-sfx-7 p-sfx-4 p-sfx-5 p-sfx-1 dl-sfx
+line l-sfx-8 p-sfx-5 p-sfx-2 p-sfx-1 dl-sfx
+surf s-sfx-1 blend l-sfx-1 l-sfx-2 l-sfx-3
+surf s-sfx-2 blend l-sfx-2 l-sfx-4 l-sfx-5
+surf s-sfx-3 blend l-sfx-4 l-sfx-6 l-sfx-7
+surf s-sfx-4 blend l-sfx-6 l-sfx-1 l-sfx-8
+
+seta face-sfx-1 s s-sfx-1 s-sfx-2 s-sfx-3 s-sfx-4
+comp face-sfx-1 do
+seto cyl-sfx-1
+swep face-sfx-1 face-sfx-2 tra 0 0 t-sfx
+setc
+
+valu showgeom 0
+if showgeom > 0
 rot y
 rot r 135
 rot u 30
-
-# Radius
-valu R / 50 1000
-valu nR - 0 R
-# Starting height
-valu zs / 0 1000
-# Thickness
-valu t / 6 1000
-# divisions
-valu dl 24
-
-pnt p1 0 0 zs
-pnt p2 R 0 zs
-pnt p3 0 R zs
-pnt p4 nR 0 zs
-pnt p5 0 nR zs
-line l1 p1 p2 dl
-line l2 p1 p3 dl
-line l3 p2 p3 p1 dl
-line l4 p1 p4 dl
-line l5 p3 p4 p1 dl
-line l6 p1 p5 dl
-line l7 p4 p5 p1 dl
-line l8 p5 p2 p1 dl
-surf s1 blend l1 l2 l3
-surf s2 blend l2 l4 l5
-surf s3 blend l4 l6 l7
-surf s4 blend l6 l1 l8
 frame
-
-seta T1 s s1 s2 s3 s4
-comp T1 do
-swep T1 T2 tra 0 0 t
 zoom .95
+plot pa face-sfx-1
+plus la face-sfx-1
+plus sa face-sfx-1
+hcpy png circle-geometry
+endif
 
-#plot pa T1
-#plus la T1
-#plus sa T1
-#hcpy png circle-geometry
-
+valu showmesh 0
+if showmesh > 0
+rot y
+rot r 135
+rot u 30
+frame
+zoom .95
 elty all he20r
 mesh all
 view elem
 plot e all n
 plus ld all
-
-#hcpy png circle-mesh
+hcpy png circle-mesh
+endif
