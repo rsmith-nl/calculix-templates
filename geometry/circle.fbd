@@ -4,7 +4,7 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-09-17T23:22:37+0200
+# Last modified: 2023-09-29T21:42:46+0200
 
 # When using this code, replace “sfx” with a unique suffix.
 
@@ -18,28 +18,28 @@ valu t-sfx / 6 1000
 # divisions
 valu dl-sfx 24
 
-pnt p-sfx-1 0 0 zs-sfx
-pnt p-sfx-2 R-sfx 0 zs-sfx
-pnt p-sfx-3 0 R-sfx zs-sfx
-pnt p-sfx-4 nR-sfx 0 zs-sfx
-pnt p-sfx-5 0 nR-sfx zs-sfx
-line l-sfx-1 p-sfx-1 p-sfx-2 dl-sfx
-line l-sfx-2 p-sfx-1 p-sfx-3 dl-sfx
-line l-sfx-3 p-sfx-2 p-sfx-3 p-sfx-1 dl-sfx
-line l-sfx-4 p-sfx-1 p-sfx-4 dl-sfx
-line l-sfx-5 p-sfx-3 p-sfx-4 p-sfx-1 dl-sfx
-line l-sfx-6 p-sfx-1 p-sfx-5 dl-sfx
-line l-sfx-7 p-sfx-4 p-sfx-5 p-sfx-1 dl-sfx
-line l-sfx-8 p-sfx-5 p-sfx-2 p-sfx-1 dl-sfx
-surf s-sfx-1 blend l-sfx-1 l-sfx-2 l-sfx-3
-surf s-sfx-2 blend l-sfx-2 l-sfx-4 l-sfx-5
-surf s-sfx-3 blend l-sfx-4 l-sfx-6 l-sfx-7
-surf s-sfx-4 blend l-sfx-6 l-sfx-1 l-sfx-8
+pnt p-sfx1 0 0 zs-sfx
+pnt p-sfx2 R-sfx 0 zs-sfx
+pnt p-sfx3 0 R-sfx zs-sfx
+pnt p-sfx4 nR-sfx 0 zs-sfx
+pnt p-sfx5 0 nR-sfx zs-sfx
+line l-sfx1 p-sfx1 p-sfx2 dl-sfx
+line l-sfx2 p-sfx1 p-sfx3 dl-sfx
+line l-sfx3 p-sfx2 p-sfx3 p-sfx1 dl-sfx
+line l-sfx4 p-sfx1 p-sfx4 dl-sfx
+line l-sfx5 p-sfx3 p-sfx4 p-sfx1 dl-sfx
+line l-sfx6 p-sfx1 p-sfx5 dl-sfx
+line l-sfx7 p-sfx4 p-sfx5 p-sfx1 dl-sfx
+line l-sfx8 p-sfx5 p-sfx2 p-sfx1 dl-sfx
+surf s-sfx1 blend l-sfx1 l-sfx2 l-sfx3
+surf s-sfx2 blend l-sfx2 l-sfx4 l-sfx5
+surf s-sfx3 blend l-sfx4 l-sfx6 l-sfx7
+surf s-sfx4 blend l-sfx6 l-sfx1 l-sfx8
 
-seta face-sfx-1 s s-sfx-1 s-sfx-2 s-sfx-3 s-sfx-4
-comp face-sfx-1 do
-seto cyl-sfx-1
-swep face-sfx-1 face-sfx-2 tra 0 0 t-sfx
+seta face-sfx1 s s-sfx1 s-sfx2 s-sfx3 s-sfx4
+comp face-sfx1 do
+seto cyl-sfx1
+swep face-sfx1 face-sfx2 tra 0 0 t-sfx
 setc
 
 valu showgeom 0
@@ -49,13 +49,13 @@ rot r 135
 rot u 30
 frame
 zoom .95
-plot pa face-sfx-1
-plus la face-sfx-1
-plus sa face-sfx-1
-hcpy png circle-geometry
+plot pa face-sfx1
+plus la face-sfx1
+plus sa face-sfx1
+#hcpy png circle-geometry
 endif
 
-valu showmesh 0
+valu showmesh 1
 if showmesh > 0
 rot y
 rot r 135
@@ -66,6 +66,6 @@ elty all he20r
 mesh all
 view elem
 plot e all n
-plus ld all
-hcpy png circle-mesh
+view surf
+#hcpy png circle-mesh
 endif
