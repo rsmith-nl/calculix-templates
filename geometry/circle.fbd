@@ -4,10 +4,18 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-09-29T21:42:46+0200
+# Last modified: 2023-10-01T13:41:32+0200
 
 # When using this code, replace “sfx” with a unique suffix.
 
+## Define the view
+rot y
+rot r 135
+rot u 30
+frame
+zoom .95
+
+## Dimensions
 # Radius
 valu R-sfx / 50 1000
 valu nR-sfx - 0 R-sfx
@@ -18,6 +26,7 @@ valu t-sfx / 6 1000
 # divisions
 valu dl-sfx 24
 
+## Geometry
 pnt p-sfx1 0 0 zs-sfx
 pnt p-sfx2 R-sfx 0 zs-sfx
 pnt p-sfx3 0 R-sfx zs-sfx
@@ -35,37 +44,34 @@ surf s-sfx1 blend l-sfx1 l-sfx2 l-sfx3
 surf s-sfx2 blend l-sfx2 l-sfx4 l-sfx5
 surf s-sfx3 blend l-sfx4 l-sfx6 l-sfx7
 surf s-sfx4 blend l-sfx6 l-sfx1 l-sfx8
-
 seta face-sfx1 s s-sfx1 s-sfx2 s-sfx3 s-sfx4
 comp face-sfx1 do
 seto cyl-sfx1
 swep face-sfx1 face-sfx2 tra 0 0 t-sfx
 setc
 
+# Show the geometry
 valu showgeom 0
 if showgeom > 0
-rot y
-rot r 135
-rot u 30
-frame
-zoom .95
+capt Circle face geometry.
 plot pa face-sfx1
 plus la face-sfx1
 plus sa face-sfx1
-#hcpy png circle-geometry
+stop
+hcpy png circle-geometry
+sys mogrify -trim circle-geometry.png
 endif
 
-valu showmesh 1
+## Create the mesh
+valu showmesh 0
 if showmesh > 0
-rot y
-rot r 135
-rot u 30
-frame
-zoom .95
+capt Circle mesh.
 elty all he20r
 mesh all
 view elem
 plot e all n
 view surf
-#hcpy png circle-mesh
+stop
+hcpy png circle-mesh
+sys mogrify -trim circle-mesh.png
 endif
