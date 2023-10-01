@@ -1,20 +1,36 @@
-
+# file: rectangular-section.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
+#
+# Author: R.F. Smith <rsmith@xs4all.nl>
+# Created: 2021-12-19T10:10:27+0100
+# Last modified: 2023-10-01T13:56:47+0200
+
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
 
+## Define the view.
+rot y
+rot l 30
+rot u 15
+
+## Dimensions
 # Rectangle parameters, width, height, wall thickness
-valu W 0.050
-valu H 0.050
-valu t 0.002
+valu W  / 50 1000
+valu H / 50 1000
+valu t / 2 1000
+# Profile length
+valu L / 200 1000
 # Divisions
 valu divW 20
 valu divH 20
 valu divt 4
+valu divl 48
 # Derived values
 valu W2 / W 2
 valu H2 / H 2
 valu WI - W t
+
+## Geometry
 # First corner line
 seto l1
     pnt p1 0 W 0
@@ -24,20 +40,44 @@ setc
 # Center point
 pnt pm 0 W2 H2
 # Rectangle surface
-seto rect
+seto Face1
     swep l1 l2 mir pm y divW
     swep l2 l3 mir pm z divH
     swep l3 l4 mir pm y divW
     swep l4 new mir pm z divH
 setc
-comp rect do
-merg p rect
-merg l rect
+comp Face1 do
+merg p Face1
+merg l Face1
 
-# Display surface
-rot y
-rot l 30
-rot u 15
+## Show the geometry
+valu showgeom 0
+if showgeom > 0
+capt Rectangular profile face geometry.
 plot pa all
 plus la all
 plus sa all
+stop
+hcpy png rectangular-profile-geometry
+sys mogrify -trim rectangular-profile-geometry.png
+endif
+
+seto profile
+   swep Face1 Face2 tra L 0 0 divl
+setc
+comp profile do
+elty all he20r
+mesh all
+
+## Create the mesh
+valu showmesh 0
+if showmesh > 0
+frame
+capt Rectangular profile mesh.
+view elem
+plot e all n
+view surf
+stop
+hcpy png rectangular-profile-mesh
+sys mogrify -trim rectangular-profile-mesh.png
+endif
