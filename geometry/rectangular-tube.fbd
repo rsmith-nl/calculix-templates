@@ -3,21 +3,22 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-17T23:29:58+0200
-# Last modified: 2023-09-18T00:00:26+0200
+# Last modified: 2023-10-01T14:23:43+0200
 
 # Tube scetch in YZ plane, extruded in X direction.
 
+## Define the view
 rot y
 rot r 135
 rot u 25
 
+## Parameters
 # Width, height and length in [m]
 valu B 0.10
 valu H 0.15
 valu L 0.25
 # Wall thickness [m]
 valu t 0.004
-
 # Number of elements in Y
 valu dy2 6
 # Number of elements in Z
@@ -37,8 +38,9 @@ valu cpy - B2i Ri
 valu cpz H2i
 valu ncpy - 0 cpy
 
+## Geometry
 seto tube-section
-pnt tp1 0 B2i 0
+pnt ! 0 B2i 0
 swep tube-section new tra 0 t 0 4
 swep tube-section ln2 tra 0 0 cpz dz2
 pnt cpt 0 cpy cpz
@@ -50,14 +52,37 @@ setc
 merg p tube-section
 merg l tube-section
 
-#plot pa all
-#plus la all
+## Show the geometry
+valu showgeom 0
+if showgeom > 0
+capt Rounded rectangular profile face geometry.
+plot pa all
+plus la all
+plus sa all
+stop
+hcpy png rounded-rectangular-profile-geometry
+sys mogrify -trim roundedrectangular-profile-geometry.png
+endif
 
+## Extrude the tube
 seto tube
 swep tube-section new tra L 0 0 dl
 setc
+comp tube do
 
+## Mesh the tube
 elty all he20r
 mesh all
 
+## Show the mesh
+valu showmesh 0
+if showmesh > 0
+frame
+capt Rectangular profile mesh.
 view elem
+plot e all n
+view surf
+stop
+hcpy png rounded-rectangular-profile-mesh
+sys mogrify -trim rounded-rectangular-profile-mesh.png
+endif
