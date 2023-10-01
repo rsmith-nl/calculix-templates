@@ -2,6 +2,104 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+
+*MATERIAL, NAME=steel_S235J
+*ELASTIC, TYPE=ISO
+210e9,0.30,293
+** {{{ 1
+** *PLASTIC
+** 235e6,0.00200,293
+** 250e6,0.00326,293
+** 300e6,0.01378,293
+** 350e6,0.04662,293
+** 400e6,0.13397,293
+** 435e6,0.26000,293
+** }}}
+*DENSITY
+7850
+*EXPANSION, TYPE=ISO
+12e-6,293
+
+
+*MATERIAL, NAME=steel_1.2312
+** Bevat wat zwavel voor betere verspaanbaarheid.
+*ELASTIC, TYPE=ISO
+205e9,0.30,293
+** {{{ 1
+** Quenched and double tempered to 280 - 325 HB (29 - 34 HRC).
+** *PLASTIC
+** 850e6,0.00200,293
+** 875e6,0.00508,293
+** 900e6,0.01256,293
+** 925e6,0.03030,293
+** 960e6,0.10000,293
+** }}}
+*DENSITY
+7840
+*EXPANSION, TYPE=ISO
+11.5e-6,293
+11.6e-6,393
+12.5e-6,493
+12.8e-6,693
+
+
+*MATERIAL, NAME=steel_1.4301
+** AISI 304
+*ELASTIC, TYPE=ISO
+200e9,0.30,293
+** {{{ 1
+** *PLASTIC, HARDENING=COMBINED
+** 205e6,0.002,293
+** 300e6,0.01787,293
+** 400e6,0.0935,293
+** 475e6,0.25124,293
+** 515e6,0.40,293
+** }}}
+*DENSITY
+7900
+** σ̅ = 205 MPa
+*EXPANSION, TYPE=ISO
+17.2e-6,293
+
+*MATERIAL, NAME=steel_1.4401
+** AISI 316
+*ELASTIC, TYPE=ISO
+200e9,0.28,293
+*DENSITY
+7900
+** σ̅ = 205 MPa
+*EXPANSION, TYPE=ISO
+16e-6,293
+
+*MATERIAL, NAME=steel_C55S
+** werkstoffnr 1.1204
+*ELASTIC, TYPE=ISO
+190e9,0.29,293
+*DENSITY
+7820
+*EXPANSION, TYPE=ISO
+12e-6,293
+
+*MATERIAL, NAME=steel_C75S
+** spring steel 1.1248, AISI 1075
+*ELASTIC, TYPE=ISO
+200e9,0.30,293
+*DENSITY
+7700
+*EXPANSION, TYPE=ISO
+10e-6,293
+
+*MATERIAL, NAME=steel_C100S
+** werkstoffnr 1.1274
+*ELASTIC, TYPE=ISO
+190e9,0.29,293
+*DENSITY
+7800
+*EXPANSION, TYPE=ISO
+12e-6,293
+
+** S235J
+** Plastic calculations
 ** {{{ 1
 ** In [1]: import math
 **
@@ -43,24 +141,7 @@
 ** Out[13]: 0.26
 ** }}}
 
-*MATERIAL, NAME=MS235J
-*ELASTIC, TYPE=ISO
-210e9,0.30,293
-** {{{ 1
-** *PLASTIC
-** 235e6,0.00200,293
-** 250e6,0.00326,293
-** 300e6,0.01378,293
-** 350e6,0.04662,293
-** 400e6,0.13397,293
-** 435e6,0.26000,293
-** }}}
-*DENSITY
-7850
-*EXPANSION, TYPE=ISO
-12e-6,293
-
-
+** 1.2312
 ** {{{ 1
 **In [1]: import math
 **
@@ -98,41 +179,3 @@
 **In [12]: plastic_strain(960)
 **Out[12]: 0.1
 ** }}}
-
-*MATERIAL, NAME=M1.2312
-*ELASTIC, TYPE=ISO
-205e9,0.30,293
-** {{{ 1
-** Quenched and double tempered to 280 - 325 HB (29 - 34 HRC).
-** *PLASTIC
-** 850e6,0.00200,293
-** 875e6,0.00508,293
-** 900e6,0.01256,293
-** 925e6,0.03030,293
-** 960e6,0.10000,293
-** }}}
-*DENSITY
-7840
-*EXPANSION, TYPE=ISO
-11.5e-6,293
-11.6e-6,393
-12.5e-6,493
-12.8e-6,693
-
-
-*MATERIAL, NAME=M1.4301
-*ELASTIC, TYPE=ISO
-200e9,0.30,293
-** {{{ 1
-** *PLASTIC, HARDENING=COMBINED
-** 205e6,0.002,293
-** 300e6,0.01787,293
-** 400e6,0.0935,293
-** 475e6,0.25124,293
-** 515e6,0.40,293
-** }}}
-*DENSITY
-7900
-** σ̅ = 205 MPa
-*EXPANSION, TYPE=ISO
-17.2e-6,293
