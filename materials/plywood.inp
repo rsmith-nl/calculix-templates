@@ -1,0 +1,18 @@
+** file: plywood.inp
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+**
+** Author: R.F. Smith <rsmith@xs4all.nl>
+** Created: 2023-10-13T22:55:53+0200
+** Last modified: 2023-10-13T23:09:14+0200
+
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** Source: “In-plane mechanical properties of birch plywood”
+** https://doi.org/10.1016/j.conbuildmat.2022.127852
+*MATERIAL, NAME=birch-plywood
+*ELASTIC,TYPE=ENGINEERING CONSTANTS
+9400e6,6700e6,1110e6,0.034,0.431,0.439,610e6,206e6
+186e6,293
+*DENSITY
+693
