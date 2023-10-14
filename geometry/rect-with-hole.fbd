@@ -1,12 +1,12 @@
-# file: rect-with-hole.pre
+# file: rect-with-hole.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
 # Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2023-10-08T13:59:52+0200
-# Last modified: 2023-10-08T16:00:50+0200
+# Last modified: 2023-10-14T10:59:18+0200
 
-# Call with: “cgx -bg rect-with-hole.pre”
+## Call with “cgx -b rect-with-hole.fbd”.
 
 # Width and height of the rectangle
 valu W / 30 1000
@@ -109,6 +109,14 @@ valu p8x + hoffs dx
 valu p8y + H dy
 pnt p8 p8x p8y poffs
 
+## Section geometry
+# If you are using different holed rectangles, make sure that each has a
+# unique postfix!
+# This can e.g. be generated with Python:
+#  import random
+#  import binascii
+#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
+seto rect-with-hole-face-B179FB
 line l1 p1 p5 divl
 line l5 p1 p2 divl
 line l9 p5 p6 cp divl
@@ -125,37 +133,43 @@ surf s1 blend l1 l9 l2 l5
 surf s2 blend l2 l10 l3 l6
 surf s3 blend l3 l11 l4 l7
 surf s4 blend l4 l12 l8 l1
+setc
 
+## Everything below here is just for presentation.
+# You can remove it if you are going to reuse this code.
+
+## Show the geometry
+valu showgeom 0
+if showgeom > 0
+capt Rectangle with hole face geometry.
+rot y
+rot u 70
+frame
+zoom 0.9
 plot pa all
 plus la all
 plus sa all
+stop
+hcpy png rectangle-with-hole-face
+sys mogrify -trim rectangle-with-hole-face.png
+endif
 
-# awk '/^valu/ {print $2}' rect-with-hole.in | sort | uniq
-del v \D
-del v \divl
-del v \dl
-del v \dx
-del v \dx2
-del v \dy
-del v \dy2
-del v \f
-del v \H
-del v \hhor
-del v \hoffs
-del v \hver
-del v \i1
-del v \p5x
-del v \p5y
-del v \p6x
-del v \p6y
-del v \p7x
-del v \p7y
-del v \p8x
-del v \p8y
-del v \poffs
-del v \R
-del v \vhor
-del v \voffs
-del v \W
-
-save
+## Show the mesh
+valu showmesh 0
+if showmesh > 0
+rot y
+rot u 70
+rot r 5
+swep rect-with-hole-face-B179FB new tra 0 0 0.003 4
+elty all he20r
+mesh all
+frame
+zoom 0.9
+capt Rectangular profile mesh.
+view elem
+plot e all n
+view surf
+stop
+hcpy png rectangle-with-hole-mesh
+sys mogrify -trim rectangle-with-hole-mesh.png
+endif

@@ -3,14 +3,10 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-17T23:29:58+0200
-# Last modified: 2023-10-01T14:23:43+0200
+# Last modified: 2023-10-14T11:04:59+0200
 
 # Tube scetch in YZ plane, extruded in X direction.
 
-## Define the view
-rot y
-rot r 135
-rot u 25
 
 ## Parameters
 # Width, height and length in [m]
@@ -38,51 +34,66 @@ valu cpy - B2i Ri
 valu cpz H2i
 valu ncpy - 0 cpy
 
-## Geometry
-seto tube-section
+## Section geometry
+# If you are using different tube sections, make sure that each has a
+# unique postfix!
+# This can e.g. be generated with Python:
+#  import random
+#  import binascii
+#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
+seto rounded-tube-section-9D672C
 pnt ! 0 B2i 0
-swep tube-section new tra 0 t 0 4
-swep tube-section ln2 tra 0 0 cpz dz2
+swep rounded-tube-section-9D672C new tra 0 t 0 4
+swep rounded-tube-section-9D672C ln2 tra 0 0 cpz dz2
 pnt cpt 0 cpy cpz
 swep ln2 ln3 rot cpt x 90 dr
 swep ln3 new tra 0 ncpy 0 dy2
-copy tube-section new mir z
-copy tube-section new mir y
+copy rounded-tube-section-9D672C new mir z
+copy rounded-tube-section-9D672C new mir y
 setc
-merg p tube-section
-merg l tube-section
+merg p rounded-tube-section-9D672C
+merg l rounded-tube-section-9D672C
+
+## Everything below here is just for presentation.
+# You can remove it if you are going to reuse this code.
 
 ## Show the geometry
 valu showgeom 0
 if showgeom > 0
+rot y
+rot r 90
+frame
 capt Rounded rectangular profile face geometry.
 plot pa all
 plus la all
-plus sa all
 stop
 hcpy png rounded-rectangular-profile-geometry
 sys mogrify -trim roundedrectangular-profile-geometry.png
 endif
 
-## Extrude the tube
-seto tube
-swep tube-section new tra L 0 0 dl
-setc
-comp tube do
-
-## Mesh the tube
-elty all he20r
-mesh all
-
 ## Show the mesh
 valu showmesh 0
 if showmesh > 0
+## Define the view
+rot y
+rot r 135
+rot u 25
+# Extrude the tube
+seto tube
+swep rounded-tube-section-9D672C new tra L 0 0 dl
+setc
+comp tube do
 frame
+# Mesh the tube
+elty all he20r
+mesh all
+# Show the mesh
 capt Rectangular profile mesh.
 view elem
 plot e all n
 view surf
 stop
+# Save a picture
 hcpy png rounded-rectangular-profile-mesh
 sys mogrify -trim rounded-rectangular-profile-mesh.png
 endif

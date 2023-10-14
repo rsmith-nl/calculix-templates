@@ -3,7 +3,7 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2021-12-19T10:10:27+0100
-# Last modified: 2023-10-01T13:56:47+0200
+# Last modified: 2023-10-14T10:53:51+0200
 
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
@@ -39,16 +39,26 @@ seto l1
 setc
 # Center point
 pnt pm 0 W2 H2
-# Rectangle surface
-seto Face1
+
+## Section geometry
+# If you are using different tube sections, make sure that each has a
+# unique postfix!
+# This can e.g. be generated with Python:
+#  import random
+#  import binascii
+#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
+seto rectangular-tube-section-DC70B1
     swep l1 l2 mir pm y divW
     swep l2 l3 mir pm z divH
     swep l3 l4 mir pm y divW
     swep l4 new mir pm z divH
 setc
-comp Face1 do
-merg p Face1
-merg l Face1
+comp rectangular-tube-section-DC70B1 do
+merg p rectangular-tube-section-DC70B1
+merg l rectangular-tube-section-DC70B1
+
+## Everything below here is just for presentation.
+# You can remove it if you are going to reuse this code.
 
 ## Show the geometry
 valu showgeom 0
@@ -62,16 +72,12 @@ hcpy png rectangular-profile-geometry
 sys mogrify -trim rectangular-profile-geometry.png
 endif
 
-seto profile
-   swep Face1 Face2 tra L 0 0 divl
-setc
-comp profile do
-elty all he20r
-mesh all
-
-## Create the mesh
+## Show the mesh
 valu showmesh 0
 if showmesh > 0
+swep rectangular-tube-section-DC70B1 Face2 tra L 0 0 divl
+elty all he20r
+mesh all
 frame
 capt Rectangular profile mesh.
 view elem

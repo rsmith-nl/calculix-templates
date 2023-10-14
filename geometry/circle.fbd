@@ -4,67 +4,73 @@
 #
 # Author: R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-10-01T13:41:32+0200
+# Last modified: 2023-10-14T11:22:13+0200
 
 # When using this code, replace “sfx” with a unique suffix.
 
-## Define the view
-rot y
-rot r 135
-rot u 30
-frame
-zoom .95
-
 ## Dimensions
 # Radius
-valu R-sfx / 50 1000
-valu nR-sfx - 0 R-sfx
+valu R / 50 1000
+valu nR - 0 R
 # Starting height
-valu zs-sfx / 0 1000
+valu zs / 0 1000
 # Thickness
-valu t-sfx / 6 1000
+valu t / 6 1000
 # divisions
-valu dl-sfx 24
+valu dl 24
 
-## Geometry
-pnt p-sfx1 0 0 zs-sfx
-pnt p-sfx2 R-sfx 0 zs-sfx
-pnt p-sfx3 0 R-sfx zs-sfx
-pnt p-sfx4 nR-sfx 0 zs-sfx
-pnt p-sfx5 0 nR-sfx zs-sfx
-line l-sfx1 p-sfx1 p-sfx2 dl-sfx
-line l-sfx2 p-sfx1 p-sfx3 dl-sfx
-line l-sfx3 p-sfx2 p-sfx3 p-sfx1 dl-sfx
-line l-sfx4 p-sfx1 p-sfx4 dl-sfx
-line l-sfx5 p-sfx3 p-sfx4 p-sfx1 dl-sfx
-line l-sfx6 p-sfx1 p-sfx5 dl-sfx
-line l-sfx7 p-sfx4 p-sfx5 p-sfx1 dl-sfx
-line l-sfx8 p-sfx5 p-sfx2 p-sfx1 dl-sfx
-surf s-sfx1 blend l-sfx1 l-sfx2 l-sfx3
-surf s-sfx2 blend l-sfx2 l-sfx4 l-sfx5
-surf s-sfx3 blend l-sfx4 l-sfx6 l-sfx7
-surf s-sfx4 blend l-sfx6 l-sfx1 l-sfx8
-seta face-sfx1 s s-sfx1 s-sfx2 s-sfx3 s-sfx4
-comp face-sfx1 do
-seto cyl-sfx1
-swep face-sfx1 face-sfx2 tra 0 0 t-sfx
+## Section geometry
+# If you are using different sections, make sure that each has a
+# unique postfix!
+# This can e.g. be generated with Python:
+#  import random
+#  import binascii
+#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
+seto circle-D884AD
+pnt p1 0 0 zs
+pnt p2 R 0 zs
+pnt p3 0 R zs
+pnt p4 nR 0 zs
+pnt p5 0 nR zs
+line l1 p1 p2 dl
+line l2 p1 p3 dl
+line l3 p2 p3 p1 dl
+line l4 p1 p4 dl
+line l5 p3 p4 p1 dl
+line l6 p1 p5 dl
+line l7 p4 p5 p1 dl
+line l8 p5 p2 p1 dl
+surf s1 blend l1 l2 l3
+surf s2 blend l2 l4 l5
+surf s3 blend l4 l6 l7
+surf s4 blend l6 l1 l8
+#swep face1 face2 tra 0 0 t
 setc
 
 # Show the geometry
 valu showgeom 0
 if showgeom > 0
+rot y
+rot u 90
+frame
 capt Circle face geometry.
-plot pa face-sfx1
-plus la face-sfx1
-plus sa face-sfx1
+plot pa all
+plus la all
+plus sa all
 stop
 hcpy png circle-geometry
 sys mogrify -trim circle-geometry.png
 endif
 
-## Create the mesh
+## Show the mesh
 valu showmesh 0
 if showmesh > 0
+swep circle-D884AD new tra 0 0 t
+rot y
+rot r 135
+rot u 30
+frame
+zoom .95
 capt Circle mesh.
 elty all he20r
 mesh all
