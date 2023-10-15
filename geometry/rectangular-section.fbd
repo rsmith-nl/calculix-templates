@@ -1,12 +1,10 @@
 # file: rectangular-section.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
-# Author: R.F. Smith <rsmith@xs4all.nl>
+# Copyright © 2021 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
 # Created: 2021-12-19T10:10:27+0100
-# Last modified: 2023-10-14T10:53:51+0200
-
-# All values in SI units: m,s,kg,N,Pa,J
-# (length,time,mass,force,stress,energy).
+# Last modified: 2023-10-15T19:52:13+0200
 
 ## Define the view.
 rot y
@@ -14,11 +12,11 @@ rot l 30
 rot u 15
 
 ## Dimensions
-# Rectangle parameters, width, height, wall thickness
+# Rectangle parameters, width, height, wall thickness in [m]
 valu W  / 50 1000
 valu H / 50 1000
 valu t / 2 1000
-# Profile length
+# Profile length in [m]
 valu L / 200 1000
 # Divisions
 valu divW 20

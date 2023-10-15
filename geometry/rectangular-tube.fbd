@@ -1,12 +1,12 @@
 # file: rectangular-tube.fbd
-# vim:fileencoding=utf-8:ft=cgx
+# vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
-# Author: R.F. Smith <rsmith@xs4all.nl>
+# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
 # Created: 2023-09-17T23:29:58+0200
-# Last modified: 2023-10-14T11:04:59+0200
+# Last modified: 2023-10-15T19:47:52+0200
 
 # Tube scetch in YZ plane, extruded in X direction.
-
 
 ## Parameters
 # Width, height and length in [m]

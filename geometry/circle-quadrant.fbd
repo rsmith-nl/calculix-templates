@@ -1,10 +1,10 @@
 # file: circle-quadrant.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
-# Circle quadrant in the XY plane, extruded in Z direction.
 #
-# Author: R.F. Smith <rsmith@xs4all.nl>
-# Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-10-14T11:16:15+0200
+# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
+# Created: 2023-09-10T19:00:47+0200
+# Last modified: 2023-10-15T19:46:00+0200
 
 rot y
 rot r 135

@@ -1,14 +1,19 @@
 # file: round-tube.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
-# Author: R.F. Smith <rsmith@xs4all.nl>
-# Created: 2023-01-14T19:04:12+0100
-# Last modified: 2023-09-17T23:26:13+0200
+# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
+# Created: 2023-08-04T13:53:25+0200
+# Last modified: 2023-10-15T19:50:32+0200
 
-
+## Parameters
+# Outside diameter in [m]
 valu Do 0.1937
+# Wall thickness in [m]
 valu t 0.006
+# Length in [m]
 valu L 1.0
+# Divisions
 valu divr 16
 valu divt 4
 valu divl 80

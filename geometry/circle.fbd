@@ -1,12 +1,10 @@
 # file: circle.fbd
-# Circle in the XY-plane, extruded in Z.
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
 #
-# Author: R.F. Smith <rsmith@xs4all.nl>
+# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
 # Created: 2023-09-08T16:34:19+0200
-# Last modified: 2023-10-14T11:22:13+0200
-
-# When using this code, replace “sfx” with a unique suffix.
+# Last modified: 2023-10-15T19:46:37+0200
 
 ## Dimensions
 # Radius

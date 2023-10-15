@@ -1,19 +1,23 @@
+# file: sandwich.fbd
 # vim:fileencoding=utf-8:fdm=marker:ft=cgx
-# All values in SI units: m,s,kg,N,Pa,J
-# (length,time,mass,force,stress,energy).
+#
+# Copyright © 2021 R.F. Smith <rsmith@xs4all.nl>
+# SPDX-License-Identifier: MIT
+# Created: 2021-12-19T10:10:27+0100
+# Last modified: 2023-10-15T19:51:37+0200
 
 # Dimensions:
-# length in m
+# length in [m]
 valu L / 0.56 2
-# Width in m
+# Width in [m]
 valu B 0.1
-# Total thickness in m: T
+# Total thickness in [m]
 valu T / 31 1000
-# Top laminate thickness in m.
+# Top laminate thickness in [m]
 valu t1 / 1.5 1000
-# Bottom laminate thickness in m.
+# Bottom laminate thickness in [m]
 valu t2 / 1.5 1000
-# Core thickness in m: tk
+# Core thickness in [m]
 valu tmp + t1 t2
 valu tk - T tmp
 
