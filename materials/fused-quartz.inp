@@ -1,0 +1,14 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** Source: https://technicalglass.com/technical-properties/
+** tensile strength: 48 MPa,
+** compressive strength: 1100 MPa
+*MATERIAL, NAME=fused_quartz
+*ELASTIC, TYPE=ISO
+7.2e10,0.17,293
+*DENSITY
+2200
+*EXPANSION, TYPE=ISO
+5.5e-7,293
