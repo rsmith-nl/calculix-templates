@@ -1,0 +1,14 @@
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+** Source: https://www.makeitfrom.com/material-properties/Granite
+** tensile strength: 39 MPa,
+** compressive strength: 2200 MPa
+*MATERIAL, NAME=granite
+*ELASTIC, TYPE=ISO
+70e9,0.25,294
+*DENSITY
+2900
+*EXPANSION, TYPE=ISO
+7.4e-6,293
