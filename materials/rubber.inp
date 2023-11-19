@@ -11,27 +11,27 @@
 ** Since k is in the order of 1e9 to 2e9, D1 would be smaller
 ** than the default value of 0.8446e-07, so use that instead.
 
-*MATERIAL, NAME=Mrubber_55ShoreA
+*MATERIAL, NAME=rubber_55ShoreA
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.382e6,0.096e6,0.8446e-07
 
-*MATERIAL, NAME=Mrubber_58ShoreA
+*MATERIAL, NAME=rubber_58ShoreA
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.436e6,0.109e6,0.8446e-07
 
-*MATERIAL, NAME=Mrubber_60ShoreA
+*MATERIAL, NAME=rubber_60ShoreA
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.474e6,0.118e6,0.8446e-07
 
-*MATERIAL, NAME=Mrubber_65ShoreA
+*MATERIAL, NAME=rubber_65ShoreA
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.586e6,0.147e6,0.8446e-07
 
-*MATERIAL, NAME=Mrubber_70ShoreA
+*MATERIAL, NAME=rubber_70ShoreA
 *HYPERELASTIC, MOONEY-RIVLIN
 ** C10,C01,D1
 0.738e6,0.184e6,0.8446e-07
@@ -65,7 +65,7 @@
 **Out[7]: [(20, 1), (30, 1), (40, 2), (50, 2), (60, 4), (70, 6), (80, 9)]**
 ** Poisson constant = 0.499
 
-*MATERIAL, NAME=Mrubber_60ShoreA
+*MATERIAL, NAME=rubber_60ShoreA_linear
 ** linear approximation
 *ELASTIC, TYPE=ISO
 6e6,0.499,293

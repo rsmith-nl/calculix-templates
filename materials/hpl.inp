@@ -1,13 +1,23 @@
-** file: hpl.inp
-** vim:fileencoding=utf-8:ft=abaqus
-**
-** Author: R.F. Smith <rsmith@xs4all.nl>
-** Created: 2023-10-13T21:37:01+0200
-** Last modified: 2023-10-13T21:37:51+0200
+** vim:fileencoding=utf-8:fdm=marker:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
 
-*MATERIAL, NAME=Mhpl
+** High pressure laminate. Fiber reinforced thermoset plastic
+** Made from Kraft paper and phenolic/formaldehyde resin
+** Standard: ISO 4586
+
+*MATERIAL, NAME=HPL_CGS
+** CGS = compact, general purpose, standard
+** tensile strength: at least 70 MPa
+*ELASTIC, TYPE=ISO
+10e9,0.3,293
+*DENSITY
+1350
+
+*MATERIAL, NAME=HPL_CGF
+** CGF = compact, general purpose, flame-retardant
+** tensile strength: at least 60 MPa
 *ELASTIC, TYPE=ISO
 9e9,0.3,293
 *DENSITY
 1350
-

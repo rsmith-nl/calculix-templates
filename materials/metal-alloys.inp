@@ -7,13 +7,13 @@
 ** Invar 36 (FeNi36) / 1.3912
 *ELASTIC, TYPE=ISO
 135e9,0.29,293
-** Eigenschappen in zachte toestand.
-**PLASTIC
-**310,0.00200,293
-**350,0.00755,293
-**400,0.03255,293
-**450,0.11813,293
-**490,0.30000,293
+** Plastic properties in soft condition
+*PLASTIC
+3.1e+08,0.002,293
+3.5e+08,0.00794,293
+4e+08,0.03619,293
+4.5e+08,0.13796,293
+4.9e+08,0.363,293
 *DENSITY
 8130
 *EXPANSION, TYPE=ISO
@@ -24,11 +24,11 @@
 ** magnesium alloy
 *ELASTIC, TYPE=ISO
 44.8e9,0.35,293
-**PLASTIC
-**200,0.002,293
-**225,0.0255,293
-**250,0.2485,293
-**260,0.58,293
+*PLASTIC
+2e+08,0.002,293
+2.25e+08,0.0255,293
+2.5e+08,0.2485,293
+2.6e+08,0.58,293
 *DENSITY
 1770
 *EXPANSION, TYPE=ISO
@@ -66,16 +66,14 @@
 27.4e-6,293
 
 
+** Example of plastic properties calculation
 **In [1]: import math
 **
-**In [2]: Rm = 260
-**Out[2]: 260
+**In [2]: Rm = 260e6;  # Tensile strength
 **
-**In [3]: Rp = 200
-**Out[3]: 200
+**In [3]: Rp = 200e6;  # Yield strength (proportional limit)
 **
-**In [4]: E = 44800
-**Out[4]: 44800
+**In [4]: E = 44.8e9;
 **
 **In [5]: em = round(Rm/E*100,3)
 **Out[5]: 0.58
@@ -84,20 +82,20 @@
 **Out[6]: 0.04627332884613254
 **
 **In [7]: H = Rp/(0.002**n)
-**Out[7]: 266.6369434529877
+**Out[7]: 266636943.45298767
 **
-**In [8]: def plastic_strain(s):
-**   ...:     return f"**{s},{round((s/H)**(1/n), 5)},293"
-**   ...:
+**In [10]: def plastic_strain(s):
+**    ...:     return f"{s:g},{round((s/H)**(1/n), 5)},293"
+**    ...:
 **
-**In [9]: plastic_strain(200)
-**Out[9]: '**200,0.002,293'
+**In [11]: plastic_strain(200e6)
+**Out[11]: '2e+08,0.002,293'
 **
-**In [10]: plastic_strain(225)
-**Out[10]: '**225,0.0255,293'
+**In [12]: plastic_strain(225e6)
+**Out[12]: '2.25e+08,0.0255,293'
 **
-**In [11]: plastic_strain(250)
-**Out[11]: '**250,0.2485,293'
+**In [13]: plastic_strain(250e6)
+**Out[13]: '2.5e+08,0.2485,293'
 **
-**In [12]: plastic_strain(260)
-**Out[12]: '**260,0.58,293'
+**In [14]: plastic_strain(260e6)
+**Out[14]: '2.6e+08,0.58,293'

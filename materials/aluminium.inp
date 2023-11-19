@@ -2,152 +2,81 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-
-** {{{1
-**In [1]: import math
-**
-**In [2]: Rm = 310
-**Out[2]: 310
-**
-**In [3]: Rp = 150
-**Out[3]: 150
-**
-**In [4]: em = 0.13
-**Out[4]: 0.13
-**
-**In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
-**Out[5]: 0.1739026488074465
-**
-**In [6]: H = Rp/(0.002**n)
-**Out[6]: 442.02750281802435
-**
-**In [7]: def plastic_strain(s):
-**   ...:     return round((s/H)**(1/n), 5)
-**   ...:
-**
-**In [8]: plastic_strain(150)
-**Out[8]: 0.002
-**
-**In [9]: plastic_strain(175)
-**Out[9]: 0.00485
-**
-**In [10]: plastic_strain(200)
-**Out[10]: 0.01046
-**
-**In [11]: plastic_strain(250)
-**Out[11]: 0.03773
-**
-**In [12]: plastic_strain(280)
-**Out[12]: 0.0724
-** }}}
-
-*MATERIAL, NAME=M_EN_AW_5083
+*MATERIAL, NAME=EN_AW_5083_H111
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
-** {{{ 1
 ** H111: Rp = 150, Rm = 310, em = 0.13
-** *PLASTIC
-** 150e6,0.002,293
-** 175e6,0.00485,293
-** 200e6,0.01046,293
-** 250e6,0.03773,293
-** 280e6,0.0724,293
-** }}}
+*PLASTIC
+150e6,0.002,293
+175e6,0.00485,293
+200e6,0.01046,293
+250e6,0.03773,293
+280e6,0.0724,293
 *DENSITY
 2660
 *EXPANSION, TYPE=ISO
 25e-6,293
 
-
-** {{{1
-** In [1]: import math
-**
-** In [2]: Rm = 190
-** Out[2]: 190
-**
-** In [3]: Rp = 80
-** Out[3]: 80
-**
-** In [4]: A50 = 0.16
-** Out[4]: 0.16
-**
-** In [5]: n = math.log(Rm/Rp)/math.log(A50/0.002)
-** Out[5]: 0.197396663599006
-**
-** In [6]: H = Rp/(0.002**n)
-** Out[6]: 272.8083513292615
-**
-** In [7]: def plastic_strain(s):
-**    ...:     return round((s/H)**(1/n), 5)
-**    ...:
-**
-** In [8]: plastic_strain(80)
-** Out[8]: 0.002
-**
-** In [9]: plastic_strain(100)
-** Out[9]: 0.00619
-**
-** In [10]: plastic_strain(130)
-** Out[10]: 0.0234
-**
-** In [11]: plastic_strain(160)
-** Out[11]: 0.06699
-**
-** In [12]: plastic_strain(190)
-** Out[12]: 0.16
-
-** In [13]: Rm = 220
-** Out[13]: 220
-**
-** In [14]: Rp = 130
-** Out[14]: 130
-**
-** In [15]: A50 = 0.08
-** Out[15]: 0.08
-**
-** In [16]: n = math.log(Rm/Rp)/math.log(A50/0.002)
-** Out[16]: 0.14261596304267035
-**
-** In [17]: H = Rp/(0.002**n)
-** Out[17]: 315.3984529087304
-**
-** In [18]: plastic_strain(130)
-** Out[18]: 0.002
-**
-** In [19]: plastic_strain(150)
-** Out[19]: 0.00546
-**
-** In [20]: plastic_strain(170)
-** Out[20]: 0.01312
-**
-** In [21]: plastic_strain(190)
-** Out[21]: 0.02862
-**
-** In [22]: plastic_strain(220)
-** Out[22]: 0.08
-** }}}
-
-*MATERIAL, NAME=M_EN_AW_5754
+*MATERIAL, NAME=EN_AW_5754_H111
 *ELASTIC, TYPE=ISO
 70e9,0.33,293
-** {{{ 1
 ** H111: Rp0,2 = 80 MPa, Rm = 190, A50 = 0,16
-** *PLASTIC
-** 80,0.002,293
-** 100,0.00619,293
-** 130,0.0234,293
-** 160,0.06699,293
-** 190,0.16,293
-****************
-** H22: Rp0,2 = 130 MPa, Rm = 220, A50 = 0,08
-** *PLASTIC
-** 130,0.002,293
-** 150,0.00546,293
-** 170,0.01312,293
-** 190,0.02862,293
-** 220,0.08,293
-** }}}
+*PLASTIC
+80e6,0.002,293
+100e6,0.00619,293
+130e6,0.0234,293
+160e6,0.06699,293
+190e6,0.16,293
 *DENSITY
 2670
 *EXPANSION, TYPE=ISO
 23.7e-6,293
+
+*MATERIAL, NAME=EN_AW_5754_H22
+*ELASTIC, TYPE=ISO
+70e9,0.33,293
+** H22: Rp0,2 = 130 MPa, Rm = 220, A50 = 0,08
+*PLASTIC
+130e6,0.002,293
+150e6,0.00546,293
+170e6,0.01312,293
+190e6,0.02862,293
+220e6,0.08,293
+*DENSITY
+2670
+*EXPANSION, TYPE=ISO
+23.7e-6,293
+
+** Example of plastic strain calculations.
+**In [1]: import math
+**
+**In [2]: Rm = 310e6;  # failure stress
+**
+**In [3]: Rp = 150;  # yield stress (proportional limit)
+**
+**In [4]: em = 0.13;  # failure strain
+**
+**In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
+**Out[5]: 3.4834926951352934
+**
+**In [6]: H = Rp/(0.002**n)
+**Out[6]: 378384687958.17957
+**
+**In [7]: def plastic_strain(s):
+**   ...:     return f"{s:g},{round((s/H)**(1/n), 5)},293"
+**   ...:
+**
+**In [8]: plastic_strain(150e6)
+**Out[8]: '1.5e+08,0.10555,293'
+**
+**In [9]: plastic_strain(175e6)
+**Out[9]: '1.75e+08,0.11032,293'
+**
+**In [10]: plastic_strain(200e6)
+**Out[10]: '2e+08,0.11463,293'
+**
+**In [11]: plastic_strain(250e6)
+**Out[11]: '2.5e+08,0.12222,293'
+**
+**In [12]: plastic_strain(280e6)
+**Out[12]: '2.8e+08,0.12626,293'
