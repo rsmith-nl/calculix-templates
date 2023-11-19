@@ -12,6 +12,7 @@
 200e6,0.01046,293
 250e6,0.03773,293
 280e6,0.0724,293
+3.1e+08,0.13,293
 *DENSITY
 2660
 *EXPANSION, TYPE=ISO
@@ -47,36 +48,40 @@
 *EXPANSION, TYPE=ISO
 23.7e-6,293
 
-** Example of plastic strain calculations.
+** Example of plastic strain calculations; Ramberg-Osgood equation.
+** https://mechanicalc.com/reference/mechanical-properties-of-materials
 **In [1]: import math
 **
 **In [2]: Rm = 310e6;  # failure stress
 **
-**In [3]: Rp = 150;  # yield stress (proportional limit)
+**In [3]: Rp = 150e6;  # yield stress (proportional limit)
 **
 **In [4]: em = 0.13;  # failure strain
 **
 **In [5]: n = math.log(Rm/Rp)/math.log(em/0.002)
-**Out[5]: 3.4834926951352934
+**Out[5]: 0.1739026488074465
 **
 **In [6]: H = Rp/(0.002**n)
-**Out[6]: 378384687958.17957
+**Out[6]: 442027502.81802434
 **
 **In [7]: def plastic_strain(s):
 **   ...:     return f"{s:g},{round((s/H)**(1/n), 5)},293"
 **   ...:
 **
 **In [8]: plastic_strain(150e6)
-**Out[8]: '1.5e+08,0.10555,293'
+**Out[8]: '1.5e+08,0.002,293'
 **
 **In [9]: plastic_strain(175e6)
-**Out[9]: '1.75e+08,0.11032,293'
+**Out[9]: '1.75e+08,0.00485,293'
 **
 **In [10]: plastic_strain(200e6)
-**Out[10]: '2e+08,0.11463,293'
+**Out[10]: '2e+08,0.01046,293'
 **
 **In [11]: plastic_strain(250e6)
-**Out[11]: '2.5e+08,0.12222,293'
+**Out[11]: '2.5e+08,0.03773,293'
 **
 **In [12]: plastic_strain(280e6)
-**Out[12]: '2.8e+08,0.12626,293'
+**Out[12]: '2.8e+08,0.0724,293'
+**
+**In [13]: plastic_strain(310e6)
+**Out[13]: '3.1e+08,0.13,293'
