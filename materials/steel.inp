@@ -3,6 +3,7 @@
 ** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=steel_S235J
+** Standard construction steel
 *ELASTIC, TYPE=ISO
 210e9,0.30,293
 *PLASTIC
@@ -19,6 +20,7 @@
 
 
 *MATERIAL, NAME=steel_1.2312
+** Tool steel
 ** Contains a little sulphur for better turning/milling behavior.
 *ELASTIC, TYPE=ISO
 205e9,0.30,293
@@ -65,7 +67,7 @@
 16e-6,293
 
 *MATERIAL, NAME=steel_C55S
-** werkstoffnr 1.1204
+** spring steel, werkstoffnr 1.1204
 *ELASTIC, TYPE=ISO
 190e9,0.29,293
 *DENSITY
@@ -83,13 +85,23 @@
 10e-6,293
 
 *MATERIAL, NAME=steel_C100S
-** werkstoffnr 1.1274
+** spring steel, werkstoffnr 1.1274
 *ELASTIC, TYPE=ISO
 190e9,0.29,293
 *DENSITY
 7800
 *EXPANSION, TYPE=ISO
 12e-6,293
+
+*MATERIAL, NAME=steel_1.2842
+** 1.2842; 90MnCrV8; AISI O2
+*ELASTIC, TYPE=ISO
+190e9,0.29,293
+*DENSITY
+7800
+*EXPANSION, TYPE=ISO
+11.2e-6,373
+
 
 ** S235J
 ** Plastic calculations
