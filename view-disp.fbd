@@ -1,36 +1,27 @@
-
 # vim:fileencoding=utf-8:ft=cgx
-
-# Read result data
-read job.frd
-# Read input data (sets)
-read job.inp
-
-# mirror
-#copy all new mir y
-#comp all do
-
-# First line of text below the window.
-capt Caption
-# Second line of text.
-ulin Displacement
 
 # Define the view.
 rot y
 rot r 135
 rot u 30
+
+# Read result data
+read job.frd
+# Read input data (sets)
+# read job.inp
 frame
 
+# mirror
+#copy all new mir y
+#comp all do
+
+capt Caption
+ulin Displacement
+
 # Displacements
-# Use the “turbo” colormap.
-cmap turbo
-# ds 1 is displacement. e 3 is z-displacement, e 4 is x+y+z.
+cmap viridis
 ds 1 e 4
-# View the deformed state.
 view disp
-# Don't use shading.
 view sh off
-# Show the element borders
 view elem
-# Scale the deformation by a factor 10.
 scal d 10
