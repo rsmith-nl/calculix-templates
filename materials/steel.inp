@@ -102,6 +102,19 @@
 *EXPANSION, TYPE=ISO
 11.2e-6,373
 
+*MATERIAL, NAME=steel_1.2210
+** 115CrV3, L2 tool steel, drillrod, silver steel
+** soft annealed: 220 HB, 750 MPa, 27 HRC.
+** hardened: 62 HRC
+*ELASTIC, TYPE=ISO
+200e9,0.285,293
+*DENSITY
+7800
+*EXPANSION, TYPE=ISO
+10e-6,293
+10e-6,393
+12.7e-6,493
+
 
 ** S235J
 ** Plastic calculations
