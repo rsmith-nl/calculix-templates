@@ -10,19 +10,32 @@ Problem description
 **   echo '*INCLUDE, INPUT='${f}
 ** end
 *INCLUDE, INPUT=all.msh
-*INCLUDE, INPUT=fix.nam
-** Rigid body goes before step!
+
+** Rigid body constraints should be defined before step!
 *RIGID BODY, NSET=Nload, REF NODE=1
+
 ** Fixation
 *BOUNDARY
 Nfix,1,3
 ** Material properties
-*MATERIAL, NAME=Mqi
-*ELASTIC,TYPE=ENGINEERING CONSTANTS
-4.0392e+10,4.0392e+10,5.8e+09,0.321,0.300,0.300,1.7935e+10,2.9e+09
-2.9e+09,293
+
+*MATERIAL, NAME=EN_AW_5083_H111
+*ELASTIC, TYPE=ISO
+71e9,0.33,293
+** H111: Rp = 150, Rm = 310, em = 0.13
+***PLASTIC
+**150e6,0.002,293
+**175e6,0.00485,293
+**200e6,0.01046,293
+**250e6,0.03773,293
+**280e6,0.0724,293
+**3.1e+08,0.13,293
 *DENSITY
-1490
+2660
+*EXPANSION, TYPE=ISO
+25e-6,293
+
 ** Apply material properties to element sets.
-*SOLID SECTION, ELSET=Eall, MATERIAL=M±45_xn90
+*SOLID SECTION, ELSET=Eall, MATERIAL=EN_AW_5083_H111
+
 ** Steps to follow **
