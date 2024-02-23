@@ -4,11 +4,17 @@
 
 all: all.msh job.frd
 
-# Run the pre-processor
+# Run cgx as the pre-processor
 all.msh: pre.fbd
 	cgx -bg pre.fbd
 	cat DCF* ICF* > ties.sur
 	rm -f ICF* DCF*
+
+# Run gmsh as the pre-processor
+all.msh: waterdeksel.stp pre.geo
+	gmsh pre.geo -
+	gmsh-inp-filter --log=info gmsh-output.inp all.msh
+	rm -f gmsh-output.inp
 
 # Run the solver
 # Note: to take advantage of multiple cores,
