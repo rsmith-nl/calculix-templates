@@ -1,5 +1,5 @@
 # vim:fileencoding=utf-8:fdm=marker:ft=make
-
+.POSIX:
 all: all.msh job.frd
 
 # Run cgx as the pre-processor
