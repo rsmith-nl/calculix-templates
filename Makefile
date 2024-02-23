@@ -1,4 +1,3 @@
-
 # vim:fileencoding=utf-8:fdm=marker:ft=make
 .PHONY: mesh disp stress core clean include help
 
