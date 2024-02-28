@@ -5,24 +5,28 @@ rot y
 rot r 135
 rot u 30
 
+capt Caption
+ulin Worst principal stress
+
+# Set up the presentation
+cmap coolwarm
+mm 100e6 el
+view sh off
+view elem
+
 # Read result data
 read job.frd
-# Read input data (sets)
-# read job.inp
+# Read input data (sets, no mesh)
+read job.inp nom
+# Remove surface elements.
+# zap +S6
 frame
 
 # mirror
 #copy all new mir y
 #comp all do
 
-capt Caption
-ulin Worst principal stress
-
 # Stress
-mm 100e6 el
-cmap coolwarm
 ds 4 e 23
 view disp
-view sh off
-view elem
 scal d 10

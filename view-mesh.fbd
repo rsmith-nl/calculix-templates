@@ -5,6 +5,13 @@ rot y
 rot r 135
 rot u 30
 
+capt Caption
+ulin Mesh
+
+# Set up the presentation
+view sh off
+view elem
+
 # Read the mesh.
 read all.msh inp
 frame
@@ -12,9 +19,3 @@ frame
 # mirror
 #copy all new mir y
 #comp all do
-
-capt Caption
-ulin Mesh
-
-# Show the element edges
-view elem
