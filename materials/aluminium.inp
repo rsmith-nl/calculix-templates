@@ -48,6 +48,16 @@
 *EXPANSION, TYPE=ISO
 23.7e-6,293
 
+*MATERIAL, NAME=AlSi7Mg
+** Also known al LM25.
+** yield strength, as-cast 80-100 MPa
+*ELASTIC, TYPE=ISO
+71e9,0.33,293
+*DENSITY
+2680
+*EXPANSION, TYPE=ISO
+22e-6,293
+
 ** Example of plastic strain calculations; Ramberg-Osgood equation.
 ** https://mechanicalc.com/reference/mechanical-properties-of-materials
 **In [1]: import math
