@@ -49,6 +49,7 @@
 23.7e-6,293
 
 *MATERIAL, NAME=AlSi7Mg
+** Casting alloy.
 ** Also known al LM25.
 ** yield strength, as-cast 80-100 MPa
 *ELASTIC, TYPE=ISO
@@ -57,6 +58,44 @@
 2680
 *EXPANSION, TYPE=ISO
 22e-6,293
+
+*MATERIAL, NAME=EN_AW_6060_T66
+** Extrusion alloy.
+** Also known as F22
+** yield strength Rp: 170 MPa
+** failure strength Rm: 220 MPa
+** failure strain: 0.091
+** source: https://www.makeitfrom.com/material-properties/6060-T66-Aluminum
+*ELASTIC, TYPE=ISO
+68e9,0.33,293
+*PLASTIC
+1.7e+08,0.002,293
+1.9e+08,0.01038,293
+2.05e+08,0.03198,293
+2.2e+08,0.091,293
+*DENSITY
+2700
+*EXPANSION, TYPE=ISO
+23e-6,293
+
+*MATERIAL, NAME=EN_AW_6063_T66
+** Extrusion alloy.
+** Also known as F25
+** yield strength Rp: 230 MPa
+** failure strength Rm: 250 MPa
+** failure strain: 0.11
+** source: https://www.makeitfrom.com/material-properties/6063-T66-Aluminum
+*ELASTIC, TYPE=ISO
+68e9,0.33,293
+*PLASTIC
+2.3e+08,0.002,293
+2.4e+08,0.01546,293
+2.5e+08,0.11,293
+*DENSITY
+2700
+*EXPANSION, TYPE=ISO
+23e-6,293
+
 
 ** Example of plastic strain calculations; Ramberg-Osgood equation.
 ** https://mechanicalc.com/reference/mechanical-properties-of-materials
