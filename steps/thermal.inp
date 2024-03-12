@@ -1,0 +1,20 @@
+** vim:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+***** Static calculation with thermal load. *****
+
+** 20°C => 293K
+*INITIAL CONDITIONS, TYPE=TEMPERATURE
+Nall, 293
+
+*STEP
+*STATIC
+** Temperature to 70C → 273+70 = 343 K
+*TEMPERATURE
+Nall, 343
+*NODE FILE
+U,RF
+*EL FILE
+ZZS,ME
+*END STEP
