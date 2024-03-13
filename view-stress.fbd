@@ -5,9 +5,6 @@ rot y
 rot r 135
 rot u 30
 
-capt Caption
-ulin Worst principal stress
-
 # Set up the presentation
 cmap coolwarm
 mm 100e6 el
@@ -25,6 +22,9 @@ frame
 # mirror
 #copy all new mir y
 #comp all do
+
+capt Caption
+ulin Worst principal stress
 
 # Stress
 ds 4 e 23

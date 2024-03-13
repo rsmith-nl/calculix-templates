@@ -5,9 +5,6 @@ rot y
 rot r 135
 rot u 30
 
-capt Caption
-ulin Displacement
-
 # Set up the presentation
 cmap viridis
 view sh off
@@ -24,6 +21,9 @@ frame
 # mirror
 #copy all new mir y
 #comp all do
+
+capt Caption
+ulin Displacement
 
 # Displacements
 ds 1 e 4
