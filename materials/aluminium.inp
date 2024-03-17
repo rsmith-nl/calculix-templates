@@ -3,94 +3,92 @@
 ** (length,time,mass,force,stress,energy).
 
 *MATERIAL, NAME=EN_AW_5083_H111
+** https://www.makeitfrom.com/material-properties/5083-H111-Aluminum
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
-** H111: Rp = 150, Rm = 310, em = 0.13
-*PLASTIC
-150e6,0.002,293
-175e6,0.00485,293
-200e6,0.01046,293
-250e6,0.03773,293
-280e6,0.0724,293
-3.1e+08,0.13,293
+*DEFORMATION PLASTICITY
+** In [1]: import math
+**
+** In [2]: Rp = 150e6;  # yield stress (proportional limit)
+**
+** In [3]: Rm = 300e6;  # failure stress
+**
+** In [4]: em = 0.13;  # failure strain
+**
+** In [5]: n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5)
+** Out[5]: 6.02237
+71e9,0.33,150e6,6.02237,0.002,293
 *DENSITY
 2660
 *EXPANSION, TYPE=ISO
 25e-6,293
 
-*MATERIAL, NAME=EN_AW_5754_H111
+*MATERIAL, NAME=EN_AW_5754_O
+** https://www.makeitfrom.com/material-properties/5754-O-Aluminum
 *ELASTIC, TYPE=ISO
-70e9,0.33,293
-** H111: Rp0,2 = 80 MPa, Rm = 190, A50 = 0,16
-*PLASTIC
-80e6,0.002,293
-100e6,0.00619,293
-130e6,0.0234,293
-160e6,0.06699,293
-190e6,0.16,293
+68e9,0.33,293
+*DEFORMATION PLASTICITY
+** O: Rp = 90e6 Pa, Rm = 210e6, em = 0.19
+** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 5.37459
+68e9,0.33,90e6,5.37459,0.002,293
 *DENSITY
-2670
+2700
 *EXPANSION, TYPE=ISO
-23.7e-6,293
+24e-6,293
 
 *MATERIAL, NAME=EN_AW_5754_H22
+** https://www.makeitfrom.com/material-properties/5754-H22-Aluminum
 *ELASTIC, TYPE=ISO
-70e9,0.33,293
-** H22: Rp0,2 = 130 MPa, Rm = 220, A50 = 0,08
-*PLASTIC
-130e6,0.002,293
-150e6,0.00546,293
-170e6,0.01312,293
-190e6,0.02862,293
-220e6,0.08,293
+68e9,0.33,293
+*DEFORMATION PLASTICITY
+** H22: Rp = 150e6 Pa, Rm = 240e6 Pa, em = 0.084
+** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 7.95243
+68e9,0.33,150e6,7.95243,0.002,293
 *DENSITY
-2670
+2700
 *EXPANSION, TYPE=ISO
 23.7e-6,293
 
-*MATERIAL, NAME=AlSi7Mg
+*MATERIAL, NAME=AlSi7Mg-T6
+** https://www.makeitfrom.com/material-properties/EN-AC-42100-AISi7Mg0.3-Cast-Aluminum
 ** Casting alloy.
 ** Also known al LM25.
-** yield strength, as-cast 80-100 MPa
 *ELASTIC, TYPE=ISO
-71e9,0.33,293
+70e9,0.33,293
+*DEFORMATION PLASTICITY
+** T6: Rp = 230e6 Pa, Rm = 290e6 Pa, em = 0.034
+** n = n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 12.22258
+70e9,0.33,230e6,12.22258,0.002,293
 *DENSITY
 2680
 *EXPANSION, TYPE=ISO
 22e-6,293
 
 *MATERIAL, NAME=EN_AW_6060_T66
+** source: https://www.makeitfrom.com/material-properties/6060-T66-Aluminum
 ** Extrusion alloy.
 ** Also known as F22
-** yield strength Rp: 170 MPa
-** failure strength Rm: 220 MPa
-** failure strain: 0.091
-** source: https://www.makeitfrom.com/material-properties/6060-T66-Aluminum
 *ELASTIC, TYPE=ISO
 68e9,0.33,293
-*PLASTIC
-1.7e+08,0.002,293
-1.9e+08,0.01038,293
-2.05e+08,0.03198,293
-2.2e+08,0.091,293
+*DEFORMATION PLASTICITY
+** T66: Rp = 170e6 Pa, Rm = 220e6 Pa, em = 0.091
+** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 14.80714
+68e9,0.33,170e6,14.80714,0.002,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
 23e-6,293
 
 *MATERIAL, NAME=EN_AW_6063_T66
+** source: https://www.makeitfrom.com/material-properties/6063-T66-Aluminum
 ** Extrusion alloy.
 ** Also known as F25
-** yield strength Rp: 230 MPa
-** failure strength Rm: 250 MPa
-** failure strain: 0.11
-** source: https://www.makeitfrom.com/material-properties/6063-T66-Aluminum
 *ELASTIC, TYPE=ISO
 68e9,0.33,293
-*PLASTIC
-2.3e+08,0.002,293
-2.4e+08,0.01546,293
-2.5e+08,0.11,293
+*DEFORMATION PLASTICITY
+** T66: Rp = 230e6 Pa, Rm = 250e6 Pa, em = 0.11
+** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 48.06016
+68e9,0.33,230e6,48.06016,0.002,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
@@ -134,3 +132,33 @@
 **
 **In [13]: plastic_strain(310e6)
 **Out[13]: '3.1e+08,0.13,293'
+
+** Alternatively, we can use *DEFORMATION PLASTICITY
+** This requires the following parameters.
+**    Young's modulus (E).
+**    Poisson's ratio (ν).
+**    Yield stress (σ₀)
+**    Exponent (n).
+**    Yield offset (α).
+**    Temperature.
+**
+** Young's modulus and Poisson's ratio are copied from the *ELASTIC card.
+** The yield stress is Rp, and the yield offset is 0.002.
+** The exponent is calculated as follows (where em is the failure strain and
+** Rm is the failure stress):
+** n = 1/(math.log(Rm/Rp)/math.log(em/0.002))
+**
+** So for the example above (EN AW 5083 H111).
+**    In [1]: import math
+**
+**    In [2]: Rp = 150e6;  # yield stress (proportional limit)
+**
+**    In [3]: Rm = 310e6;  # failure stress
+**
+**    In [4]: em = 0.13;  # failure strain
+**
+**    In [5]: n = 1/(math.log(Rm/Rp)/math.log(em/0.002))
+**    Out[5]: 5.75034369434619
+**
+** *DEFORMATION PLASTICITY
+** 71e9,0.33,150e6,5.75034,0.002
