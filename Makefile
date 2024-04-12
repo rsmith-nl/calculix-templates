@@ -20,9 +20,9 @@ all.msh: waterdeksel.stp pre.geo
 # OMP_NUM_THREADS should be set in the environment.
 # Run the solver for linear analysis
 job.frd: job.inp all.msh
-	ccx -i job | tee job.log
-	rm -f spooles.out *.12d *.cvg *.sta
-	rm -f *Miss*.nam
+	@ccx -i job | tee job.log
+	@rm -f spooles.out *.12d *.cvg *.sta
+	@rm -f *Miss*.nam
 
 # Run the solver for nonlinear analysis
 job.frd: job.inp all.msh
