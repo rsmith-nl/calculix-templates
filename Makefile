@@ -16,13 +16,19 @@ all.msh: waterdeksel.stp pre.geo
 	gmsh-inp-filter --log=info gmsh-output.inp all.msh
 	rm -f gmsh-output.inp
 
-# Run the solver
 # Note: to take advantage of multiple cores,
 # OMP_NUM_THREADS should be set in the environment.
+# Run the solver for linear analysis
 job.frd: job.inp all.msh
-	ccx -i job
-	rm -f job.log spooles.out *.12d *.cvg *.sta
+	ccx -i job | tee job.log
+	rm -f spooles.out *.12d *.cvg *.sta
 	rm -f *Miss*.nam
+
+# Run the solver for nonlinear analysis
+job.frd: job.inp all.msh
+	@ccx -i job| tee job.log | grep -E 'nodes:|   elements:|actual total time'
+	@rm -f spooles.out *.12d *.cvg *.sta
+	@rm -f *Miss*.nam
 
 # Post-processor commands
 mesh: all.msh .PHONY ## view the mesh
