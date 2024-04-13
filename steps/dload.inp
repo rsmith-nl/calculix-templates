@@ -2,7 +2,7 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-***** Static calculation distributed load *****
+***** Linear static calculation with distributed load *****
 *STEP
 *STATIC
 *DLOAD
@@ -18,3 +18,19 @@ ZZS,ME
 RF
 *END STEP
 
+***** Nonlinear static calculation with distributed load *****
+*STEP, NLGEOM
+*STATIC
+0.1, 1.0
+*DLOAD
+** Pressuse difference: 0,8×10⁵ Pa
+** Look at top.sur which facet is used.
+Stop,P1,0.8e5
+*NODE FILE, FREQUENCY=1000
+U,RF
+*EL FILE, FREQUENCY=1000
+ZZS,ME
+** Reaction force on fixation nodes.
+*NODE PRINT, NSET=Nfix, FREQUENCY=1000
+RF
+*END STEP

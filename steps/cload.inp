@@ -2,7 +2,7 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-***** Static calculation with concentrated load on rigid body. *****
+***** Linear static calculation with concentrated load on rigid body. *****
 *STEP
 *STATIC
 *CLOAD
@@ -15,3 +15,19 @@ ZZS,ME
 *NODE PRINT, NSET=Nfix
 RF
 *END STEP
+
+***** Nonlinear static calculation with concentrated load on rigid body. *****
+*STEP, NLGEOM
+*STATIC
+0.1, 1.0
+*CLOAD
+1,3,100
+*NODE FILE, FREQUENCY=1000
+U,RF
+*EL FIL, FREQUENCY=1000E
+ZZS,ME
+** Reaction force on fixation nodes.
+*NODE PRINT, NSET=Nfix, FREQUENCY=1000
+RF
+*END STEP
+

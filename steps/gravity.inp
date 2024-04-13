@@ -2,12 +2,31 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-***** Static calculation of deflection under gravity. *****
+***** Linear static calculation of deflection under gravity. *****
 *STEP
 *STATIC
 *DLOAD
 ** 1 G = 9,81 m/s²
 Eall,GRAV,9.81,0.,0.,-1.
 *NODE FILE
-U
+U, RF
+*EL FILE
+ZZS,ME
+*NODE PRINT
+RF
+*END STEP
+
+***** Nonlinear static calculation of deflection under gravity. *****
+*STEP, NLGEOM
+*STATIC
+0.1, 1.0
+*DLOAD
+** 1 G = 9,81 m/s²
+Eall,GRAV,9.81,0.,0.,-1.
+*NODE FILE, FREQUENCY=1000
+U,RF
+*EL FILE, FREQUENCY=1000
+ZZS,ME
+*NODE PRINT, NSET=Nfix, FREQUENCY=1000
+RF
 *END STEP

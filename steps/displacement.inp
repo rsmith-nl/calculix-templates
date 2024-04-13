@@ -2,10 +2,10 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
+***** Linear calculation with prescribed displacement *****
 *STEP
 *STATIC
 *BOUNDARY
-** Prescribed displacement
 Ndisp,1,2,0
 Ndisp,3,3,5e-6
 *NODE FILE
@@ -14,5 +14,21 @@ U
 ZZS,ME
 ** Force in displaced nodes.
 *NODE PRINT,NSET=Ndisp
+RF
+*END STEP
+
+***** Nonlinear calculation with prescribed displacement *****
+*STEP, NLGEOM
+*STATIC
+0.1, 1.0
+*BOUNDARY
+Ndisp,1,2,0
+Ndisp,3,3,5e-6
+*NODE FILE, FREQUENCY=1000
+U
+*EL FILE, FREQUENCY=1000
+ZZS,ME
+** Force in displaced nodes.
+*NODE PRINT,NSET=Ndisp, FREQUENCY=1000
 RF
 *END STEP
