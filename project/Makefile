@@ -1,4 +1,4 @@
-# vim:fileencoding=utf-8:fdm=marker:ft=make
+# vim:fileencoding=utf-8:ft=make
 .POSIX:
 .SUFFIXES:
 

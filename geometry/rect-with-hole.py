@@ -1,5 +1,5 @@
 # file: rect-with-hole.py
-# vim:fileencoding=utf-8:fdm=marker:ft=python
+# vim:fileencoding=utf-8:ft=python
 #
 # Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
 # Created: 2023-10-08T08:56:41+0200
