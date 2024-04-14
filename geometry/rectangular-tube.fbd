@@ -1,10 +1,5 @@
 # file: rectangular-tube.fbd
 # vim:fileencoding=utf-8:ft=cgx
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-09-17T23:29:58+0200
-# Last modified: 2024-04-13T17:33:19+0200
 
 # Tube sketch in YZ plane, extruded in X direction.
 

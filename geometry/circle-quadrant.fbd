@@ -1,10 +1,5 @@
 # file: circle-quadrant.fbd
 # vim:fileencoding=utf-8:ft=cgx
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-09-10T19:00:47+0200
-# Last modified: 2023-10-15T19:46:00+0200
 
 rot y
 rot r 135

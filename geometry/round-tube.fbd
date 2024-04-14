@@ -1,10 +1,5 @@
 # file: round-tube.fbd
 # vim:fileencoding=utf-8:ft=cgx
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-08-04T13:53:25+0200
-# Last modified: 2023-10-15T19:50:32+0200
 
 ## Parameters
 # Outside diameter in [m]

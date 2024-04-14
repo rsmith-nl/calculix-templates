@@ -1,9 +1,5 @@
 # file: rect-with-hole.py
 # vim:fileencoding=utf-8:ft=python
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# Created: 2023-10-08T08:56:41+0200
-# Last modified: 2023-10-08T13:28:14+0200
 """Script to generate the CGX geometry for a rectangle with a hole."""
 
 import argparse

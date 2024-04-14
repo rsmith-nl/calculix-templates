@@ -1,10 +1,5 @@
 # file: rect-with-hole.fbd
 # vim:fileencoding=utf-8:ft=cgx
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-10-08T13:59:52+0200
-# Last modified: 2023-10-15T19:48:54+0200
 
 ## Dimensions
 # Width and height of the rectangle in [m].
