@@ -13,13 +13,7 @@ valu t / 6 1000
 valu dl 24
 
 ## Section geometry
-# If you are using different sections, make sure that each has a
-# unique postfix!
-# This can e.g. be generated with Python:
-#  import random
-#  import binascii
-#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
-seto circle-D884AD
+seto circle
 pnt p1 0 0 zs
 pnt p2 R 0 zs
 pnt p3 0 R zs
@@ -40,6 +34,9 @@ surf s4 blend l6 l1 l8
 #swep face1 face2 tra 0 0 t
 setc
 
+#### Everything below here is just for presentation. ####
+# You can remove it if you are going to reuse this code.
+
 # Show the geometry
 valu showgeom 0
 if showgeom > 0
@@ -55,10 +52,10 @@ hcpy png circle-geometry
 sys mogrify -trim circle-geometry.png
 endif
 
-## Show the mesh
+# Show the mesh
 valu showmesh 0
 if showmesh > 0
-swep circle-D884AD new tra 0 0 t
+swep circle new tra 0 0 t
 rot y
 rot r 135
 rot u 30

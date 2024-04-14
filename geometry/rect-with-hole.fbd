@@ -101,13 +101,7 @@ valu p8y + H dy
 pnt p8 p8x p8y poffs
 
 ## Section geometry
-# If you are using different holed rectangles, make sure that each has a
-# unique postfix!
-# This can e.g. be generated with Python:
-#  import random
-#  import binascii
-#  binascii.hexlify(random.randbytes(3)).decode("ascii").upper()
-seto rect-with-hole-face-B179FB
+seto rect-with-hole-face
 line l1 p1 p5 divl
 line l5 p1 p2 divl
 line l9 p5 p6 cp divl
@@ -126,7 +120,7 @@ surf s3 blend l3 l11 l4 l7
 surf s4 blend l4 l12 l8 l1
 setc
 
-## Everything below here is just for presentation.
+#### Everything below here is just for presentation. ####
 # You can remove it if you are going to reuse this code.
 
 ## Show the geometry
@@ -151,7 +145,7 @@ if showmesh > 0
 rot y
 rot u 70
 rot r 5
-swep rect-with-hole-face-B179FB new tra 0 0 0.003 4
+swep rect-with-hole-face new tra 0 0 0.003 4
 elty all he20r
 mesh all
 frame

@@ -53,10 +53,13 @@ hcpy png circle-quadrant
 sys mogrify -trim circle-quadrant.png
 endif
 
-## Show the mesh
+#### Everything below here is just for presentation. ####
+# You can remove it if you are going to reuse this code.
+
+# Show the mesh
 valu showmesh 0
 if showmesh > 0
-## Define the view
+# Define the view
 rot y
 rot u 30
 rot r 15
