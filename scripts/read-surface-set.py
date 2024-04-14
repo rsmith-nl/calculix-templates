@@ -1,10 +1,5 @@
 # file: read-surface-set.py
 # vim:fileencoding=utf-8:ft=python
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-10-20T12:16:49+0200
-# Last modified: 2023-10-20T15:02:20+0200
 """Read a CalculiX surface set"""
 
 import logging

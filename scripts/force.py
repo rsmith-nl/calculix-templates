@@ -1,10 +1,5 @@
 # file: force.py
 # vim:fileencoding=utf-8:ft=python
-#
-# Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2024-02-10T13:03:03+0100
-# Last modified: 2024-02-10T13:39:03+0100
 """Read and report the forces on requested set and direction"""
 
 import sys

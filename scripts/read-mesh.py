@@ -1,10 +1,5 @@
 # file: read-mesh.py
 # vim:fileencoding=utf-8:ft=python
-#
-# Copyright © 2023 R.F. Smith <rsmith@xs4all.nl>
-# SPDX-License-Identifier: MIT
-# Created: 2023-10-20T10:34:06+0200
-# Last modified: 2023-10-20T10:54:09+0200
 """Read “all.msh” into Python"""
 
 import logging
