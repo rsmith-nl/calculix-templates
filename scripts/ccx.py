@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-04-21T14:18:38+0200
+# Last modified: 2024-04-21T15:12:33+0200
 """Read result data from CalculiX .frd files."""
 
 
@@ -45,7 +45,7 @@ def read_frd(fname="job.frd"):
                 name = None
                 numstep = None
                 continue
-            if key == "99":
+            if key == "9999":
                 return results
             if key == "-1":
                 if name in ("DISP", "FORC"):
@@ -69,5 +69,3 @@ def read_frd(fname="job.frd"):
                     node = int(ln[3:13])
                     data = float(ln[13:25])
                     results[numstep][name][node] = data
-    # Only reached if key 99 is missing.
-    return None
