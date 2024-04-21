@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-04-21T15:12:33+0200
+# Last modified: 2024-04-21T15:22:26+0200
 """Read result data from CalculiX .frd files."""
 
 
@@ -12,7 +12,7 @@ def read_frd(fname="job.frd"):
     """
     Reads results from an .frd file.
 
-    Currently, only the following types are handled:
+    Currently, only the following names are handled:
     * DISP
     * STRESS
     * ZZSTR
@@ -23,7 +23,8 @@ def read_frd(fname="job.frd"):
     * NDTEMP
 
     The results are returned as a nested dictionary.
-    The first level is the step.
+    The first level is keyed by the step, the second level by the name and the
+    last level by the node or element.
     """
     results = {}
     name = None
