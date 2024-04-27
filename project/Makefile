@@ -20,13 +20,14 @@ all.msh: waterdeksel.stp pre.geo
 # OMP_NUM_THREADS should be set in the environment.
 # Run the solver for linear analysis
 job.frd: job.inp all.msh
-	@ccx -i job |2>&1 tee job.log
+	ccx -i job |2>&1 tee job.log
 	@rm -f spooles.out *.12d *.cvg *.sta
 	@rm -f *Miss*.nam
 
 # Run the solver for nonlinear analysis
 job.frd: job.inp all.msh
-	@ccx -i job|2>&1 tee job.log | grep -E 'nodes:|   elements:|actual total time|Total CalculiX Time'
+	ccx -i job|2>&1 tee job.log | \
+		grep -E 'nodes:|   elements:|actual total time|Total CalculiX Time|^ convergence'
 	@rm -f spooles.out *.12d *.cvg *.sta
 	@rm -f *Miss*.nam
 
