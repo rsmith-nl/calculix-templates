@@ -4,23 +4,67 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-04-21T15:22:26+0200
+# Last modified: 2024-04-27T15:53:45+0200
 """Read result data from CalculiX .frd files."""
+
+_NODE_RELATED = (
+    "NODES",
+    "CP3DF",
+    "CT3D-MIS",
+    "CURR",
+    "DEPTH",
+    "DISP",
+    "DTIMF",
+    "ELPOT",
+    "EMFB",
+    "EMFE",
+    "ENER",
+    "ERROR",
+    "FLUX",
+    "FORC",
+    "HCRIT",
+    "M3DF",
+    "MAFLOW",
+    "MDISP",
+    "MESTRAIN",
+    "MSTRAIN",
+    "MSTRESS",
+    "NDTEMP",
+    "PDISP",
+    "PE",
+    "PFORC",
+    "PNDTEMP",
+    "PS3DF",
+    "PSTRESS",
+    "PT3DF",
+    "RFL",
+    "SDV",
+    "SEN",
+    "STPRES",
+    "STRESS",
+    "STRMID",
+    "STRNEG",
+    "STRPOS",
+    "STTEMP",
+    "THSTRAIN",
+    "TOPRES",
+    "TOSTRAIN",
+    "TOTEMP",
+    "TS3DF",
+    "TT3DF",
+    "TURB3DF",
+    "V3DF",
+    "VELO",
+    "VSTRES",
+    "ZZSTR",
+)
 
 
 def read_frd(fname="job.frd"):
     """
     Reads results from an .frd file.
 
-    Currently, only the following names are handled:
-    * DISP
-    * STRESS
-    * ZZSTR
-    * MESTRAIN
-    * FORC
-    * ENER
-    * PE
-    * NDTEMP
+    Handles all node-related data.
 
     The results are returned as a nested dictionary.
     The first level is keyed by the step, the second level by the name and the
@@ -49,24 +93,20 @@ def read_frd(fname="job.frd"):
             if key == "9999":
                 return results
             if key == "-1":
-                if name in ("DISP", "FORC"):
+                if name in _NODE_RELATED:
                     node = int(ln[3:13])
-                    x = float(ln[13:25])
-                    y = float(ln[25:37])
-                    z = float(ln[37:49])
-                    results[numstep][name][node] = (x, y, z)
+                    results[numstep][name][node] = tuple(_floats(ln))
                     continue
-                if name in ("STRESS", "ZZSTR", "MESTRAIN"):
-                    node = int(ln[3:13])
-                    xx = float(ln[13:25])
-                    yy = float(ln[25:37])
-                    zz = float(ln[37:49])
-                    xy = float(ln[49:61])
-                    yz = float(ln[61:73])
-                    zx = float(ln[73:85])
-                    results[numstep][name][node] = (xx, yy, zz, xy, yz, zx)
-                    continue
-                if name in ("ERROR", "ENER", "PE", "NDTEMP"):
-                    node = int(ln[3:13])
-                    data = float(ln[13:25])
-                    results[numstep][name][node] = data
+
+
+def _floats(ln):
+    length = 12
+    start = 13
+    stop = start + length
+    while start < len(ln):
+        try:
+            yield float(ln[start:stop])
+        except ValueError:
+            pass
+        start += length
+        stop += length
