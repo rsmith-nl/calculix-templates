@@ -1,6 +1,7 @@
 # vim:fileencoding=utf-8:ft=make
 .POSIX:
 .SUFFIXES:
+.PHONY: mesh disp strain stress clean include help 
 
 all: all.msh job.frd
 
@@ -32,27 +33,27 @@ job.frd: job.inp all.msh
 	@rm -f *Miss*.nam
 
 # Post-processor commands
-mesh: all.msh .PHONY ## view the mesh
+mesh: all.msh ## view the mesh
 	cgx -b view-mesh.fbd
 
-disp: job.frd view-disp.fbd .PHONY ## view displacements
+disp: job.frd view-disp.fbd ## view displacements
 	cgx -b view-disp.fbd
 
-strain: job.frd view-strain.fbd .PHONY ## view strain
+strain: job.frd view-strain.fbd ## view strain
 	cgx -b view-strain.fbd
 
-stress: job.frd view-stress.fbd .PHONY ## view stress
+stress: job.frd view-stress.fbd ## view stress
 	cgx -b view-stress.fbd
 
 # Housekeeping
-clean: .PHONY ## clean up the working directory
+clean: ## clean up the working directory
 	rm -f *.equ *.sur *.nam *.msh *.log *.12d *.cvg *.sta *.con
 	rm -f spooles.out
 
-include: .PHONY ## generate include statements for solver input file
+include: ## generate include statements for solver input file
 	@ls *.msh *.nam *.sur *.equ *.con|sed -e 's/^/\*INCLUDE, INPUT=/'
 
-help: .PHONY
+help:
 	@echo "Command  Meaning"
 	@echo "-------  -------"
 	@sed -n -e '/##/s/:.*\#\#/\t/p' -e '/@sed/d' Makefile
