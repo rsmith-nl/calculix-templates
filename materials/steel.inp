@@ -18,6 +18,26 @@
 *EXPANSION, TYPE=ISO
 12e-6,293
 
+*MATERIAL, NAME=steel_S355
+** Standard construction steel
+*ELASTIC, TYPE=ISO
+210e9,0.30,293
+*DEFORMATION PLASTICITY
+**In [1]: import math
+**
+**In [2]: Rp = 330e6;  # yield stress
+**
+**In [3]: Rm = 530e6; # UTS
+**
+**In [4]: em = 0.20;  # failure strain
+**
+**In [5]: n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5)
+**Out[5]: 9.71997
+210e9,0.30,330e6,9.71997,0.002,293
+*DENSITY
+7850
+*EXPANSION, TYPE=ISO
+12e-6,293
 
 *MATERIAL, NAME=steel_1.2312
 ** Tool steel
