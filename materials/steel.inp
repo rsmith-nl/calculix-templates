@@ -2,38 +2,31 @@
 ** All values in SI units: m,s,kg,N,Pa,J
 ** (length,time,mass,force,stress,energy).
 
-*MATERIAL, NAME=steel_S235J
-** Standard construction steel
+*MATERIAL, NAME=steel_S235_DNV2013
+** Standard construction steel, t≤16 mm
+** Properties conform DNV-RP-C208, June 2013
 *ELASTIC, TYPE=ISO
 210e9,0.30,293
 *PLASTIC
-235e6,0.00200,293
-250e6,0.00326,293
-300e6,0.01378,293
-350e6,0.04662,293
-400e6,0.13397,293
-435e6,0.26000,293
+211.7e6,0.0000,293
+236.2e6,0.0040,293
+243.4e6,0.0198,293
+432.6e6,0.1817,293
 *DENSITY
 7850
 *EXPANSION, TYPE=ISO
 12e-6,293
 
-*MATERIAL, NAME=steel_S355
-** Standard construction steel
+*MATERIAL, NAME=steel_S355_DNV2013
+** Standard construction steel, t≤16 mm
+** Properties conform DNV-RP-C208, June 2013
 *ELASTIC, TYPE=ISO
 210e9,0.30,293
-*DEFORMATION PLASTICITY
-**In [1]: import math
-**
-**In [2]: Rp = 330e6;  # yield stress
-**
-**In [3]: Rm = 530e6; # UTS
-**
-**In [4]: em = 0.20;  # failure strain
-**
-**In [5]: n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5)
-**Out[5]: 9.71997
-210e9,0.30,330e6,9.71997,0.002,293
+*PLASTIC
+320.0e6,0.0000,293
+357.0e6,0.0040,293
+366.1e6,0.0197,293
+541.6e6,0.1391,293
 *DENSITY
 7850
 *EXPANSION, TYPE=ISO
