@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-04-27T15:53:45+0200
+# Last modified: 2024-05-03T16:59:20+0200
 """Read result data from CalculiX .frd files."""
 
 _NODE_RELATED = (
@@ -99,6 +99,35 @@ def read_frd(fname="job.frd"):
                     continue
 
 
+def read_dat(fname="job.frd"):
+    """Reads results from a .dat file.
+
+    The results are returned as a dictionary.
+    The keys are a tuple of (name, keys, set), where name is a string, keys is a tuple of
+    strings describing the values and set is the name of the set.
+    The values are a tuple of tuples.
+    """
+    key = None
+    results = {}
+    with open(fname) as dat:
+        for ln in dat:
+            if "for set" in ln:
+                name, keys, setname = _find_key(ln)
+                key = (name, keys, setname)
+                results[key] = []
+                continue
+            if not ln or ln.isspace():
+                continue  # skip empty lines
+            if key:
+                first, *rest = ln.split()
+                data = [float(j) for j in rest]
+                data.insert(0, int(first))
+                results[key].append(tuple(data))
+    # Make return data immutable
+    results = {k: tuple(v) for k, v in results.items()}
+    return results
+
+
 def _floats(ln):
     length = 12
     start = 13
@@ -110,3 +139,17 @@ def _floats(ln):
             pass
         start += length
         stop += length
+
+
+def _find_key(line):
+    first, _, last = line.partition("for set")
+    first = first.strip()
+    if first.endswith(")"):  # we have keys...
+        name, _, items = first[:-1].partition("(")
+        items = items.split(",")
+        if "elem" not in items[0]:  # node based
+            items.insert(0, "node")
+    else:  # the name is also the only key
+        name = first
+        items = [first]
+    return name.strip(), tuple(items), None
