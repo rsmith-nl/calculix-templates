@@ -4,8 +4,8 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-03T16:59:20+0200
-"""Read result data from CalculiX .frd files."""
+# Last modified: 2024-05-03T18:10:02+0200
+"""Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
     "NODES",
