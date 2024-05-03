@@ -5,7 +5,7 @@ Templates for use with CalculiX
 :tags: CalculiX, templates
 :author: Roland Smith
 
-.. Last modified: 2024-04-14T22:57:20+0200
+.. Last modified: 2024-05-03T23:37:25+0200
 .. vim:spelllang=en
 
 This repository contains snippets of pre- and post processor or solver code
@@ -93,7 +93,11 @@ Running ``make help`` will show which sub-commands are available
 Scripts
 -------
 
-A couple of scripts that show how to read meshes or results using Python 3.
+Useful scripts and modules to deal with CalculiX mesh and results data;
+
+* ``cgx.py`` module to read meshes and sets.
+* ``ccx.py`` mudule to read results from ``frd`` and ``dat`` files.
+* ``count.awk`` counts nodes and elements.
 
 
 Steps
