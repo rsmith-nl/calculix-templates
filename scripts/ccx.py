@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-03T18:10:02+0200
+# Last modified: 2024-05-04T07:44:40+0200
 """Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
@@ -99,32 +99,36 @@ def read_frd(fname="job.frd"):
                     continue
 
 
-def read_dat(fname="job.frd"):
+def read_dat(fname="job.dat"):
     """Reads results from a .dat file.
 
-    The results are returned as a dictionary.
-    The keys are a tuple of (name, keys, set), where name is a string, keys is a tuple of
-    strings describing the values and set is the name of the set.
-    The values are a tuple of tuples.
+    The results are returned as a list.
+    Each item is a dictionary of:
+    * name of the result in question
+    * keys: a tuple that names each of the data items.
+    * setname: the name of the set the data belongs to.
+    * data: a dict of n-tuples indexed by node or element number containing actual values.
     """
-    key = None
-    results = {}
+    results = []
+    current = None
     with open(fname) as dat:
         for ln in dat:
             if "for set" in ln:
-                name, keys, setname = _find_key(ln)
-                key = (name, keys, setname)
-                results[key] = []
+                name, keys, setname, time = _find_result(ln)
+                current = {
+                    "name": name,
+                    "keys": keys,
+                    "setname": setname,
+                    "time": time,
+                    "data": {},
+                }
+                results.append(current)
                 continue
             if not ln or ln.isspace():
                 continue  # skip empty lines
-            if key:
+            if current:
                 first, *rest = ln.split()
-                data = [float(j) for j in rest]
-                data.insert(0, int(first))
-                results[key].append(tuple(data))
-    # Make return data immutable
-    results = {k: tuple(v) for k, v in results.items()}
+                current["data"][int(first)] = tuple(float(j) for j in rest)
     return results
 
 
@@ -141,7 +145,8 @@ def _floats(ln):
         stop += length
 
 
-def _find_key(line):
+def _find_result(line):
+    """Extracts the data type name, keys (if any), set name and time."""
     first, _, last = line.partition("for set")
     first = first.strip()
     if first.endswith(")"):  # we have keys...
@@ -152,4 +157,5 @@ def _find_key(line):
     else:  # the name is also the only key
         name = first
         items = [first]
-    return name.strip(), tuple(items), None
+    setname, _, time = last.partition("and time")
+    return (name.strip(), tuple(items), setname.strip, float(time))
