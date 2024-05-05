@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-05T19:06:43+0200
+# Last modified: 2024-05-05T19:29:54+0200
 """Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
@@ -129,10 +129,18 @@ def read_dat(fname="job.dat"):
             if current:
                 try:
                     floats = [float(j) for j in ln.split()]
-                    if floats[0].is_integer():
-                        current["data"][int(floats[0])] = tuple(floats[1:])
+                    if floats[0].is_integer():  # node or element number
+                        num = int(floats[0])
+                        if "integ.pnt." in current["keys"]:
+                            ip = int(floats[1])
+                            if num not in current["data"]:
+                                current["data"][num] = {ip: tuple(floats[2:])}
+                            else:
+                                current["data"][num][ip] = tuple(floats[2:])
+                        else:
+                            current["data"][num] = tuple(floats[1:])
                     else:
-                        current["data"] = floats
+                        current["data"] = tuple(floats)
                 except ValueError:
                     current = None
     return results
@@ -157,7 +165,7 @@ def _find_result(line):
     first = first.strip()
     if first.endswith(")"):  # we have keys...
         name, _, items = first[:-1].partition("(")
-        items = items.split(",")
+        items = [j.strip() for j in items.split(",")]
         if "elem" not in items[0] and not (
             "mass" in name or "center of gravity" in name
         ):  # node based
