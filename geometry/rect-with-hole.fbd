@@ -124,7 +124,7 @@ setc
 # You can remove it if you are going to reuse this code.
 
 ## Show the geometry
-valu showgeom 0
+valu showgeom 1
 if showgeom > 0
 capt Rectangle with hole face geometry.
 rot y

@@ -31,14 +31,13 @@ surf s1 blend l1 l2 l3
 surf s2 blend l2 l4 l5
 surf s3 blend l4 l6 l7
 surf s4 blend l6 l1 l8
-#swep face1 face2 tra 0 0 t
 setc
 
 #### Everything below here is just for presentation. ####
 # You can remove it if you are going to reuse this code.
 
 # Show the geometry
-valu showgeom 0
+valu showgeom 1
 if showgeom > 0
 rot y
 rot u 90

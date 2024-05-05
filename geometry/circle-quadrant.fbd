@@ -46,7 +46,6 @@ plot pa all
 plus la all
 frame
 zoom 0.7
-capt Circle mesh.
 # Save a picture
 stop
 hcpy png circle-quadrant

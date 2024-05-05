@@ -48,15 +48,15 @@ merg l rectangular-tube-section
 # You can remove it if you are going to reuse this code.
 
 ## Show the geometry
-valu showgeom 0
+valu showgeom 1
 if showgeom > 0
 capt Rectangular profile face geometry.
 plot pa all
 plus la all
 plus sa all
-stop
-hcpy png rectangular-profile-geometry
-sys mogrify -trim rectangular-profile-geometry.png
+#stop
+#hcpy png rectangular-profile-geometry
+#sys mogrify -trim rectangular-profile-geometry.png
 endif
 
 ## Show the mesh
@@ -70,7 +70,7 @@ capt Rectangular profile mesh.
 view elem
 plot e all n
 view surf
-stop
-hcpy png rectangular-profile-mesh
-sys mogrify -trim rectangular-profile-mesh.png
+#stop
+#hcpy png rectangular-profile-mesh
+#sys mogrify -trim rectangular-profile-mesh.png
 endif

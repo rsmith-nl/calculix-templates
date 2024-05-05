@@ -24,55 +24,74 @@ valu Ro / Do 2
 valu nRi * Ri -1
 valu nRo * Ro -1
 
+seto round-tube-section
 pnt C 0 0 0
 pnt P1 0 Ri 0
 pnt P2 0 0 Ri
 pnt P3 0 nRi 0
 pnt P4 0 0 nRi
-
 pnt P5 0 Ro 0
 pnt P6 0 0 Ro
 pnt P7 0 nRo 0
 pnt P8 0 0 nRo
-
 line L1 P1 P5 divt
 line L2 P2 P6 divt
 line L3 P3 P7 divt
 line L4 P4 P8 divt
-
 line L5 P1 P2 C divr
 line L6 P2 P3 C divr
 line L7 P3 P4 C divr
 line L8 P4 P1 C divr
-
 line L9 P5 P6 C divr
 line L10 P6 P7 C divr
 line L11 P7 P8 C divr
 line L12 P8 P5 C divr
-
 surf S1 blend L1 L5 L2 L9
 surf S2 blend L2 L6 L3 L10
 surf S3 blend L3 L7 L4 L11
 surf S4 blend L4 L8 L1 L12
+setc round-tube-section
 
-#plot pa all
-#plus la all
-#plus sa all
+## Everything below here is just for presentation.
+# You can remove it if you are going to reuse this code.
+
+## Show the geometry
+valu showgeom 1
+if showgeom > 0
+rot y
+rot r 90
+frame
+capt Round tube face geometry.
+plot pa all
+plus la all
 #stop
+#hcpy png round-tube-face-geometry
+#sys mogrify -trim round-tube-face-geometry.png
+endif
 
-swep all new tra L 0 0 divl
-
-asgn n 2
+## Show the mesh
+valu showmesh 0
+if showmesh > 0
+## Define the view
+rot y
+rot r 135
+rot u 25
+# Extrude the tube
+seto tube
+swep rounded-tube-section new tra L 0 0 dl
+setc
+comp tube do
+frame
+# Mesh the tube
 elty all he20r
 mesh all
-
+# Show the mesh
+capt Round tube mesh mesh.
 view elem
-
-seta nodes n all
-enq nodes fix rec 0 _ _ 0.0001
-enq nodes load rec L _ _ 0.0001
-node 1 L 0 0
-
-send all abq
-send fix abq nam
-send load abq nam
+plot e all n
+view surf
+#stop
+# Save a picture
+#hcpy png round-tube-mesh
+#sys mogrify -trim round-tube-mesh.png
+endif
