@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-04T07:44:40+0200
+# Last modified: 2024-05-05T19:06:43+0200
 """Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
@@ -127,8 +127,14 @@ def read_dat(fname="job.dat"):
             if not ln or ln.isspace():
                 continue  # skip empty lines
             if current:
-                first, *rest = ln.split()
-                current["data"][int(first)] = tuple(float(j) for j in rest)
+                try:
+                    floats = [float(j) for j in ln.split()]
+                    if floats[0].is_integer():
+                        current["data"][int(floats[0])] = tuple(floats[1:])
+                    else:
+                        current["data"] = floats
+                except ValueError:
+                    current = None
     return results
 
 
@@ -152,10 +158,12 @@ def _find_result(line):
     if first.endswith(")"):  # we have keys...
         name, _, items = first[:-1].partition("(")
         items = items.split(",")
-        if "elem" not in items[0]:  # node based
+        if "elem" not in items[0] and not (
+            "mass" in name or "center of gravity" in name
+        ):  # node based
             items.insert(0, "node")
     else:  # the name is also the only key
         name = first
         items = [first]
     setname, _, time = last.partition("and time")
-    return (name.strip(), tuple(items), setname.strip, float(time))
+    return (name.strip(), tuple(items), setname.strip(), float(time))
