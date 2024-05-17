@@ -4,7 +4,7 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-05T19:29:54+0200
+# Last modified: 2024-05-17T21:05:14+0200
 """Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
@@ -108,6 +108,7 @@ def read_dat(fname="job.dat"):
     * keys: a tuple that names each of the data items.
     * setname: the name of the set the data belongs to.
     * data: a dict of n-tuples indexed by node or element number containing actual values.
+        If n = 1, the tuple is replaced by its single value
     """
     results = []
     current = None
@@ -134,16 +135,23 @@ def read_dat(fname="job.dat"):
                         if "integ.pnt." in current["keys"]:
                             ip = int(floats[1])
                             if num not in current["data"]:
-                                current["data"][num] = {ip: tuple(floats[2:])}
+                                current["data"][num] = {ip: _unwrap_or_tuple(floats[2:])}
                             else:
-                                current["data"][num][ip] = tuple(floats[2:])
+                                current["data"][num][ip] = _unwrap_or_tuple(floats[2:])
                         else:
-                            current["data"][num] = tuple(floats[1:])
+                            current["data"][num] = _unwrap_or_tuple(floats[1:])
                     else:
-                        current["data"] = tuple(floats)
+                        current["data"] = _unwrap_or_tuple(floats)
                 except ValueError:
                     current = None
     return results
+
+
+def _unwrap_or_tuple(data):
+    """Unwrap data if length is 1, else convert into tuple."""
+    if len(data) == 1:
+        return data[0]
+    return tuple(data)
 
 
 def _floats(ln):
