@@ -6,18 +6,17 @@
 ** https://www.makeitfrom.com/material-properties/5083-H111-Aluminum
 *ELASTIC, TYPE=ISO
 71e9,0.33,293
-*DEFORMATION PLASTICITY
-** In [1]: import math
-**
 ** In [2]: Rp = 150e6;  # yield stress (proportional limit)
-**
 ** In [3]: Rm = 300e6;  # failure stress
-**
 ** In [4]: em = 0.13;  # failure strain
-**
-** In [5]: n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5)
-** Out[5]: 6.02237
-71e9,0.33,150e6,6.02237,0.002,293
+*PLASTIC
+1.5e+08,0.002,293
+1.75e+08,0.00506,293
+2e+08,0.01131,293
+2.25e+08,0.02299,293
+2.5e+08,0.04336,293
+2.75e+08,0.07698,293
+3e+08,0.13,293
 *DENSITY
 2660
 *EXPANSION, TYPE=ISO
@@ -27,10 +26,15 @@
 ** https://www.makeitfrom.com/material-properties/5754-O-Aluminum
 *ELASTIC, TYPE=ISO
 68e9,0.33,293
-*DEFORMATION PLASTICITY
 ** O: Rp = 90e6 Pa, Rm = 210e6, em = 0.19
-** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 5.37459
-68e9,0.33,90e6,5.37459,0.002,293
+*PLASTIC
+9e+07,0.002,293
+1.1e+08,0.00588,293
+1.3e+08,0.01443,293
+1.5e+08,0.03114,293
+1.7e+08,0.06103,293
+1.9e+08,0.11095,293
+2.1e+08,0.19,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
@@ -40,10 +44,15 @@
 ** https://www.makeitfrom.com/material-properties/5754-H22-Aluminum
 *ELASTIC, TYPE=ISO
 68e9,0.33,293
-*DEFORMATION PLASTICITY
 ** H22: Rp = 150e6 Pa, Rm = 240e6 Pa, em = 0.084
-** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 7.95243
-68e9,0.33,150e6,7.95243,0.002,293
+*PLASTIC
+1.5e+08,0.002,293
+1.65e+08,0.00427,293
+1.8e+08,0.00853,293
+1.95e+08,0.01611,293
+2.1e+08,0.02905,293
+2.25e+08,0.05028,293
+2.4e+08,0.084,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
@@ -55,10 +64,15 @@
 ** Also known al LM25.
 *ELASTIC, TYPE=ISO
 70e9,0.33,293
-*DEFORMATION PLASTICITY
 ** T6: Rp = 230e6 Pa, Rm = 290e6 Pa, em = 0.034
-** n = n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 12.22258
-70e9,0.33,230e6,12.22258,0.002,293
+*PLASTIC
+2.3e+08,0.002,293
+2.4e+08,0.00336,293
+2.5e+08,0.00554,293
+2.6e+08,0.00895,293
+2.7e+08,0.0142,293
+2.8e+08,0.02214,293
+2.9e+08,0.034,293
 *DENSITY
 2680
 *EXPANSION, TYPE=ISO
@@ -72,8 +86,14 @@
 68e9,0.33,293
 *DEFORMATION PLASTICITY
 ** T66: Rp = 170e6 Pa, Rm = 220e6 Pa, em = 0.091
-** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 14.80714
-68e9,0.33,170e6,14.80714,0.002,293
+*PLASTIC
+1.7e+08,0.002,293
+1.78333e+08,0.00406,293
+1.86667e+08,0.00799,293
+1.95e+08,0.01525,293
+2.03333e+08,0.02834,293
+2.11667e+08,0.05137,293
+2.2e+08,0.091,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
@@ -85,10 +105,15 @@
 ** Also known as F25
 *ELASTIC, TYPE=ISO
 68e9,0.33,293
-*DEFORMATION PLASTICITY
 ** T66: Rp = 230e6 Pa, Rm = 250e6 Pa, em = 0.11
-** n = round(1/(math.log(Rm/Rp)/math.log(em/0.002)), 5) = 48.06016
-68e9,0.33,230e6,48.06016,0.002,293
+*PLASTIC
+2.3e+08,0.002,293
+2.33333e+08,0.00399,293
+2.36667e+08,0.0079,293
+2.4e+08,0.01546,293
+2.43333e+08,0.03001,293
+2.46667e+08,0.05771,293
+2.5e+08,0.11,293
 *DENSITY
 2700
 *EXPANSION, TYPE=ISO
@@ -97,6 +122,7 @@
 
 ** Example of plastic strain calculations; Ramberg-Osgood equation.
 ** https://mechanicalc.com/reference/mechanical-properties-of-materials
+** See also ~/src/modules/misc/ramberg_osgood.py.
 **In [1]: import math
 **
 **In [2]: Rm = 310e6;  # failure stress
