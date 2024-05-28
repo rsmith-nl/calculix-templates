@@ -4,11 +4,11 @@
 # Copyright © 2024 R.F. Smith <rsmith@xs4all.nl>
 # SPDX-License-Identifier: MIT
 # Created: 2024-04-21T11:14:11+0200
-# Last modified: 2024-05-17T21:05:14+0200
+# Last modified: 2024-05-28T21:34:45+0200
 """Read result data from CalculiX .frd and .dat files."""
 
 _NODE_RELATED = (
-    "NODES",
+    "CONTACT",
     "CP3DF",
     "CT3D-MIS",
     "CURR",
@@ -30,6 +30,7 @@ _NODE_RELATED = (
     "MSTRAIN",
     "MSTRESS",
     "NDTEMP",
+    "NODES",
     "PDISP",
     "PE",
     "PFORC",
@@ -73,12 +74,16 @@ def read_frd(fname="job.frd"):
     results = {}
     name = None
     numstep = None
+    fmt = None
     with open(fname) as frd:
         for ln in frd:
             key = ln[0:5].strip()
             if key == "100":
                 # See “Nodal results block” in cgx manual.
                 numstep = int(ln[58:63])
+                fmt = int(ln[73:75])
+                if fmt > 1:
+                    raise ValueError(f"fmt={fmt}; binary data not handled")
                 if numstep not in results:
                     results[numstep] = {}
                 continue
@@ -94,8 +99,14 @@ def read_frd(fname="job.frd"):
                 return results
             if key == "-1":
                 if name in _NODE_RELATED:
-                    node = int(ln[3:13])
-                    results[numstep][name][node] = tuple(_floats(ln))
+                    if fmt == 1:
+                        node = int(ln[3:13])
+                    elif fmt == 0:
+                        node = int(ln[3:8])
+                    rv = tuple(_floats(ln, fmt))
+                    if len(rv) == 1:
+                        rv = rv[0]
+                    results[numstep][name][node] = rv
                     continue
 
 
@@ -154,9 +165,12 @@ def _unwrap_or_tuple(data):
     return tuple(data)
 
 
-def _floats(ln):
+def _floats(ln, fmt=0):
     length = 12
-    start = 13
+    if fmt == 1:
+        start = 13
+    elif fmt == 0:
+        start = 8
     stop = start + length
     while start < len(ln):
         try:
