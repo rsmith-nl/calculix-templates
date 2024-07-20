@@ -79,6 +79,32 @@
 *EXPANSION, TYPE=ISO
 16e-6,293
 
+*MATERIAL, NAME=steel_1.7227+AC
+** spheroidized
+** USA: 4140
+*ELASTIC, TYPE=ISO
+190e9,0.28,293
+*DENSITY
+7800
+** Rp: 
+** Rm: 630 MPa
+
+*EXPANSION, TYPE=ISO
+13e-6,293
+
+*MATERIAL, NAME=steel_1.7227+QT
+** hardened
+** USA: 4140
+*ELASTIC, TYPE=ISO
+190e9,0.29,293
+*DENSITY
+7800
+** to 16 mm thickness;
+** Rp = 900 MPa, Rm = 1200±100 MPa
+*EXPANSION, TYPE=ISO
+13e-6,293
+
+
 *MATERIAL, NAME=steel_C55S
 ** spring steel, werkstoffnr 1.1204
 *ELASTIC, TYPE=ISO
