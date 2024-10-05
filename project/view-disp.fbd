@@ -22,7 +22,7 @@ frame
 #copy all new mir y
 #comp all do
 
-capt Caption
+read capt.txt
 ulin Displacement
 
 # Displacements

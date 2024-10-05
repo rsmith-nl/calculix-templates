@@ -13,7 +13,7 @@ view elem
 read all.msh inp
 frame
 
-capt Caption
+read capt.txt
 ulin Mesh
 
 # mirror
