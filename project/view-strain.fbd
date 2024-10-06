@@ -24,7 +24,7 @@ frame
 #comp all do
 
 read capt.txt
-ulin Worst principal strain
+ulin Worst principal strain [-]
 
 # Strain
 ds 2 e 23

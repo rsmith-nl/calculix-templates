@@ -24,7 +24,7 @@ frame
 #comp all do
 
 read capt.txt
-ulin Worst principal stress
+ulin Worst principal stress [Pa]
 
 # Stress
 ds 4 e 23

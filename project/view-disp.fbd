@@ -23,7 +23,7 @@ frame
 #comp all do
 
 read capt.txt
-ulin Displacement
+ulin Displacement [m]
 
 # Displacements
 ds 1 e 4
