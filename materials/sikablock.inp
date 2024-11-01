@@ -1,0 +1,25 @@
+** vim:fileencoding=utf-8:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=sikablock_M600N
+** Flexural strength 19 MPa.
+** Hardness 58 Shore D.
+** Tg 85 C
+*ELASTIC, TYPE=ISO
+850e6,0.33,293
+*DENSITY
+600
+*EXPANSION, TYPE=ISO
+55e-6,293
+
+*MATERIAL, NAME=sikablock_M700N
+** Flexural strength 25 MPa.
+** Hardness 64 Shore D.
+** Tg 86 C
+*ELASTIC, TYPE=ISO
+1100e6,0.33,293
+*DENSITY
+700
+*EXPANSION, TYPE=ISO
+55e-6,293
