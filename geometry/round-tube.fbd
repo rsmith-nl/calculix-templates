@@ -51,12 +51,14 @@ surf S2 blend L2 L6 L3 L10
 surf S3 blend L3 L7 L4 L11
 surf S4 blend L4 L8 L1 L12
 setc round-tube-section
+merg p round-tube-section
+merg l round-tube-section
 
 ## Everything below here is just for presentation.
 # You can remove it if you are going to reuse this code.
 
 ## Show the geometry
-valu showgeom 1
+valu showgeom 0
 if showgeom > 0
 rot y
 rot r 90
@@ -70,7 +72,7 @@ plus la all
 endif
 
 ## Show the mesh
-valu showmesh 0
+valu showmesh 1
 if showmesh > 0
 ## Define the view
 rot y
@@ -78,7 +80,7 @@ rot r 135
 rot u 25
 # Extrude the tube
 seto tube
-swep rounded-tube-section new tra L 0 0 dl
+swep round-tube-section new tra L 0 0 divl
 setc
 comp tube do
 frame
