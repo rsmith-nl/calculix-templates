@@ -1,0 +1,13 @@
+** vim:fileencoding=utf-8:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=PETG_filament
+** Tensile strength: ≈50 MPa
+** Tg: 85 °C
+*ELASTIC, TYPE=ISO
+2e9,0.33,293
+*DENSITY
+1270
+*EXPANSION, TYPE=ISO
+68e-6,293
