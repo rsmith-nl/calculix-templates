@@ -1,0 +1,26 @@
+** vim:fileencoding=utf-8:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy).
+
+*MATERIAL, NAME=PETG
+** Tensile strength: ≈47 MPa
+** Tg: 85 °C
+** Data mostly from Prusament PETG
+** Poisson's ratio and CTE from internet search
+*ELASTIC, TYPE=ISO
+1.5e9,0.35,293
+*DENSITY
+1270
+*EXPANSION, TYPE=ISO
+68e-6,293
+
+*MATERIAL, NAME=PLA
+** Data mostly from 123-3D_PLA_Jupiter_Series_TDS_EN.pdf
+** Poisson's ratio and CTE from internet search
+*ELASTIC, TYPE=ISO
+3.5e9,0.33,293
+*DENSITY
+1240
+*EXPANSION, TYPE=ISO
+60e-6,293
+
