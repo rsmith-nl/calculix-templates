@@ -28,7 +28,7 @@ job.frd: job.inp all.msh
 # Run the solver for nonlinear analysis
 job.frd: job.inp all.msh
 	ccx -i job|2>&1 tee job.log | \
-		grep -E 'nodes:|   elements:|actual total time|Total CalculiX Time|^ convergence'
+		grep -E 'nodes:|   elements:|actual total time|^ iteration|Total CalculiX Time|^ convergence'
 	@rm -f spooles.out *.12d *.cvg *.sta
 	@rm -f *Miss*.nam
 
