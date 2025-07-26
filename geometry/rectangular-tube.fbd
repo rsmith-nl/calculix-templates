@@ -26,7 +26,7 @@ valu B2i - B2 t
 valu H2i - H2 t
 valu Ri t
 valu cpy - B2i Ri
-valu cpz H2i
+valu cpz - H2i Ri
 valu ncpy - 0 cpy
 
 ## Section geometry
