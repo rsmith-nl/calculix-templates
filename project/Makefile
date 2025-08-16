@@ -12,10 +12,10 @@ all.msh: pre.fbd
 	rm -f ICF* DCF*
 
 # Run gmsh as the pre-processor
-all.msh: waterdeksel.stp pre.geo
-	gmsh pre.geo -
-	gmsh-inp-filter --log=info gmsh-output.inp all.msh
-	rm -f gmsh-output.inp
+#all.msh: waterdeksel.stp pre.geo
+#	gmsh pre.geo -
+#	gmsh-inp-filter --log=info gmsh-output.inp all.msh
+#	rm -f gmsh-output.inp
 
 # Note: to take advantage of multiple cores,
 # OMP_NUM_THREADS should be set in the environment.
@@ -26,11 +26,11 @@ job.frd: job.inp all.msh
 	@rm -f *Miss*.nam
 
 # Run the solver for nonlinear analysis
-job.frd: job.inp all.msh
-	ccx -i job|2>&1 tee job.log | \
-		grep -E 'nodes:|   elements:|actual total time|^ iteration|Total CalculiX Time|^ convergence'
-	@rm -f spooles.out *.12d *.cvg *.sta
-	@rm -f *Miss*.nam
+#job.frd: job.inp all.msh
+#	ccx -i job|2>&1 tee job.log | \
+#		grep -E 'nodes:|   elements:|actual total time|^ iteration|Total CalculiX Time|^ convergence'
+#	@rm -f spooles.out *.12d *.cvg *.sta
+#	@rm -f *Miss*.nam
 
 # Post-processor commands
 mesh: all.msh ## view the mesh
