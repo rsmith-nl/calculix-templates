@@ -2,45 +2,75 @@
 # All values in SI units: m,s,kg,N,Pa,J
 # (length,time,mass,force,stress,energy).
 
-rot y
-rot u 30
-rot r 20
-zoom 0.8
+valu L 0.1
+valu divL 80
+valu w 0.01
+valu divw 8
+valu h 0.005
+valu divh 4
 
-# Set automatic divisions.
-# This goed between creating geometry and mesh!
-div all auto 0.01
+# Calculated values
+valu w2 / w 2
+valu h2 / h 2
+valu nw2 / w -2
 
-# Reserve nodes 1−4 for e.q. reference nodes for rigid bodies.
-asgn n 5
-# node 1 X Y Z
+# Start surface and fixation
+seto begin
+pnt ! 0 nw2 0
+swep begin new tra 0 w 0 divw
+swep begin new tra 0 0 h divw
+setc begin
+comp begin do
+
+# Show begin surface
+#rot y
+#rot r 90
+#plot pa all
+#plus la all
+#stop
+
+# Extrude begin surface
+swep begin end tra L 0 0 divL
+
+# Create reference nodes 
+node 1 L 0 h2
+node 2 L 0 h2
+
+# Set the element type, and mesh the bodies.
 elty all he20r
 mesh all
+
+# Show mesh
+#rot y
+#rot r 60
+#rot u 30
+#frame
+#zoom 1.2
+#stop
 
 # Node sets for fixation and rigid body load.
 seta nodes n all
 enq nodes fix rec 0 _ _ 1e-6
 enq nodes load rec 1 _ _ 1e-6
 
-# Show the mesh and selected nodes.
-rot -z
-rot d 30
-rot r 30
-frame
-zoom 0.8
-view elem
-plus n fix r 8
-plus n load b 8
-
-valu output no
-# Write data
-if output eq yes
 # Tie together different meshes, when not using “mesh all”.
-neigh all 1e-5 abq tie
+# neigh all 1e-5 abq tie
 # This creates DCF* and ICF* files. Combine them with:
 # cat DCF* ICF* > ties.sur
 # rm -f ICF* DCF*
+
+# Show the mesh and selected nodes.
+#rot y
+#rot r 60
+#rot u 30
+#frame
+#zoom 1.2
+#view elem
+#plus n fix r 4
+#plus n load b 4
+#plus n ref g 8
+
+# Write data
 send all abq
 send fix abq nam
 send load abq nam
-endif
