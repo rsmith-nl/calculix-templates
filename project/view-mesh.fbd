@@ -11,11 +11,15 @@ view elem
 
 # Read the mesh.
 read all.msh inp
+read fix.nam inp
+read load.nam inp
 frame
 
 read capt.txt
-ulin Mesh
+ulin Mesh, fixed = red, load = blue, green = ref
 
-# mirror
-#copy all new mir y
-#comp all do
+seta ref n 1
+
+plus n Nfix r 8
+plus n Nload b 4
+plus n ref g 8

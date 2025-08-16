@@ -7,7 +7,7 @@ rot u 30
 
 # Set up the presentation
 cmap coolwarm
-mm 1e-2 el
+#mm 1e-2 el
 view sh off
 view elem
 
@@ -29,4 +29,4 @@ ulin Worst principal strain [-]
 # Strain
 ds 2 e 23
 view disp
-scal d 10
+scal d 2

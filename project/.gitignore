@@ -1,0 +1,11 @@
+*.equ
+*.sur
+*.nam
+*.msh
+*.log
+*.12d
+*.cvg
+*.sta
+*.con
+*.frd
+*.dat

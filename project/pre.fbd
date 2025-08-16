@@ -51,7 +51,7 @@ mesh all
 # Node sets for fixation and rigid body load.
 seta nodes n all
 enq nodes fix rec 0 _ _ 1e-6
-enq nodes load rec 1 _ _ 1e-6
+enq nodes load rec L _ _ 1e-6
 
 # Tie together different meshes, when not using “mesh all”.
 # neigh all 1e-5 abq tie

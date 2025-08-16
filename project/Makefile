@@ -8,8 +8,8 @@ all: all.msh job.frd
 # Run cgx as the pre-processor
 all.msh: pre.fbd
 	cgx -bg pre.fbd
-	cat DCF* ICF* > ties.sur
-	rm -f ICF* DCF*
+#	cat DCF* ICF* > ties.sur
+#rm -f ICF* DCF*
 
 # Run gmsh as the pre-processor
 #all.msh: waterdeksel.stp pre.geo

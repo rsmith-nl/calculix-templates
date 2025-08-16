@@ -7,7 +7,7 @@ rot u 30
 
 # Set up the presentation
 cmap coolwarm
-mm 100e6 el
+#mm 100e6 el
 view sh off
 view elem
 
@@ -27,6 +27,6 @@ read capt.txt
 ulin Worst principal stress [Pa]
 
 # Stress
-ds 4 e 23
+ds 3 e 23
 view disp
-scal d 10
+scal d 2
