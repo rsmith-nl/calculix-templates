@@ -13,3 +13,11 @@
 16e6,0.3,293
 *DENSITY
 80
+
+** From: "Calibration of hyperelastic and hyperfoam constitutive models for an indentation event of rigid polyurethane foam"
+*MATERIAL, NAME=Mpur60hf
+*HYPERFOAM,N=2
+2.54e6,3.29,9.42e6,7.06,0.,0.
+*DENSITY
+62.5
+
