@@ -6,11 +6,19 @@
 ** Made from Kraft paper and phenolic/formaldehyde resin
 ** Standard: ISO 4586
 
+** Using data from: https://www.pro-hpl.org/assets/uploads/prohpl/files/
+** TL_150623_technical_characteristics_and_physical_properties_of_HPL.pdf
+** Overridden by data from 1242_fulltext.pdf
+
+
 *MATERIAL, NAME=HPL_CGS
 ** CGS = compact, general purpose, standard
 ** tensile strength: at least 70 MPa
-*ELASTIC, TYPE=ISO
-10e9,0.3,293
+*ELASTIC, TYPE=ENGINEERING CONSTANTS
+17.7e9,12.4e9,10e9,0.35,0.3,0.3,5.7e9,3.8e9,
+3.8e9,293
+*EXPANSION,TYPE=ORTHO
+9e-6,16e-6,9e-6,293
 *DENSITY
 1350
 
