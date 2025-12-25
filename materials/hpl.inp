@@ -8,8 +8,11 @@
 
 ** Using data from: https://www.pro-hpl.org/assets/uploads/prohpl/files/
 ** TL_150623_technical_characteristics_and_physical_properties_of_HPL.pdf
-** Overridden by data from 1242_fulltext.pdf
-
+** In-plane moduli and Poisson constant overridden by data from 1242_Fulltext.pdf, page 82.
+** “Hygro-Elastic Deformation of High Pressure Laminates”, Bijan Adl Zarrabi,
+** 1998.
+** The “machine direction” is here the 1 direction.
+** Failure strain is 1.44% in direction 1, 2.07% in direction 2.
 
 *MATERIAL, NAME=HPL_CGS
 ** CGS = compact, general purpose, standard
@@ -19,13 +22,5 @@
 3.8e9,293
 *EXPANSION,TYPE=ORTHO
 9e-6,16e-6,9e-6,293
-*DENSITY
-1350
-
-*MATERIAL, NAME=HPL_CGF
-** CGF = compact, general purpose, flame-retardant
-** tensile strength: at least 60 MPa
-*ELASTIC, TYPE=ISO
-9e9,0.3,293
 *DENSITY
 1350
