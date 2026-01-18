@@ -1,0 +1,81 @@
+** vim:fileencoding=utf-8:ft=abaqus
+** All values in SI units: m,s,kg,N,Pa,J
+** (length,time,mass,force,stress,energy)
+
+** https://www.apcprop.com/technical-information/manufacturing/?v=796834e7a283#materials
+*MATERIAL, NAME=nylon
+*ELASTIC, TYPE=ISO
+2.82e9,0.39,293
+*DENSITY
+1150
+*EXPANSION, TYPE=ISO
+100e-6,293
+
+** https://www.smithmetal.com/pdf/plastics/nylon-12.pdf
+** https://www.matweb.com/search/datasheetText.aspx?bassnum=O2640
+*MATERIAL, NAME=nylon12
+*ELASTIC, TYPE=ISO
+1.8e9,0.4,293
+*DENSITY
+1020
+*EXPANSION, TYPE=ISO
+100e-6,293
+
+** https://www.smithmetal.com/pdf/plastics/nylon-6-66.pdf
+** https://www.professionalplastics.com/professionalplastics/MechanicalPropertiesofPlastics.pdf
+*MATERIAL, NAME=nylon66
+*ELASTIC, TYPE=ISO
+3.3e9,0.41,293
+*DENSITY
+1150
+*EXPANSION, TYPE=ISO
+80e-6,293
+
+** https://www.smithmetal.com/pdf/plastics/nylon-6-66.pdf
+*MATERIAL, NAME=nylon6
+*ELASTIC, TYPE=ISO
+3.2e9,0.39,293
+*DENSITY
+1140
+*EXPANSION, TYPE=ISO
+90e-6,293
+
+** https://www.smithmetal.com/pdf/plastics/acetal.pdf
+** https://protoxyz.com/materials/plastic/Acetal_(POM-C)
+*MATERIAL, NAME=POM-C
+*ELASTIC, TYPE=ISO
+2.8e9,0.44,293
+*DENSITY
+1410
+*EXPANSION, TYPE=ISO
+110e-6,293
+
+** https://static.webshopapp.com/shops/098890/files/049030006/abs-filament-datasheet-en.pdf
+** https://apacinfrastructure.com.au/material-specifications-acrylonitrile-butadiene-styrene-abs
+*MATERIAL, NAME=ABS
+*ELASTIC, TYPE=ISO
+2.65e9,0.35,293
+*DENSITY
+1050
+*EXPANSION, TYPE=ISO
+87.1e-6,293
+
+** https://xometry.eu/wp-content/uploads/2020/11/datasheet-acrylic_3.pdf
+** https://www.perspex.co.uk/Perspex/media/General/technical-library/Typical%20Physical%20Properties/Perspex-Acrylic-Typical-Physical-Properties.pdf
+*MATERIAL, NAME=acrylic
+*ELASTIC, TYPE=ISO
+3.21e9,0.37,293
+*DENSITY
+1190
+*EXPANSION, TYPE=ISO
+77e-6,293
+
+** https://www.iemai3d.com/wp-content/uploads/2021/03/PETG_TDS_EN.pdf
+** https://devel.lulzbot.com/filament/Rigid_Ink/PETG%20DATA%20SHEET.pdf
+*MATERIAL, NAME=PETG
+*ELASTIC, TYPE=ISO
+3.0e9,0.3,293
+*DENSITY
+1240
+*EXPANSION, TYPE=ISO
+51e-6
