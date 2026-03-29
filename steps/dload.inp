@@ -16,6 +16,9 @@ ZZS,ME
 ** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix
 RF
+** Calculate mass
+*EL PRINT, ELSET=Eall, TOTALS=only
+EMAS
 *END STEP
 
 ***** Nonlinear static calculation with distributed load *****
@@ -33,4 +36,7 @@ ZZS,ME
 ** Reaction force on fixation nodes.
 *NODE PRINT, NSET=Nfix, FREQUENCY=1000
 RF
+** Calculate mass
+*EL PRINT, ELSET=Eall, TOTALS=only
+EMAS
 *END STEP
