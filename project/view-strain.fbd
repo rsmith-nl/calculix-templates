@@ -11,8 +11,8 @@ cmap jet
 asgn minc m
 asgn maxc m
 # Set and lock max stress.
-minc -0.0045 el
-maxc  0.0045 el
+minc -0.004113 el
+maxc  0.004113 el
 # Do not shade
 view sh off
 # Do not show element boundaries
