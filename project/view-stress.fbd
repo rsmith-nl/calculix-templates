@@ -6,10 +6,17 @@ rot r 135
 rot u 30
 
 # Set up the presentation
-cmap coolwarm
-#mm 100e6 el
+cmap jet
+# Values outside range are colored magenta.
+asgn minc m
+asgn maxc m
+# Set and lock max stress.
+minc -996e6 el
+maxc 1694e6 el
+# Do not shade
 view sh off
-view elem
+# Do not show element boundaries
+view elem off
 
 # Read result data
 read job.frd
@@ -29,4 +36,3 @@ ulin Worst principal stress [Pa]
 # Stress
 ds 3 e 23
 view disp
-scal d 2

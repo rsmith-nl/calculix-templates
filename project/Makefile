@@ -21,14 +21,16 @@ all.msh: pre.fbd
 # OMP_NUM_THREADS should be set in the environment.
 # Run the solver for linear analysis
 job.frd: job.inp all.msh
-	ccx -i job |2>&1 tee job.log
+	@env PASTIX_MIXED_PRECISION=0 ccx -i job |2>&1 tee job.log
 	@rm -f spooles.out *.12d *.cvg *.sta
 	@rm -f *Miss*.nam
 
 # Run the solver for nonlinear analysis
 #job.frd: job.inp all.msh
-#	ccx -i job|2>&1 tee job.log | \
-#		grep -E 'nodes:|   elements:|actual total time|^ iteration|Total CalculiX Time|^ convergence'
+#	@env PASTIX_MIXED_PRECISION=0 ccx -i job|2>&1 tee job.log | \
+#		grep -E -e 'nodes:|   elements:|actual total time|^ iteration|^ convergence' \
+#		-e '^Total CalculiX Time|^ STEP|analysis was selected|Nonlinear geometric effects' \
+#		-e '^ Calculating the eigenvalues'
 #	@rm -f spooles.out *.12d *.cvg *.sta
 #	@rm -f *Miss*.nam
 
