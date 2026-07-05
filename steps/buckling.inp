@@ -3,12 +3,11 @@
 ** (length,time,mass,force,stress,energy).
 
 ***** Buckling *****
-*STEP
+*STEP, PERTURBATION
 *BUCKLE
-2
-*DLOAD
-** 1 MPa distributed load, so that the buckling factor equals the load.
-Ssf,P6,1e4
-*EL PRINT,FREQUENCY=0
-*NODE PRINT, FREQUENCY=0
+1
+** TODO: copy the load from the previous *STATIC step.
+** Don't file or print element data (disable leftovers from the previous step).
+*EL FILE
+*EL PRINT
 *END STEP

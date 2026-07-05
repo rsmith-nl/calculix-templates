@@ -3,8 +3,8 @@
 ** (length,time,mass,force,stress,energy).
 
 ***** Eigenfrequency calculation *****
-*STEP
-*FREQUENCY,SOLVER=SPOOLES
+*STEP,OP=NEW,NLGEOM=NO
+*FREQUENCY
 10
 ** Only leave this in if you need it.
 *NODE FILE
@@ -12,5 +12,5 @@ U
 ** Do not add mass calculation here; it will be done for every eigenfrequency.
 ** Don't file or print element data (disable leftovers from the previous step).
 *EL FILE
-*EL PRINT, ELSET=Eall
+*EL PRINT
 *END STEP
